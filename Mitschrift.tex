@@ -1,0 +1,342 @@
+% !TeX spellcheck = de_DE
+\documentclass[a4paper,12pt,numbers=noenddot,parskip=full]{scrartcl}
+ 
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+\usepackage{color}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsmath,amssymb,amstext,mathtools,amsthm}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{wasysym}
+\usepackage{stmaryrd}
+\usepackage{bbm}
+\hypersetup{bookmarksnumbered}
+
+
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+
+\usepackage{enumitem}
+\setenumerate{label=\arabic*)}
+
+\newcommand{\setN}{\mathbb{N}}
+\newcommand{\setZ}{\mathbb{Z}}
+\newcommand{\setQ}{\mathbb{Q}}
+\newcommand{\setR}{\mathbb{R}}
+\newcommand{\setC}{\mathbb{C}}
+\newcommand{\setH}{\mathbb{H}}
+\newcommand{\setk}{\Bbbk}
+\newcommand{\ldot}{\,.\,}
+\newcommand{\Forall}{~\forall}
+\newcommand{\Exists}{~\exists}
+
+\newcommand{\scrL}{\mathcal{L}}
+\newcommand{\scrA}{\mathcal{A}}
+\newcommand{\scrB}{\mathcal{B}}
+\newcommand{\scrC}{\mathcal{C}}
+\newcommand{\scrD}{\mathcal{D}}
+
+\DeclareMathOperator{\Diag}{Diag}
+
+\newcommand{\atdig}{\Diag^{\text{at}}}
+\newcommand{\vdig}{\Diag}
+
+\newcommand{\abs}[1]{{\left| #1 \right|}}
+\newcommand{\dabs}[1]{{\left\lVert #1 \right\rVert}}
+\newcommand{\heading}{\underline}
+ 
+\DeclareMathOperator{\charac}{char}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\dom}{Dom}
+
+
+\newtheoremstyle{dotless}{}{}{\itshape}{}{\bfseries}{}{\newline}{}
+	
+\theoremstyle{dotless}
+\newtheorem{theorem}{Satz}[section]
+\newtheorem{corollary}[theorem]{Folgerung}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Beispiel}
+\newtheorem*{axiom}{Axiom}
+
+\makeatletter
+\g@addto@macro\th@remark{\thm@headpunct{:}}
+\makeatother 
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Bemerkung}
+ 
+\hfuzz=5pt 
+ 
+\title{Modelltheorie}
+
+\subtitle{Wintersemester 2019/20 \\ Mitschrift von Floris Remmert}
+\author{gehalten von Prof. Dr. Amador Martin-Pizarro \\ Albert-Ludwigs-Universität Freiburg \\ Mathematisches Institut}
+\date{\today}
+ 
+\begin{document}
+	\pagestyle{headings}
+\begin{titlepage}
+	\maketitle	
+	\thispagestyle{empty}
+\end{titlepage}
+\newpage 
+\thispagestyle{empty}
+\quad 
+\newpage
+\tableofcontents 
+\thispagestyle{empty}
+
+\newpage
+\setcounter{page}{1}
+\part{Theorien und Quantorenelimination}
+
+\begin{theorem}[Morley]
+	Sei $T$ eine Theorie, welche ein einziges (bis auf Isomorphie) Modell der M"achtigkeit $\aleph_0$ besitzt. Dann besitzt $T$ f"ur jede Kardinalzahl $\kappa > \aleph_0$ ein einziges Modell der M"achtigkeit $\kappa$ (bis auf Isomorphie).
+\end{theorem}
+
+\section{Erinnerung}
+\begin{definition}
+	\begin{itemize}
+		\item Eine Sprache $\scrL$ ist eine Kollektion von Konstanten-, Funktions-, und Relationszeichen
+		\item Eine $\scrL$-Struktur $\scrA$ besteht aus einer \underline{nicht-leeren} Grundmenge (oder Universum) $A$ zusammen mit Interpretationen der Symbole aus $\scrL$:
+		\begin{itemize}
+			\item F"ur jedes Funktionszeichen $f$ der Stelligkeit $n$ 
+			\begin{equation*}
+				f^\scrA : A^n \longrightarrow A
+			\end{equation*}
+			\item F"ur jedes Relationszeichen $R$ der Stelligkeit $m$
+			\begin{equation*}
+				R^\scrA \subset A^m
+			\end{equation*}
+		\end{itemize}
+	\item Eine Einbettung $F$ von $\scrA$ nach $\scrB$ ist eine \underline{injektive} Abbildung $F: A \longrightarrow B$, welche mit den Interpretationen kompatibel\footnote{das bedeutet, dass Funktions- und Relationszeichen bei Hin- und R"uckrichtung erhalten bleiben} ist
+	\item Ein Isomorphismus ist eine surjektive Einbettung.
+	\item $\scrA$ ist eine Unterstruktur von $\scrB$, falls $A \subset B$ und die Inklusion $\iota : A \longrightarrow B$ eine Einbettung bestimmt
+	\end{itemize}
+\end{definition}
+
+\begin{remark}
+	Sei $\scrB$ eine $\scrL$-Struktur, $\emptyset \ne A \subset B$. Dann gibt es eine Unterstruktur von $\scrB$, welche von A erzeugt wird.
+	
+	Das Universum besteht aus $A$ zusammen mit dem Abschluss von $A$ unter allen Interpretationen der Funktionszeichen von $\scrL$.
+\end{remark}
+
+\begin{definition}
+	Sei $(I, <)$ eine partielle Ordnung. Die Ordnung ist \underline{gerichtet}, falls f"ur $i, j \in I$ gibt es $k \in I$ mit $i \leq k$ und $j \leq k$.
+\end{definition}
+
+\begin{remark}
+	Sei $(\scrA_i)_{i \in I}$ eine Familie von $\scrL$-Strukturen indexiert nach der gerichteten partiellen Ordnung $I$ derart, dass f"ur $i \leq j$ gilt: $\scrA_i \underset{US}{\subset} \scrA_j$.
+	
+	Die Menge $A=\underset{i \in I}{\bigcup} A_i$ ist das Universum einer (eindeutig bestimmten) $\scrL$-Struktur
+	\begin{equation}
+		\scrA = \underset{i \in I}{\bigcup} \scrA_i \label{1:str}
+	\end{equation}
+	
+	Falls $I$ eine lineare Ordnung ist, dann ist $(\scrA_i)_{i \in I}$ eine \underline{Kette}.
+	
+	\underline{Zu \ref{1:str}:} \begin{itemize}
+		\item $c^\scrA=c^{\scrA_i}$ f"ur ein (alle) $i \in I$, denn $c^{\scrA_i}=c^{\scrA_j}=c^{\scrA_k}$, {wegen gerichteter Ordnung}
+		\item $a_1, \dots a_n \in A = \underset{i \in I}{\bigcup} A_i \Longrightarrow \exists i \in I$ mit $a_1, \dots, a_n \in A_i$.
+		Also ist $f^\scrA (a_1, \dots, a_n) = f^{\scrA_i} (a_1, \dots, a_n)$ wohldefiniert.
+		\item $(a_1, \dots, a_m) \in R^\scrA$ gdw es ein $i \in I$ gibt mit $a_1, \dots, a_m \in A_i$ und $(a_1, \dots, a_m) \in R^{\scrA_i}$
+	\end{itemize}
+
+	\underline{Beachte}, dass $\scrA_i \underset{US}{\subset} \scrA$ f"ur alle $i \in I$.
+\end{remark}
+
+\begin{definition}
+	Eine atomare Formel ist ein Ausdruck der Form $(t_1 \dot= t_2)$, $t_1, \dots, t_k$ Terme, $R(t_1, \dots, t_k)$.
+	
+	Die Kollektion von Formeln ist die kleinste Klasse, welche alle atomaren Formeln enth"alt und derart, dass:
+	\begin{align*}
+		\varphi \text{ Formel} &\Longrightarrow \lnot \varphi \text{ Formel}\\
+		\varphi, \psi \text{ Formel} &\Longrightarrow (\varphi \lor \psi) \text{ Formel}\\
+		\varphi \text{ Formel}, x \text{ Variable} &\Longrightarrow \exists x \varphi \text{ Formel, ($x$ hei"st dann "`gebunden"')}
+	\end{align*}
+	
+	\underline{Abk.:} \begin{align*}
+		(\varphi \land \psi) &= \lnot(\lnot\varphi\lor\lnot\psi)\\
+		\forall x \varphi &= \lnot \exists x \lnot \varphi\\
+		(\varphi \rightarrow \psi) &= (\lnot \varphi \lor \psi)\\
+		(\varphi \leftrightarrow \psi) &= ((\varphi \rightarrow \psi) \land (\psi \rightarrow \varphi))
+	\end{align*}
+\end{definition}
+
+\begin{remark}
+	
+	\begin{itemize}
+		\item Jede Formel $\varphi [x_1, \dots, x_n]$ l"asst sich in \underline{pr"anexer Normalform} umschreiben:	
+		$Q_1 y_1 Q_2 y_2 \dots Q_m y_m \psi [x_1, \dots, x_n, y_1, \dots, y_m]$. Das ist eine quantorfreie Formel, diese l"asst sich weiter zerlegen in KNF bzw. DNF.
+		\item Eine Formel ohne freie Variablen ist eine Aussage
+		\item Eine Theorie ist eine Kollektion von Aussagen
+	\end{itemize}
+\end{remark}
+
+\begin{example}
+	Sei $\scrA$ eine $\scrL$-Struktur. Erweitere die Sprache zu der Sprache $\scrL_A = \scrL \cup \{d_a\}_{a \in A}.$
+	
+	$\scrA$ ist eine $\scrL_A$-Struktur, $d_a^\scrA = a$.
+	\begin{itemize}
+		\item $\atdig(\scrA) = \{$quantorenfreie $\scrL_A$-Aussagen $\chi$ mit $\scrA \models \chi\}$ hei"st "`atomares Diagramm"'
+		\item $\vdig (\scrA) = \{\scrL$-Aussagen $\theta$ mit $\scrA \models \theta\}$ hei"st "`vollst"andiges Diagramm"'
+	\end{itemize}
+	Sei nun $\scrB$ eine $\scrL_A$-Struktur.
+	\begin{align*}
+		\scrB \models \atdig(\scrA) \Leftrightarrow &\scrA \hookrightarrow \scrB \text{ einbetten l"asst}\\
+		&A \longrightarrow B\\
+		&a \mapsto d_a^\scrB\\
+		\scrB \models \vdig(\scrA) \Leftrightarrow &\text{ die obige Abbildung ist \underline{elementar}}\\
+		\scrA \models \varphi[a_1, \dots, a_n] \Leftrightarrow &\scrB \models \varphi [F(a_1), \dots, F(a_n)], a_1, \dots a_n \in A, \varphi[x_1, \dots, x_n] \text{ Formel}
+	\end{align*}
+\end{example}
+
+\begin{definition}
+	\begin{itemize}
+		\item $T$ ist konsistent, falls $T$ ein Modell besitzt.
+		\item $T$ ist vollst"andig, falls  $T$ konsistent ist und je zwei Modelle von $T$ elementar "aquivalent sind.
+	\end{itemize}
+\end{definition}
+
+\begin{theorem}[Kompaktheitssatz]
+	Eine Theorie ist genau dann konsistent, wenn sie \underline{endlich konsistent}\footnote{endlich konsistent bedeutet: jede Teilmenge der Theorie besitzt ein Modell.} ist.
+\end{theorem}
+
+\underline{Wie zeigen wir, dass $\scrA \equiv \scrB$?}
+\begin{theorem}[Back \& Forth]
+	$S = \{F: \underset{\underset{US}{\subset} \scrA}{\scrC} \longrightarrow \underset{\underset{US}{\subset} \scrB}{\scrD}, F$ partieller Isomorphismus zwischen $\scrC$ und $\scrD$ geeignet\footnote{bspw. endlich erzeugt}$\}$.
+	
+	\underline{Back:} F"ur alle $F \in S$ und $b \in B$, $F:\scrC \longrightarrow \scrD$ gibt es $G \in S$ mit $G \supset F$ Erweiterung und $b \in \im (G)$.
+	
+	\underline{Forth:} F"ur alle $F \in S$ und $a \in A$, $F: \scrC \longrightarrow \scrD$ gibt es $H \in S$, mit $H \supset F$ Erweiterung mit $a \in \dom (H)$
+	
+	$\scrA$ und $\scrB$ hei"sen dann "`Back \& Forth "aquivalent"'
+	
+	$\rightarrow$ ist jedes $F \in S$ \underline{elementar}, so gilt insbesondere $\scrA \equiv \scrB$.
+\end{theorem}
+
+\section{Tarskis Test}
+\begin{lemma}[Tarskis Test]
+	Sei $\scrB$ eine $\scrL$-Struktur und $A \subset B$ Teilmenge derart, dass f"ur jede $\scrL$-Formel $\varphi[x_1, \dots, x_n]$ und Elemente $a_1, \dots, a_n \in A$:\\
+	\underline{falls}:
+	\begin{equation}\label{tarski:bed}
+		\scrB \models \varphi [a_1, \dots, a_n, b] \text{ f"ur ein } b \in B \Rightarrow \text{ existiert } a \in A \text{ sodass }\scrB \models \varphi[a_1, \dots, a_n, a]
+	\end{equation}
+	\underline{dann} ist $A$ das Universum einer elementaren Unterstruktur von $\scrB$.
+	
+	Insbesondere: Falls $\scrA \subset \scrB$ Unterstruktur, ist $\scrA \leq \scrB \Leftrightarrow A$ erf"ullt \ref{tarski:bed}.
+\end{lemma}
+\begin{proof}
+	\underline{Betrachte} $A \neq \emptyset \rightarrow$ Betrachte $\varphi[y] = (y \dot= y)$. $B \neq \emptyset \rightarrow \exists b \in B$ mit $\scrB \models \varphi[b]$. $\hookrightarrow \exists a \in A$ mit $\scrB \models \varphi[a]$
+	
+	\underline{Beh.:} F"ur jedes Konstantenzeichen $c \in \scrL$ ist $c^\scrB \in A$. $\hookrightarrow \varphi[y] = (y \dot= c)$, $\scrB \models \varphi[c^\scrB] \Rightarrow$ es gibt $a \in A$ mit $a=c^\scrB$.
+	
+	\underline{Beh.:} $A$ ist unter den Funktionen $f^\scrB$ abgeschlossen, f"ur jedes Funktionszeichen $f \in \scrL$.
+	
+	Sei $\varphi[x_1, \dots, x_n, y] = (y \dot= f(x_1, \dots, x_n))$ $\checkmark$
+	
+	F"ur $R \in \scrL$ $m$-stellig setze $R^\scrA = A^m \cap R^\scrB$ $\longrightarrow$ somit bildet $A$ eine $\scrL$-Unterstruktur $\scrA$ von $\scrB$.
+	
+	Noch zu zeigen: $\scrA \leq \scrB$, d. h. $\varphi[x_1, \dots, x_n]$ $\scrL$-Formel.
+	
+	Seien dazu $a_1, \dots, a_n \in A$.
+	\begin{equation}\label{tarksi:bew}
+		\scrA \models \varphi[a_1, \dots, a_n] \Leftrightarrow \scrB \models \varphi[a_1, \dots,a_n]
+	\end{equation}
+	
+	Induktiv "uber den Aufbau von $\varphi$.
+	
+	$\varphi$ ist atomar $\longrightarrow$ $\checkmark$
+	\begin{align*}
+		\scrA &\not\models \psi[a_1, \dots, a_n] \Leftrightarrow &\scrB &\not\models \psi[a_1, \dots, a_n]\\
+		&\Updownarrow &&\Updownarrow\\
+		\scrA &\models \varphi[a1, \dots, a_n] &\scrB &\models \phi[a_1, \dots, a_n]
+	\end{align*}
+	
+	$\varphi= \lnot \psi \longrightarrow$ $\checkmark$
+	
+	$\varphi = (\psi_1 \lor \psi_2) \longrightarrow \checkmark$
+	
+	$\varphi = \exists y \psi[x_1, \dots, x_n, y]$: $\scrA \models \varphi[a_1, \dots, a_n] \Rightarrow$ es gibt ein $a \in A$ sodass $\scrA \models \psi[a_1, \dots, a_n, a] \\
+	\underset{\ref{tarksi:bew}}{\Rightarrow} \scrB \models \psi[a_1, \dots, a_n, a]$ f"ur ein $a in A \subset B \Rightarrow \scrB \models \varphi[a_1, \dots, a_n]$
+	
+	$\scrB \models \varphi[a_1, \dots, a_n] \Rightarrow$ es gibt $b \in B$ mit $\scrB \models \psi[a_1, \dots, a_n, b] \underset{\ref{tarski:bed}}{\Rightarrow}$ es gibt ein $a \in A$ mit $\scrB \models \psi[a_1, \dots, a_n, a] \underset{\ref{tarksi:bew}}{\Rightarrow} \scrA \models \psi[a_1, \dots, a_n, a] \Rightarrow \scrA \models \varphi[a_1, \dots, a_n]$.
+	
+	\underline{F"ur "`insbesondere"':} Angenommen, dass $\scrA \leq \scrB$. Sei $\varphi[x_1, \dots, x_n, y]$ eine $\scrL$-Formel, $a_1, \dots, a_n \in A$. Dann: $\scrB \models \varphi[a_1, \dots, a_n, b]$ f"ur ein $b \in B$ $\Rightarrow \scrB \models (\exists y \varphi)[a_1, \dots, a_n] \\
+	\underset{\scrA \leq \scrB}{\Rightarrow} \scrA \models (\exists y \varphi)[a_1, \dots, a_n] \Rightarrow$ es gibt ein $a \in A$ mit $\scrA \models \varphi[a_1, \dots, a_n, a] \underset{\scrA \leq \scrB}{\Rightarrow} \scrB \models \varphi[a_1, \dots, a_n, a] \checkmark$
+\end{proof}
+
+\begin{proposition}[aufw"arts L"owenheim-Skolem]
+	Sei $\scrA$ eine unendliche $\scrL$-Struktur, und $\kappa < \max\{\|A\|,\|\scrL\|\}$. Dann gibt es eine elementare $\scrL$-Erweiterung $\scrB \geq \scrA$ der M"achtigkeit $\kappa$.
+\end{proposition}
+\begin{proof}
+	$\vdig(\scrA) \cup \{\lnot(c_\alpha \dot= c_\beta)\}_{\alpha \neq \beta < \kappa}$, wobei $\{c_\alpha\}_{\alpha<\kappa}$ eine Menge neuer Konstantenzeichen ist, ist konsistent weil sie endlich konsistent\footnote{Kompaktheit} ist.
+	
+	Aus der Konstruktion von Henkin hat $\vdig(\scrA) \cup \{\lnot(c_\alpha \dot= c_\beta)\}_{\alpha \neq \beta < \kappa}$ ein Modell der M"achtigkeit der Sprache.
+	
+	$\rightarrow$ ein Modell der M"achtigkeit \underline{$\kappa$}.
+\end{proof}
+
+\begin{remark}
+	$\|A\| = n \in \setN$, $\scrB \geq \scrA \Rightarrow \|B\| = n$
+\end{remark}
+
+\begin{proposition}[abw"arts L"owenheim-Skolem]\label{Low:ab}
+	Sei $\scrB$ eine $\scrL$-Struktur und $S \subset B$ beliebig. Dann gibt es eine elementare Unterstruktur $\scrA \leq \scrB$ mit $A \supset S$ und $\|A\|\leq \max\{\|S\|,\|\scrL\|,\aleph_0\}$.
+\end{proposition}
+
+\begin{remark}
+	$\setC$ in der Ringsprache $\scrL_\text{Ring}$, $S=\emptyset \Rightarrow$ es gibt eine abz"ahlbare elementare Unterstruktur von $\setC$. $\rightarrow \bar\setQ \leq \setC$
+\end{remark}
+
+\begin{proof}[Beweis \ref{Low:ab}]
+	Setze $S_0 = S$. Angenommen $S_k$ wurde bereits konstruiert, w"ahle f"ur jedes $n \in \setN$, jede $\scrL$-Formel $\varphi[x_1, \dots, x_n, y]$ und Elemente $a_1, \dots, a_n \in S_k$ ein Element $a_{\varphi[a_1, \dots, a_n, y]} \in B$ derart, dass $\scrB \models ((\exists y \in \varphi)[a_1, \dots, a_n] \rightarrow \varphi[a_1, \dots, a_n, a_{\varphi[a_1, \dots, a_n, y]}])$. Setze $S_{k+1} = S_k \cup \{a_\varphi\}_{\varphi \scrL \text{-Formel, }(a_1, \dots, a_n)\in S_k}$
+	
+	Definiere $A = \underset{k \in \setN}{\bigcup} S_k \supset S$. Wir "uberpr"ufen, dass $A$ den Test von Tarski erf"ullt. Sei $\varphi = \varphi[x_1, \dots, x_n, y]$ eine $\scrL$-Formel, $a_1, \dots, a_n \in A$.
+	
+	$\scrB \models \varphi[a_1, \dots, a_n, b]$ f"ur ein $b \in B \Rightarrow$ es gibt ein $k \in \setN$ mit $a_1, \dots a_n \in S_k \Rightarrow$ es gibt ein $a_{\varphi[a_1, \dots, a_n, y]} \in S_{k+1} \subset A$ mit $\scrB \models \varphi[a_1, \dots, a_n, a] \checkmark$
+	
+	Ferner ist $\|A\| \leq \max \{\aleph_0, \|\scrL\|, \|S\|\}$.
+\end{proof}
+
+\begin{corollary}
+	Sei $(\scrA_i)_{i \in I}$ eine gerichtete Familie von $\scrL$-Strukturen, sodass f"ur $i \leq j$ ist $\scrA_i \leq \scrA_j$. Dann ist $\scrA = \underset{i \in I}{\bigcup} \scrA_i$ eine elementare Erweiterung jeder $\scrA_i$.
+\end{corollary}
+\begin{proof}
+	Wir beweisen induktiv "uber dern Aufbau von $\varphi=\varphi[x_1, \dots, x_n]$, dass f"ur alle $i \in I$, f"ur alle $a_1, \dots, a_n \in A_i$: $\scrA_i \models \varphi[a_1, \dots, a_n] \Leftrightarrow \scrA \models \varphi[a_1, \dots, a_n]$.
+	
+	$\varphi$ atomar $\rightarrow$ klar, denn $\scrA_i \underset{US}{\subset} \scrA$
+	
+	$\varphi = \lnot \varphi \Rightarrow$ ok!
+	
+	$\varphi = (\varphi_1 \lor \varphi_2) \Rightarrow$ ok!
+	
+	$\varphi = \exists y \psi[x_1, \dots, x_n, y]$: $\scrA_i\models \varphi[a_1, \dots, a_n] \Rightarrow$ es gint ein $a \in A_i$ mit $\scrA_i\models \psi[a_1, \dots,a_n, a] \\
+	\underset{\text{ind. "uber }\psi}{\Rightarrow} \scrA \models \psi[a_1, \dots, a_n, a] \Rightarrow \scrA \models \varphi[a_1, \dots, a_n]$
+	
+	$\scrA \models \varphi[a_1, \dots, a_n] \Rightarrow$ es gibt ein $b \in A = \underset{i \in I}{\bigcup} A_i$ mit $\scrA \models \psi[a_1, \dots, a_n, b] \Rightarrow$ es gibt $j \in I$ mit $b \in A_j \Rightarrow$ es existiert $k \in I$ mit $i \leq k$, $j \leq k$, $a_1, \dots, a_n, b \in A_k \\
+	\Rightarrow \scrA_k \models \psi[a_1, \dots, a_n, b] \underset{\scrA_i \leq \scrA_k}{\Rightarrow}$ es gibt ein $a \in A_k$ mit $\scrA_i \models \psi[a_1, \dots, a_n, a] \Rightarrow \scrA_i \models \varphi[a_1, \dots, a_n]$.
+\end{proof}
+
+\begin{definition}
+	Eine Theorie $T$ hat Quantorenelemination, falls jede $\scrL$-Formel $\varphi[x_1, \dots, x_n]$ "aquivalent modulo $T$ zu einer quantorenfreien $\scrL$-Formel $\psi[x_1, \dots, x_n]$ ist.
+	\begin{equation*}
+		T \models \forall x_1 \dots \forall x_n (\varphi[x_1, \dots, x_n] \leftrightarrow \psi[x_1, \dots, x_n])
+	\end{equation*}
+\end{definition}
+
+\begin{example}
+	Sei $\scrL \coloneqq (\setR, 0, 1, +, -, \cdot)$ gegeben. Betrachte die Menge $\{(a,b,c) \in \setR^3 \| a \neq 0$ und es gibt $x \in \setR$ mit $ax^2+bx+c=0\} = \{(a,b,c) \in \setR^3 \| a \neq 0$ und $b^2-4ac \geq 0\}$.
+	
+	Die diese Formel ist in $\scrL$ nicht "aquivalent zu einer quantorenfreien Formel, in $\scrL_1 \coloneqq (\setR, 0, 1, +, -, \cdot, <)$ hingegen doch. Somit ist die Menge in $\scrL_1$ quantorenfrei.
+\end{example}
+\end{document}
