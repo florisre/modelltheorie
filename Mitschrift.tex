@@ -165,10 +165,10 @@
 	\end{align*}
 	
 	\underline{Abk.:} \begin{align*}
-		(\varphi \land \psi) &= \lnot(\lnot\varphi\lor\lnot\psi)\\
-		\forall x \varphi &= \lnot \exists x \lnot \varphi\\
-		(\varphi \rightarrow \psi) &= (\lnot \varphi \lor \psi)\\
-		(\varphi \leftrightarrow \psi) &= ((\varphi \rightarrow \psi) \land (\psi \rightarrow \varphi))
+		&(\varphi \land \psi) &&= \lnot(\lnot\varphi\lor\lnot\psi)\\
+		&\forall x \varphi &&= \lnot \exists x \lnot \varphi\\
+		&(\varphi \rightarrow \psi) &&= (\lnot \varphi \lor \psi)\\
+		&(\varphi \leftrightarrow \psi) &&= ((\varphi \rightarrow \psi) \land (\psi \rightarrow \varphi))
 	\end{align*}
 \end{definition}
 
@@ -266,17 +266,16 @@
 	
 	$\varphi = (\psi_1 \lor \psi_2) \longrightarrow \checkmark$
 	
-	$\varphi = \exists y \psi[x_1, \dots, x_n, y]$: $\scrA \models \varphi[a_1, \dots, a_n] \Rightarrow$ es gibt ein $a \in A$ sodass $\scrA \models \psi[a_1, \dots, a_n, a] \\
-	\underset{\ref{tarksi:bew}}{\Rightarrow} \scrB \models \psi[a_1, \dots, a_n, a]$ f"ur ein $a in A \subset B \Rightarrow \scrB \models \varphi[a_1, \dots, a_n]$
+	$\varphi = \exists y \psi[x_1, \dots, x_n, y]$: $\scrA \models \varphi[a_1, \dots, a_n] \Rightarrow$ es gibt ein $a \in A$ sodass $\scrA \models \psi[a_1, \dots, a_n, a]\\ {\underset{\ref{tarksi:bew}}{\Rightarrow} \scrB \models \psi[a_1, \dots, a_n, a]} \text{ f"ur ein } a \in A \subset B \Rightarrow \scrB \models \varphi[a_1, \dots, a_n]$
 	
 	$\scrB \models \varphi[a_1, \dots, a_n] \Rightarrow$ es gibt $b \in B$ mit $\scrB \models \psi[a_1, \dots, a_n, b] \underset{\ref{tarski:bed}}{\Rightarrow}$ es gibt ein $a \in A$ mit $\scrB \models \psi[a_1, \dots, a_n, a] \underset{\ref{tarksi:bew}}{\Rightarrow} \scrA \models \psi[a_1, \dots, a_n, a] \Rightarrow \scrA \models \varphi[a_1, \dots, a_n]$.
 	
 	\underline{F"ur "`insbesondere"':} Angenommen, dass $\scrA \leq \scrB$. Sei $\varphi[x_1, \dots, x_n, y]$ eine $\scrL$-Formel, $a_1, \dots, a_n \in A$. Dann: $\scrB \models \varphi[a_1, \dots, a_n, b]$ f"ur ein $b \in B$ $\Rightarrow \scrB \models (\exists y \varphi)[a_1, \dots, a_n] \\
-	\underset{\scrA \leq \scrB}{\Rightarrow} \scrA \models (\exists y \varphi)[a_1, \dots, a_n] \Rightarrow$ es gibt ein $a \in A$ mit $\scrA \models \varphi[a_1, \dots, a_n, a] \underset{\scrA \leq \scrB}{\Rightarrow} \scrB \models \varphi[a_1, \dots, a_n, a] \checkmark$
+	\underset{\scrA \leq \scrB}{\Rightarrow} \scrA \models (\exists y \varphi)[a_1, \dots, a_n] \Rightarrow$ es gibt ein $a \in A$ mit $\scrA \models \varphi[a_1, \dots, a_n, a] {\underset{\scrA \leq \scrB}{\Rightarrow} \scrB \models \varphi[a_1, \dots, a_n, a]} \checkmark$
 \end{proof}
 
 \begin{proposition}[aufw"arts L"owenheim-Skolem]
-	Sei $\scrA$ eine unendliche $\scrL$-Struktur, und $\kappa < \max\{\|A\|,\|\scrL\|\}$. Dann gibt es eine elementare $\scrL$-Erweiterung $\scrB \geq \scrA$ der M"achtigkeit $\kappa$.
+	Sei $\scrA$ eine unendliche $\scrL$-Struktur, und $\kappa < \max\{|A|,|\scrL|\}$. Dann gibt es eine elementare $\scrL$-Erweiterung $\scrB \geq \scrA$ der M"achtigkeit $\kappa$.
 \end{proposition}
 \begin{proof}
 	$\vdig(\scrA) \cup \{\lnot(c_\alpha \dot= c_\beta)\}_{\alpha \neq \beta < \kappa}$, wobei $\{c_\alpha\}_{\alpha<\kappa}$ eine Menge neuer Konstantenzeichen ist, ist konsistent weil sie endlich konsistent\footnote{Kompaktheit} ist.
@@ -287,11 +286,11 @@
 \end{proof}
 
 \begin{remark}
-	$\|A\| = n \in \setN$, $\scrB \geq \scrA \Rightarrow \|B\| = n$
+	$|A| = n \in \setN$, $\scrB \geq \scrA \Rightarrow |B| = n$
 \end{remark}
 
 \begin{proposition}[abw"arts L"owenheim-Skolem]\label{Low:ab}
-	Sei $\scrB$ eine $\scrL$-Struktur und $S \subset B$ beliebig. Dann gibt es eine elementare Unterstruktur $\scrA \leq \scrB$ mit $A \supset S$ und $\|A\|\leq \max\{\|S\|,\|\scrL\|,\aleph_0\}$.
+	Sei $\scrB$ eine $\scrL$-Struktur und $S \subset B$ beliebig. Dann gibt es eine elementare Unterstruktur $\scrA \leq \scrB$ mit $A \supset S$ und $|A|\leq \max\{|S|,|\scrL|,\aleph_0\}$.
 \end{proposition}
 
 \begin{remark}
@@ -305,14 +304,14 @@
 	
 	$\scrB \models \varphi[a_1, \dots, a_n, b]$ f"ur ein $b \in B \Rightarrow$ es gibt ein $k \in \setN$ mit $a_1, \dots a_n \in S_k \Rightarrow$ es gibt ein $a_{\varphi[a_1, \dots, a_n, y]} \in S_{k+1} \subset A$ mit $\scrB \models \varphi[a_1, \dots, a_n, a] \checkmark$
 	
-	Ferner ist $\|A\| \leq \max \{\aleph_0, \|\scrL\|, \|S\|\}$.
+	Ferner ist $|A| \leq \max \{\aleph_0, |\scrL|, |S|\}$.
 \end{proof}
 
 \begin{corollary}
 	Sei $(\scrA_i)_{i \in I}$ eine gerichtete Familie von $\scrL$-Strukturen, sodass f"ur $i \leq j$ ist $\scrA_i \leq \scrA_j$. Dann ist $\scrA = \underset{i \in I}{\bigcup} \scrA_i$ eine elementare Erweiterung jeder $\scrA_i$.
 \end{corollary}
 \begin{proof}
-	Wir beweisen induktiv "uber dern Aufbau von $\varphi=\varphi[x_1, \dots, x_n]$, dass f"ur alle $i \in I$, f"ur alle $a_1, \dots, a_n \in A_i$: $\scrA_i \models \varphi[a_1, \dots, a_n] \Leftrightarrow \scrA \models \varphi[a_1, \dots, a_n]$.
+	Wir beweisen induktiv "uber den Aufbau von $\varphi=\varphi[x_1, \dots, x_n]$, dass f"ur alle $i \in I$, f"ur alle $a_1, \dots, a_n \in A_i$: $\scrA_i \models \varphi[a_1, \dots, a_n] \Leftrightarrow \scrA \models \varphi[a_1, \dots, a_n]$.
 	
 	$\varphi$ atomar $\rightarrow$ klar, denn $\scrA_i \underset{US}{\subset} \scrA$
 	
@@ -320,23 +319,23 @@
 	
 	$\varphi = (\varphi_1 \lor \varphi_2) \Rightarrow$ ok!
 	
-	$\varphi = \exists y \psi[x_1, \dots, x_n, y]$: $\scrA_i\models \varphi[a_1, \dots, a_n] \Rightarrow$ es gint ein $a \in A_i$ mit $\scrA_i\models \psi[a_1, \dots,a_n, a] \\
+	$\varphi = \exists y \psi[x_1, \dots, x_n, y]$: $\scrA_i\models \varphi[a_1, \dots, a_n] \Rightarrow$ es gibt ein $a \in A_i$ mit $\scrA_i\models \psi[a_1, \dots,a_n, a] \\
 	\underset{\text{ind. "uber }\psi}{\Rightarrow} \scrA \models \psi[a_1, \dots, a_n, a] \Rightarrow \scrA \models \varphi[a_1, \dots, a_n]$
 	
 	$\scrA \models \varphi[a_1, \dots, a_n] \Rightarrow$ es gibt ein $b \in A = \underset{i \in I}{\bigcup} A_i$ mit $\scrA \models \psi[a_1, \dots, a_n, b] \Rightarrow$ es gibt $j \in I$ mit $b \in A_j \Rightarrow$ es existiert $k \in I$ mit $i \leq k$, $j \leq k$, $a_1, \dots, a_n, b \in A_k \\
-	\Rightarrow \scrA_k \models \psi[a_1, \dots, a_n, b] \underset{\scrA_i \leq \scrA_k}{\Rightarrow}$ es gibt ein $a \in A_k$ mit $\scrA_i \models \psi[a_1, \dots, a_n, a] \Rightarrow \scrA_i \models \varphi[a_1, \dots, a_n]$.
+	\Rightarrow \scrA_k \models \psi[a_1, \dots, a_n, b] \underset{\scrA_i \leq \scrA_k}{\Rightarrow}$ es gibt ein $a \in A_k$ mit $\scrA_i \models \psi[a_1, \dots, a_n, a] \Rightarrow {\scrA_i \models \varphi[a_1, \dots, a_n]}$.
 \end{proof}
 
 \begin{definition}
-	Eine Theorie $T$ hat Quantorenelemination, falls jede $\scrL$-Formel $\varphi[x_1, \dots, x_n]$ "aquivalent modulo $T$ zu einer quantorenfreien $\scrL$-Formel $\psi[x_1, \dots, x_n]$ ist.
+	Eine Theorie $T$ hat Quantorenelimination, falls jede $\scrL$-Formel $\varphi[x_1, \dots, x_n]$ "aquivalent modulo $T$ zu einer quantorenfreien $\scrL$-Formel $\psi[x_1, \dots, x_n]$ ist.
 	\begin{equation*}
 		T \models \forall x_1 \dots \forall x_n (\varphi[x_1, \dots, x_n] \leftrightarrow \psi[x_1, \dots, x_n])
 	\end{equation*}
 \end{definition}
 
 \begin{example}
-	Sei $\scrL \coloneqq (\setR, 0, 1, +, -, \cdot)$ gegeben. Betrachte die Menge $\{(a,b,c) \in \setR^3 \| a \neq 0$ und es gibt $x \in \setR$ mit $ax^2+bx+c=0\} = \{(a,b,c) \in \setR^3 \| a \neq 0$ und $b^2-4ac \geq 0\}$.
+	Sei $\scrL \coloneqq (\setR, 0, 1, +, -, \cdot)$ gegeben. Betrachte die Menge $\{(a,b,c) \in \setR^3 | a \neq 0$ und es gibt $x \in \setR$ mit $ax^2+bx+c=0\} = \{(a,b,c) \in \setR^3 | a \neq 0$ und $b^2-4ac \geq 0\}$.
 	
-	Die diese Formel ist in $\scrL$ nicht "aquivalent zu einer quantorenfreien Formel, in $\scrL_1 \coloneqq (\setR, 0, 1, +, -, \cdot, <)$ hingegen doch. Somit ist die Menge in $\scrL_1$ quantorenfrei.
+	Diese Formel ist in $\scrL$ nicht "aquivalent zu einer quantorenfreien Formel, in $\scrL_1 \coloneqq {(\setR, 0, 1, +, -, \cdot, <)}$ hingegen doch. Somit ist die Menge in $\scrL_1$ quantorenfrei.
 \end{example}
 \end{document}

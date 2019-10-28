@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.6.4)  26 OCT 2019 16:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.6.4)  28 OCT 2019 17:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1341,15 +1341,49 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 263.
 
 [4]
+Overfull \hbox (43.9967pt too wide) in paragraph at lines 273--275
+[] \OMS/lmsy/m/n/12 A j[]\OT1/lmr/m/n/12 = (\OMS/lmsy/m/n/12 9\OML/lmm/m/it/12 
+y'\OT1/lmr/m/n/12 )[\OML/lmm/m/it/12 a[]; [] ; a[]\OT1/lmr/m/n/12 ] \OMS/lmsy/m
+/n/12 )$ \T1/lmr/m/n/12 es gibt ein $\OML/lmm/m/it/12 a \OMS/lmsy/m/n/12 2 \OML
+/lmm/m/it/12 A$ \T1/lmr/m/n/12 mit $\OMS/lmsy/m/n/12 A j[]\OT1/lmr/m/n/12 = \OM
+L/lmm/m/it/12 '\OT1/lmr/m/n/12 [\OML/lmm/m/it/12 a[]; [] ; a[]; a\OT1/lmr/m/n/1
+2 ][][]$
+ []
+
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 303.
+(babel)             in language  on input line 302.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 303.
+(babel)             in language  on input line 302.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 303.
+(babel)             in language  on input line 302.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 303.
- [5]
+(babel)             in language  on input line 302.
+[5]
+Overfull \hbox (38.20845pt too wide) in paragraph at lines 325--327
+\OMS/lmsy/m/n/12 ) A[] j[]\OT1/lmr/m/n/12 = \OML/lmm/m/it/12  \OT1/lmr/m/n/12 [
+\OML/lmm/m/it/12 a[]; [] ; a[]; b\OT1/lmr/m/n/12 ] []$ \T1/lmr/m/n/12 es gibt e
+in $\OML/lmm/m/it/12 a \OMS/lmsy/m/n/12 2 \OML/lmm/m/it/12 A[]$ \T1/lmr/m/n/12 
+mit $\OMS/lmsy/m/n/12 A[] j[]\OT1/lmr/m/n/12 = \OML/lmm/m/it/12  \OT1/lmr/m/n/1
+2 [\OML/lmm/m/it/12 a[]; [] ; a[]; a\OT1/lmr/m/n/12 ] \OMS/lmsy/m/n/12 ) []$\T1
+/lmr/m/n/12 .
+ []
+
+
+Overfull \hbox (48.95857pt too wide) in paragraph at lines 339--340
+[]\T1/lmr/m/it/12 Diese For-mel ist in $\OMS/lmsy/m/n/12 L$ \T1/lmr/m/it/12 nic
+ht äqui-va-lent zu ei-ner quan-to-ren-frei-en For-mel, in $\OMS/lmsy/m/n/12 L[]
+ [][]\OT1/lmr/m/n/12 = []$
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 340.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 340.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 340.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 340.
+[6]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 341.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1358,24 +1392,15 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 341.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 341.
- [6]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 342.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 342.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 342.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 342.
  [7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 342.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 342.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 341.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 341.
  (./Mitschrift.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 342.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 342.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 341.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 341.
 Package rerunfilecheck Info: File `Mitschrift.out' has not changed.
 (rerunfilecheck)             Checksum: A468D04AC5377B688C720B115F8CE591;179.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 342.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 341.
  ) 
 Here is how much of TeX's memory you used:
  22079 strings out of 494798
@@ -1401,7 +1426,7 @@ fb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts
 /type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Mitschrift.pdf (10 pages, 328956 bytes).
+Output written on Mitschrift.pdf (10 pages, 328643 bytes).
 PDF statistics:
  189 PDF objects out of 1000 (max. 8388607)
  156 compressed objects within 2 object streams
