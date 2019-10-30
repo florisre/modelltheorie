@@ -336,6 +336,103 @@
 \begin{example}
 	Sei $\scrL \coloneqq (\setR, 0, 1, +, -, \cdot)$ gegeben. Betrachte die Menge $\{(a,b,c) \in \setR^3 | a \neq 0$ und es gibt $x \in \setR$ mit $ax^2+bx+c=0\} = \{(a,b,c) \in \setR^3 | a \neq 0$ und $b^2-4ac \geq 0\}$.
 	
-	Diese Formel ist in $\scrL$ nicht "aquivalent zu einer quantorenfreien Formel, in $\scrL_1 \coloneqq {(\setR, 0, 1, +, -, \cdot, <)}$ hingegen doch. Somit ist die Menge in $\scrL_1$ quantorenfrei.
+	Diese Formel ist in $\scrL$ nicht "aquivalent zu einer quantorenfreien Formel, in ${\scrL_1 \coloneqq (\setR, 0, 1, +, -, \cdot, <)}$ hingegen doch. Somit ist die Menge in $\scrL_1$ quantorenfrei.
 \end{example}
+
+\section{Quantorenelimination}
+\begin{remark}
+	\begin{itemize}
+		\item Wenn $T$ inkonsistent st, dann hat $T$ immer Quantorenelimination
+		\item Wenn $T$ Quantorenelimination hat, und $\scrA , \scrB \models T$ mit $\scrA \underset{\text{US}}{\subset} \scrB \Rightarrow \scrA \leq \scrB$ \marginpar{"Ubung}
+	\end{itemize}
+\end{remark}
+
+\begin{definition}
+	\begin{itemize}
+		\item Eine einfache Existenzformel ist eine Formel der Form $\varphi[x_1, \dots, x_n]=\exists y \psi[x_1, \dots, x_n, y]$
+		\item Eine primitive Existenzformel ist eine Formel der Form $\varphi[x_1, \dots, x_n]=\psi[x_1, \dots, x_n,y]$, wobei $\psi$ eine endliche Konjunktion von atomaren Formeln und Negationen ist
+	\end{itemize}
+\end{definition}
+
+\begin{lemma}
+	Eine (konsistente) Theorie T hat genau dann Quantoreneliminantion, wenn jede primitive Existenzformel zu einer quantorenfreien Formel "aquivalent modulo T ist.
+\end{lemma}
+\begin{proof}
+	"`$\Rightarrow$"': klar
+	
+	"`$\Leftarrow$"': Beachte, $\exists y (\psi_1 \lor \psi_2) \leftrightarrow (\exists y \psi_1 \lor \exists y \psi_2)$. Insbesondere, wenn $T$ Quantorenelimination f"ur primitive Existenzformeln hat, dann hat T Quantorenelimination f"ur einfache Existenzformeln.
+	\begin{equation*}
+		\underset{\text{einfache Existenzformel}}{\varphi} = \exists y \underbrace{\psi[x_1, \dots, x_n]}_{\text{umschreiben in DNF}} \sim \exists y (\psi_1 \lor \dots \lor \psi_n) \sim \underbrace{\overset{n}{\underset{i=1}{\bigvee}} \exists y \psi_i}_{\text{primitive Existenzformel}}
+	\end{equation*}
+	
+	Zu zeigen: Jede beliebige Formel $\varphi[x_1, \dots, x_n]$ ist "aquivalent zu einer quantorenfreien Formel modulo $T$.
+	\begin{equation*}
+		\varphi[x_1, \dots, x_n] \underbrace{\sim}_{\substack{\text{pr"anexe}\\ \text{Normalform}}} Q_1 y_1 \dots Q_m y_m \underbrace{\psi[x_1, \dots, x_n, y_1, \dots, y_m]}_{\text{quantorenfrei}}, \text{ wobei }Q_i \in \{\forall, \exists\}
+	\end{equation*}
+	
+	Induktion "uber $m$:
+	\begin{itemize}
+		\item[$m=0$:] $\checkmark$
+		\item[$m=1$:] $\varphi = Q \underbrace{\psi[x_1, \dots, x_n, y]}_{\text{quantorenfrei}}$
+		\begin{itemize}
+			\item[$Q=\exists$] $\varphi$ einfache Existenzformel $\checkmark$
+			\item[$Q=\forall$] $\varphi \sim \lnot \underbrace{\exists y \lnot \psi}_{\substack{\text{einfache}\\\text{Existenzformel }} \rightarrow \text{ eliminieren }\rightarrow \checkmark}$
+		\end{itemize}
+		\item[$m-1\rightarrow m$:] $\varphi[x_1, \dots, x_n]=Q_1 y_1 Q_2 y_2 \dots \underbrace{Q_m y_m \psi[x_1, \dots, x_n, y_1, \dots, y_m]}_{\varphi' [x_1, \dots, x_n, y_1, \dots, y_{m-1}]}$. $\varphi'$ ist eine einfache Existenzformel, wir eliminieren also:
+		
+		$\underbrace{\hfil}_{m-1 \text{ viele Quantoren}} \underbrace{\Theta[x_1, \dots, x_n, y_1, \dots, y_{m-1}]}_{\text{quantorenfrei}}$
+		
+		$\Rightarrow$ Induktion
+	\end{itemize}
+
+\end{proof}
+
+\begin{example}
+	Sei $\mathcal{K} = \{\text{unendliche Mengen}\}$. Diese Klasse l"asst sich definieren durch die Theorie \marginpar{$\exists^\infty x$}$T=\{\exists x_1 \dots \exists x_n(\bigwedge^n_{i \neq j =1}\lnot(x_i \dot= x_j))\}_{n \in \setN}$.
+	Diese Theorie ist vollst"andig!
+	Betrachte jetzt die definierbaren Mengen:
+	\begin{equation*}
+		\{b \in A | \scrA \models \underbrace{\underbrace{\varphi}_{\text{quantorenfrei}}[b, a_1, \dots, a_m]}_{\underset{\text{endlich oder koendlich}}{\updownarrow}} \}
+	\end{equation*}
+\end{example}
+
+\begin{lemma}[Trennungslemma]
+	Seien $T_1$ und $T_2$ zwei $\scrL$-Theorien, und $\Delta$ eine Kollektion von $\scrL$-Aussagen, welche unter endlichen Konjunktionen und Disjunktionen abgeschlossen ist. Folgende Eigenschaften sind "aquivalent:
+	\begin{enumerate}
+		\item Es gibt eine Aussage $\chi \in \Delta$ mit $T_1 \models \chi$
+		\item F"ur alle $\scrA \models T_1$, $\scrB \models T_2$ gibt es eine Aussage $\chi \in \Delta$ mit $ \scrA \models \chi, \scrB \models \lnot \chi$
+	\end{enumerate}
+\end{lemma}
+
+\begin{remark}
+	Das ganze ist trivial f"ur inkonsistente Theorien.
+\end{remark}
+
+\begin{proof}
+	\underline{$1\Rightarrow2$:} trivial!
+	
+	\underline{$2 \Rightarrow 1$:} OBdA $T_1, T_2$ konsistent. Sei $\scrA \models T_1$, setze ${\Sigma_\scrA =\{\chi, \chi \text{ Aussagen in } \Delta\text{ mit } \scrA \models \chi \}}$. 
+	
+	Betrachte jetzt $T_2 \cup \Sigma_\scrA$. Ist diese Theorie konsistent? Nein: W"are $\scrB \models T_2 \cup \Sigma_\scrA \hookrightarrow$ es gibt $\chi \in \Delta$ mit $\scrA \models \chi, \scrB \models \lnot \chi \Rightarrow \chi \in \Sigma_\scrA \Rightarrow \scrB \models \chi$. Widerspruch!
+	
+	Das bedeutet (wegen Kompaktheit), dass es $\chi_1, \dots, \chi_r \in \Sigma_\scrA$ gibt mit $T_2 \cup \{\chi_1, \dots, \chi_r\}$ inkonsistent.
+	\begin{equation*}
+		\hookrightarrow T_2 \models {\bigvee}_{i=1}^{r} \lnot \chi_i \Rightarrow T_2 \models \lnot (\underbrace{{\bigwedge}_{i=1}^{r} \chi_i}_{=\chi_\scrA \in \Delta })
+	\end{equation*}
+	Das hei"st f"ur jedes $\scrA \models T_1$ gibt es $\chi_\scrA \in \Delta$ mit $T_2 \models \lnot \chi_\scrA$ und $\scrA \models \chi_\scrA$.
+	
+	Sei nun $T_1 \cup \{\lnot \chi_\scrA \}_{\scrA \models T_1}$.\footnote{Ist das "uberhaupt eine Menge? Es gen"ugt die Einschr"ankung bis auf Isomorphie, das sollte reichen\dots} $\hookrightarrow$ inkonsistent nach Konstruktion.
+	
+	$\underset{\text{Kompaktheit}}{\Rightarrow}$ es existieren $\chi_{\scrA_1}, \dots \chi_{\scrA_n}$ mit $T_1 \cup \{\lnot \chi_{\scrA_1}, \dots, \chi_{\scrA_n} \}$ inkonsistent. Also:\\ 
+	$T_1 \models \bigvee_{j=1}^n \chi_{\scrA_j} \eqqcolon \chi \in \Delta$
+	
+	$T_1 \models \chi$. Wollen zeigen: $T_2 \models \lnot \chi$. Aber $T_2 \models \lnot \chi_{\scrA_i}, 1 \leq i \leq n$.
+\end{proof}
+
+\begin{corollary}
+	Zwei Theorien $T_1$ und $T_2$ werden von einer quantorenfreien Aussage getrennt, wenn je zwei Modelle $\scrA \models T_1$ und $\scrB \models T_2$ von einer quantorenfreien Aussage getrennt werden.
+	\begin{equation*}
+		\rightarrow \exists\chi \text{ quantorenfrei }: \scrA \models \chi \text{ und } \scrB \models \lnot \chi
+	\end{equation*}
+\end{corollary}
 \end{document}
