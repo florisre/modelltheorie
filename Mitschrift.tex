@@ -53,6 +53,7 @@
 \DeclareMathOperator{\charac}{char}
 \DeclareMathOperator{\im}{Im}
 \DeclareMathOperator{\dom}{Dom}
+\DeclareMathOperator{\dlo}{DLO}
 
 
 \newtheoremstyle{dotless}{}{}{\itshape}{}{\bfseries}{}{\newline}{}
@@ -97,6 +98,7 @@
 
 \newpage
 \setcounter{page}{1}
+%Sitzung 1
 \part{Theorien und Quantorenelimination}
 
 \begin{theorem}[Morley]
@@ -224,6 +226,7 @@
 	$\rightarrow$ ist jedes $F \in S$ \underline{elementar}, so gilt insbesondere $\scrA \equiv \scrB$.
 \end{theorem}
 
+%Sitzung 2
 \section{Tarskis Test}
 \begin{lemma}[Tarskis Test]
 	Sei $\scrB$ eine $\scrL$-Struktur und $A \subset B$ Teilmenge derart, dass f"ur jede $\scrL$-Formel $\varphi[x_1, \dots, x_n]$ und Elemente $a_1, \dots, a_n \in A$:\\
@@ -326,6 +329,7 @@
 	\Rightarrow \scrA_k \models \psi[a_1, \dots, a_n, b] \underset{\scrA_i \preceq \scrA_k}{\Rightarrow}$ es gibt ein $a \in A_k$ mit $\scrA_i \models \psi[a_1, \dots, a_n, a] \Rightarrow {\scrA_i \models \varphi[a_1, \dots, a_n]}$.
 \end{proof}
 
+\section{Quantorenelimination}
 \begin{definition}
 	Eine Theorie $T$ hat Quantorenelimination, falls jede $\scrL$-Formel $\varphi[x_1, \dots, x_n]$ "aquivalent modulo $T$ zu einer quantorenfreien $\scrL$-Formel $\psi[x_1, \dots, x_n]$ ist.
 	\begin{equation*}
@@ -339,7 +343,7 @@
 	Diese Formel ist in $\scrL$ nicht "aquivalent zu einer quantorenfreien Formel, in ${\scrL_1 \coloneqq (\setR, 0, 1, +, -, \cdot, <)}$ hingegen doch. Somit ist die Menge in $\scrL_1$ quantorenfrei.
 \end{example}
 
-\section{Quantorenelimination}
+%Sitzung 3
 \begin{remark}
 	\begin{itemize}
 		\item Wenn $T$ inkonsistent st, dann hat $T$ immer Quantorenelimination
@@ -435,4 +439,120 @@
 		\rightarrow \exists\chi \text{ quantorenfrei }: \scrA \models \chi \text{ und } \scrB \models \lnot \chi
 	\end{equation*}
 \end{corollary}
+
+
+%Sitzung 4
+\begin{theorem}
+	Sei $T$ eine Theorie. Folgende Aussagen sind "aquivalent:
+	\begin{enumerate}
+		\item $T$ hat Quantorenelimination. \label{beh:1}
+		\item \label{beh:2}Gegeben Modelle $\scrA, \scrB \models T$ und endlich erzeugte Unterstrukturen $\langle c_1, \dots, c_n \rangle_\scrA = \scrC \subset \scrA$, $\langle d_1, \dots, d_n \rangle_\scrB = \scrD \subset \scrB$, wobei $\scrC \simeq \scrD$ und $\varphi[x_1, \dots, x_n]$ eine Formel. Dann gilt:
+		\begin{equation*}
+			\scrA \models \varphi[c_1, \dots, c_n] \Rightarrow\footnote{Durch vertauschen von $\scrA$ und $\scrB$ gilt hier sogar $\Leftrightarrow$.} \scrB \models \varphi[d_1, \dots, d_n]
+		\end{equation*}
+		\item \label{beh:3} Gegeben Modelle $\scrA, \scrB$ mit isomorph erzeugten Unterstrukturen $\langle c_1, \dots, c_n \rangle_\scrA = \scrC \simeq \scrD = \langle d_1, \dots, d_n \rangle_\scrB$ wie in \ref{beh:2} und f"ur alle $\varphi[x_1, \dots, x_n]$ primitive Existenzformel, gilt:
+		\begin{equation*}
+			\scrA \models \varphi[c_1, \dots, c_n] \Rightarrow \scrB \models \varphi[d_1, \dots, d_n]
+		\end{equation*}
+	\end{enumerate}
+	Ferner, falls $T$ konsistent ist, \ref{beh:1} gilt und je zwei Modelle von $T$ isomorphe endlich erzeugte Unterstrukturen besitzen, dann ist $T$ vollst"andig mit Quantorenelimination.
+\end{theorem}
+
+\begin{remark}
+	Wie benutzen wir diesen Satz? %TODO Grafik erstellen!
+	Letztlich wollen wir Back-\&-Forth-"Aquivalenz zeigen.
+\end{remark}
+
+\begin{proof}
+	\underline{$\ref{beh:1}\Rightarrow\ref{beh:2}$:} Sei $\varphi[x_1, \dots, x_n]$. T hat Quantorenelimination $\longleftarrow$ es gibt $\psi[x_1, \dots, x_n]$ quantorenfrei mit: $T \models \forall \overrightarrow{x} (\varphi[\overrightarrow{x}] \leftrightarrow \psi[\overrightarrow{x}])$
+	\begin{align*}
+		&&\scrA \models \varphi[c_1, \dots, c_n]\\
+		&\underset{\scrA \models T}{\Leftrightarrow} &\scrA \models \psi[c_1, \dots, c_n]\\
+		&\underset{\psi \text{ quantorenfrei}}{\Leftrightarrow} &\scrC \models \psi[c_1, \dots, c_n]\\
+		&\underset{\scrC \simeq \scrD}{\Leftrightarrow} &\scrD \models \psi[d_1, \dots, d_n]\\
+		&\Leftrightarrow &\scrB \models \psi[d_1, \dots, d_n]\\
+		&\underset{\scrB \models T}{\Leftrightarrow} &\scrB \models \varphi[d_1, \dots, d_n]
+	\end{align*}
+	
+	\underline{$\ref{beh:2} \Rightarrow \ref{beh:3}$:} klar.
+	
+	\underline{$\ref{beh:3} \Rightarrow \ref{beh:1}$:} Um zu zeigen, dass $T$ Quantorenelimination besitzt, gen"ugt es nur primitive Existenzformeln $\varphi[x_1, \dots, x_n]$ zu betrachten. 
+	
+	Seien dazu $e_1, \dots, e_n$ neue Konstantenzeichen. Betrachte die Sprache $\scrL \cup \{e_1, \dots, e_n \}$, sowie die Theorien $T_1 = T \cup \{\varphi[e_1, \dots, e_n] \}$ und $T_2 = T \cup \{\lnot \varphi[e_1, \dots, e_n]\}$.
+	
+	Falls $T_1$ und $T_2$ durch eine quantorenfreie Aussage $\underbrace{\psi[e_1, \dots, e_n]}_{\substack{\text{quantorenfreie}\\ \scrL \text{-Formel}}}$ in $\scrL \cup \{e_1, \dots, e_n \}$ trennbar sind, so folgt:
+	\begin{align*}
+		&T \cup \{\varphi[\overrightarrow{e}] \} \models \psi[\overrightarrow{e}] \Rightarrow T \models (\varphi[\overrightarrow{e}] \rightarrow \psi[\overrightarrow{e}])\\
+		&T \cup \{\lnot\varphi[\overrightarrow{e}] \} \models \lnot\psi[\overrightarrow{e}] \Rightarrow T \models (\lnot\varphi[\overrightarrow{e}] \rightarrow \psi[\overrightarrow{e}])\\
+		&\Rightarrow T = (\psi[\overrightarrow{e}] \rightarrow \varphi[\overrightarrow{e}]) \underset{\text{Aufgabe\footnotemark}}{\Rightarrow} T \models \forall \overrightarrow{x} (\varphi[\overrightarrow{x}] \leftrightarrow \underbrace{\psi[\overrightarrow{x}]}_{\text{quantorenfrei}})
+	\end{align*}
+	\footnotetext{weil $e_1, \dots, e_n$ \underline{neue} Konstantenzeichen sind}
+	Sonst, falls also $T_1, T_2$ nicht trennbar sind, gibt es zwei Modelle $\scrA \models T_1 \cup \{\varphi[\overrightarrow{e}] \}, \scrB \models T \cup \{\lnot \varphi[\overrightarrow{e}] \}$, welche alle quantorenfreien Aussagen in $\scrL \cup \{e_1, \dots, e_n \}$ gleich erf"ullen.
+	
+	Seien $c_1=e^\scrA_i, d_i=e^\scrB_i$. Betrachte jetzt $\langle c_1, \dots, c_n \rangle_\scrA \underset{\scrL \text{-US}}{\subset} \scrA \mid_\scrL$ und $\langle d_1, \dots, d_n \rangle_\scrB \underset{US}{\subset} \scrB \mid_\scrL$. Es gilt: $\scrA \models \varphi[c_1, \dots, c_n]$ und $\scrB \models \lnot \varphi[d_1, \dots, d_n]$.
+	
+	Um einen Widerspruch zu bekommen gen"ugt es zu zeigen, dass $\scrC \simeq \scrD, c_i \mapsto d_i$.
+	\begin{align*}
+		C &\longrightarrow D:\\
+		\underbrace{t^\scrA[c_1, \dots, c_n]}_{\scrL \text{-Term}} &\mapsto t^\scrB[d_1, \dots, d_n]
+	\end{align*}
+	\underline{Ist diese Abbildung wohldefiniert?}
+	\begin{align*}
+		\text{Angenommen } &t_1^\scrA[c_1, \dots, c_n] = t_2^\scrA[c_1, \dots, c_n]\\
+		\Leftrightarrow &\underbrace{\scrA}_{\text{als } \scrL \cup \{e_1, \dots, e_n \} \text{-Struktur}} \models (\underbrace{t_1[e_1, \dots, e_n] \dot= t_2[e_1, \dots, e_n]}_{\text{quantorenfreie Aussage}})\\
+		\Leftrightarrow &\scrB \models (t_1[\overrightarrow{e}] \dot= t_2[\overrightarrow{e}])\\
+		\Leftrightarrow &t_1^\scrB[d_1, \dots, d_n] = t_2^\scrB[d_1, \dots, d_n]\\
+		\longrightarrow &\text{ wohldefiniert und injektiv}
+	\end{align*}
+	induktiv "uber den Aufbau zeigen wir: Das ist ein Isomorphismus.
+	
+	\underline{Zu "`ferner"':} Angenommen $T$ hat Quantorenelimination, ist konsistent und je zwei Modelle $\scrA, \scrB \models T$ haben isomorphe, endlich erzeugte Unterstrukturen
+	\begin{equation*}
+		\underset{c_i \mapsto d_i}{\langle c_1, \dots, c_n \rangle_\scrA = \underset{\subset \scrA}{\scrC} \simeq \underset{\subset \scrB}{\scrD} = \langle d_1, \dots, d_n \rangle_\scrB}
+	\end{equation*}
+	$T$ ist vollst"andig $\Leftrightarrow \scrA \equiv \scrB$.
+	Sei $\chi$ eine $\scrL$-Aussage und schreibe $\chi = \chi[x_1, \dots, x_n]$.
+	\begin{equation*}
+		\scrA \models \chi \Leftrightarrow \scrA \models \chi[c_1, \dots, c_n] \underset{\ref{beh:2}}{\Leftrightarrow} \scrB \models \chi[d_1, \dots, d_n] \Leftrightarrow \scrB \models \chi
+	\end{equation*}
+\end{proof}
+
+\section{Beispiele klassischer Theorien}
+\begin{example}
+	$T=\exists^\infty$ hat Quantorenelimination und ist vollst"andig.
+\end{example}
+
+\begin{example}
+		$\dlo$ (dichte lineare Ordnung ohne Randpunkte). Sei $\scrL = \{<\}$.
+	\begin{align*}
+		\dlo = &\{\forall x (\lnot x<x) \}\\
+		&\cup \{\forall x \forall y \forall z ((x<y \land y<z) \rightarrow (x<z)) \}\\
+		&\cup \{\forall x \forall y ((x=y)\lor(x<y)\lor(y<x)) \}\\
+		&\cup \{\forall x \forall y \exists z ((x<y)\rightarrow(x<z<y)) \}\\
+		&\cup \{\forall x \exists u \exists v (u<x<v) \}\\
+		&\cup \{\exists x (x=x) \}
+	\end{align*}
+	Diese Theorie ist vollst"andig und hat Quantorenelimination.
+	
+	Es gibt zwei Methoden, um Quantorenelimination zu zeigen:
+	\begin{enumerate}
+		\item
+		\begin{align*}
+			&\varphi[x_1, \dots,x_n] &= \exists y (\bigwedge \underbrace{\Theta_i[x_1, \dots,x_n, y]}_{\text{atomar oder Negation davon}})\\
+			&&= \exists y (\psi_1[x_1, \dots, x_n] \land \bigwedge \substack{x_i = y \\ x_i \neq y \\ x_i < y \\ y < x_i})\\ \\
+			&x_i=y \land x_j=y \Leftrightarrow x_i = x_j\\
+			&x_i = y \land y<x_j \Leftrightarrow x_i < x_j &\longrightarrow \text{ induktiv lassen sich alle Quantoren eliminieren}
+		\end{align*}
+		\item Gegeben $\langle c_1, \dots, c_n \rangle_\scrA = \underset{\subset \scrA}{\scrC} \simeq \underset{\subset \scrB}{\scrD} = \langle d_1, \dots, d_n \rangle_\scrB$, mit $F: \scrC \rightarrow \scrD$ Isomorphismus und $\scrA, \scrB \models \dlo$.
+		
+		OBdA w"ahle $c_1<c_2<\dots<c_n \underset{F}{\mapsto} d_1<d_2<\dots<d_n$. $\longrightarrow F$ in Back-\&-Forth-System.
+		\begin{align*}
+			&\text{1. Fall: } &a< c_1 \rightarrow &\text{ w"ahle } b<d_1 \text{ in } \scrB \text{, weil } d_i \text{ kein Randpunkt ist.}\\
+			&\text{2. Fall: } &a>c_n \rightarrow &\text{ w"ahle } b<c_n \text{ in } \scrB \text{, weil } d_i \text{ kein Randpunkt ist.}\\
+			&\text{3. Fall: } &\exists i \mid c_i<a<c_{i+1} \rightarrow &\text{ w"ahle } b \text{ zwischen } d_i \text{ und } d_{i+1} \text{ weil } \scrB \text{ dicht ist.}
+		\end{align*}
+		
+		Vollst"andigkeit folgt, weil Unterstruktur und Punkt zu Punkt.
+	\end{enumerate}
+\end{example}
 \end{document}
