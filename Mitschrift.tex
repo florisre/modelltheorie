@@ -285,11 +285,11 @@
 	
 	Aus der Konstruktion von Henkin hat $\vdig(\scrA) \cup \{\lnot(c_\alpha \dot= c_\beta)\}_{\alpha \neq \beta < \kappa}$ ein Modell der M"achtigkeit der Sprache.
 	
-	$\rightarrow$ ein Modell der M"achtigkeit \underline{$\kappa$}.
+	$\rightarrow$ ein Modell der \underline{M"achtigkeit $\kappa$}
 \end{proof}
 
 \begin{remark}
-	$|A| = n \in \setN$, $\scrB \geq \scrA \Rightarrow |B| = n$
+	$|A| = n \in \setN$, $\scrB \succeq \scrA \Rightarrow |B| = n$
 \end{remark}
 
 \begin{proposition}[abw"arts L"owenheim-Skolem]\label{Low:ab}
@@ -508,7 +508,7 @@
 	
 	\underline{Zu "`ferner"':} Angenommen $T$ hat Quantorenelimination, ist konsistent und je zwei Modelle $\scrA, \scrB \models T$ haben isomorphe, endlich erzeugte Unterstrukturen
 	\begin{equation*}
-		\underset{c_i \mapsto d_i}{\langle c_1, \dots, c_n \rangle_\scrA = \underset{\subset \scrA}{\scrC} \simeq \underset{\subset \scrB}{\scrD} = \langle d_1, \dots, d_n \rangle_\scrB}
+		\underset{c_i \mapsto d_i}{\langle c_1, \dots, c_n \rangle_\scrA = \overset{\subset \scrA}{\scrC} \simeq \overset{\subset \scrB}{\scrD} = \langle d_1, \dots, d_n \rangle_\scrB}
 	\end{equation*}
 	$T$ ist vollst"andig $\Leftrightarrow \scrA \equiv \scrB$.
 	Sei $\chi$ eine $\scrL$-Aussage und schreibe $\chi = \chi[x_1, \dots, x_n]$.
@@ -533,12 +533,11 @@
 		&\cup \{\exists x (x=x) \}
 	\end{align*}
 	Diese Theorie ist vollst"andig und hat Quantorenelimination.
-	
 	Es gibt zwei Methoden, um Quantorenelimination zu zeigen:
 	\begin{enumerate}
 		\item
 		\begin{align*}
-			&\varphi[x_1, \dots,x_n] &= \exists y (\bigwedge\limits_i \overbrace{\Theta_i[x_1, \dots,x_n, y]}^{\text{atomar oder Negation davon}})\\
+			&\varphi[x_1, \dots,x_n] &= \exists y (\bigwedge\limits_i \overbrace{\Theta_i[x_1, \dots,x_n, y]}^{\substack{\text{atomar oder} \\ \text{Negation davon}}})\\
 			&&= \exists y (\psi_1[x_1, \dots, x_n] \land \bigwedge\limits_i \substack{x_i = y \\ x_i \neq y \\ x_i < y \\ y < x_i})\\ \\
 			&x_i=y \land x_j=y \Leftrightarrow x_i = x_j\\
 			&x_i = y \land y<x_j \Leftrightarrow x_i < x_j &\longrightarrow \text{ induktiv lassen sich alle Quantoren eliminieren}
