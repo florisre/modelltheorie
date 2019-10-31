@@ -233,7 +233,7 @@
 	\end{equation}
 	\underline{dann} ist $A$ das Universum einer elementaren Unterstruktur von $\scrB$.
 	
-	Insbesondere: Falls $\scrA \subset \scrB$ Unterstruktur, ist $\scrA \leq \scrB \Leftrightarrow A$ erf"ullt \ref{tarski:bed}.
+	Insbesondere: Falls $\scrA \subset \scrB$ Unterstruktur, ist $\scrA \preceq \scrB \Leftrightarrow A$ erf"ullt \ref{tarski:bed}.
 \end{lemma}
 \begin{proof}
 	\underline{Betrachte} $A \neq \emptyset \rightarrow$ Betrachte $\varphi[y] = (y \dot= y)$. $B \neq \emptyset \rightarrow \exists b \in B$ mit $\scrB \models \varphi[b]$. $\hookrightarrow \exists a \in A$ mit $\scrB \models \varphi[a]$
@@ -246,7 +246,7 @@
 	
 	F"ur $R \in \scrL$ $m$-stellig setze $R^\scrA = A^m \cap R^\scrB$ $\longrightarrow$ somit bildet $A$ eine $\scrL$-Unterstruktur $\scrA$ von $\scrB$.
 	
-	Noch zu zeigen: $\scrA \leq \scrB$, d. h. $\varphi[x_1, \dots, x_n]$ $\scrL$-Formel.
+	Noch zu zeigen: $\scrA \preceq \scrB$, d. h. $\varphi[x_1, \dots, x_n]$ $\scrL$-Formel.
 	
 	Seien dazu $a_1, \dots, a_n \in A$.
 	\begin{equation}\label{tarksi:bew}
@@ -270,8 +270,8 @@
 	
 	$\scrB \models \varphi[a_1, \dots, a_n] \Rightarrow$ es gibt $b \in B$ mit $\scrB \models \psi[a_1, \dots, a_n, b] \underset{\ref{tarski:bed}}{\Rightarrow}$ es gibt ein $a \in A$ mit $\scrB \models \psi[a_1, \dots, a_n, a] \underset{\ref{tarksi:bew}}{\Rightarrow} \scrA \models \psi[a_1, \dots, a_n, a] \Rightarrow \scrA \models \varphi[a_1, \dots, a_n]$.
 	
-	\underline{F"ur "`insbesondere"':} Angenommen, dass $\scrA \leq \scrB$. Sei $\varphi[x_1, \dots, x_n, y]$ eine $\scrL$-Formel, $a_1, \dots, a_n \in A$. Dann: $\scrB \models \varphi[a_1, \dots, a_n, b]$ f"ur ein $b \in B$ $\Rightarrow \scrB \models (\exists y \varphi)[a_1, \dots, a_n] \\
-	\underset{\scrA \leq \scrB}{\Rightarrow} \scrA \models (\exists y \varphi)[a_1, \dots, a_n] \Rightarrow$ es gibt ein $a \in A$ mit $\scrA \models \varphi[a_1, \dots, a_n, a] {\underset{\scrA \leq \scrB}{\Rightarrow} \scrB \models \varphi[a_1, \dots, a_n, a]} \checkmark$
+	\underline{F"ur "`insbesondere"':} Angenommen, dass $\scrA \preceq \scrB$. Sei $\varphi[x_1, \dots, x_n, y]$ eine $\scrL$-Formel, $a_1, \dots, a_n \in A$. Dann: $\scrB \models \varphi[a_1, \dots, a_n, b]$ f"ur ein $b \in B$ $\Rightarrow \scrB \models (\exists y \varphi)[a_1, \dots, a_n] \\
+	\underset{\scrA \preceq \scrB}{\Rightarrow} \scrA \models (\exists y \varphi)[a_1, \dots, a_n] \Rightarrow$ es gibt ein $a \in A$ mit $\scrA \models \varphi[a_1, \dots, a_n, a] {\underset{\scrA \preceq \scrB}{\Rightarrow} \scrB \models \varphi[a_1, \dots, a_n, a]} \checkmark$
 \end{proof}
 
 \begin{proposition}[aufw"arts L"owenheim-Skolem]
@@ -290,7 +290,7 @@
 \end{remark}
 
 \begin{proposition}[abw"arts L"owenheim-Skolem]\label{Low:ab}
-	Sei $\scrB$ eine $\scrL$-Struktur und $S \subset B$ beliebig. Dann gibt es eine elementare Unterstruktur $\scrA \leq \scrB$ mit $A \supset S$ und $|A|\leq \max\{|S|,|\scrL|,\aleph_0\}$.
+	Sei $\scrB$ eine $\scrL$-Struktur und $S \subset B$ beliebig. Dann gibt es eine elementare Unterstruktur $\scrA \preceq \scrB$ mit $A \supset S$ und $|A|\leq \max\{|S|,|\scrL|,\aleph_0\}$.
 \end{proposition}
 
 \begin{remark}
@@ -308,7 +308,7 @@
 \end{proof}
 
 \begin{corollary}
-	Sei $(\scrA_i)_{i \in I}$ eine gerichtete Familie von $\scrL$-Strukturen, sodass f"ur $i \leq j$ ist $\scrA_i \leq \scrA_j$. Dann ist $\scrA = \underset{i \in I}{\bigcup} \scrA_i$ eine elementare Erweiterung jeder $\scrA_i$.
+	Sei $(\scrA_i)_{i \in I}$ eine gerichtete Familie von $\scrL$-Strukturen, sodass f"ur $i \leq j$ ist $\scrA_i \preceq \scrA_j$. Dann ist $\scrA = \underset{i \in I}{\bigcup} \scrA_i$ eine elementare Erweiterung jeder $\scrA_i$.
 \end{corollary}
 \begin{proof}
 	Wir beweisen induktiv "uber den Aufbau von $\varphi=\varphi[x_1, \dots, x_n]$, dass f"ur alle $i \in I$, f"ur alle $a_1, \dots, a_n \in A_i$: $\scrA_i \models \varphi[a_1, \dots, a_n] \Leftrightarrow \scrA \models \varphi[a_1, \dots, a_n]$.
@@ -323,7 +323,7 @@
 	\underset{\text{ind. "uber }\psi}{\Rightarrow} \scrA \models \psi[a_1, \dots, a_n, a] \Rightarrow \scrA \models \varphi[a_1, \dots, a_n]$
 	
 	$\scrA \models \varphi[a_1, \dots, a_n] \Rightarrow$ es gibt ein $b \in A = \underset{i \in I}{\bigcup} A_i$ mit $\scrA \models \psi[a_1, \dots, a_n, b] \Rightarrow$ es gibt $j \in I$ mit $b \in A_j \Rightarrow$ es existiert $k \in I$ mit $i \leq k$, $j \leq k$, $a_1, \dots, a_n, b \in A_k \\
-	\Rightarrow \scrA_k \models \psi[a_1, \dots, a_n, b] \underset{\scrA_i \leq \scrA_k}{\Rightarrow}$ es gibt ein $a \in A_k$ mit $\scrA_i \models \psi[a_1, \dots, a_n, a] \Rightarrow {\scrA_i \models \varphi[a_1, \dots, a_n]}$.
+	\Rightarrow \scrA_k \models \psi[a_1, \dots, a_n, b] \underset{\scrA_i \preceq \scrA_k}{\Rightarrow}$ es gibt ein $a \in A_k$ mit $\scrA_i \models \psi[a_1, \dots, a_n, a] \Rightarrow {\scrA_i \models \varphi[a_1, \dots, a_n]}$.
 \end{proof}
 
 \begin{definition}
@@ -343,7 +343,7 @@
 \begin{remark}
 	\begin{itemize}
 		\item Wenn $T$ inkonsistent st, dann hat $T$ immer Quantorenelimination
-		\item Wenn $T$ Quantorenelimination hat, und $\scrA , \scrB \models T$ mit $\scrA \underset{\text{US}}{\subset} \scrB \Rightarrow \scrA \leq \scrB$ \marginpar{"Ubung}
+		\item Wenn $T$ Quantorenelimination hat, und $\scrA , \scrB \models T$ mit $\scrA \underset{\text{US}}{\subset} \scrB \Rightarrow \scrA \preceq \scrB$ \marginpar{"Ubung}
 	\end{itemize}
 \end{remark}
 
