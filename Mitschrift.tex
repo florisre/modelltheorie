@@ -366,7 +366,7 @@
 	
 	"`$\Leftarrow$"': Beachte, $\exists y (\psi_1 \lor \psi_2) \leftrightarrow (\exists y \psi_1 \lor \exists y \psi_2)$. Insbesondere, wenn $T$ Quantorenelimination f"ur primitive Existenzformeln hat, dann hat T Quantorenelimination f"ur einfache Existenzformeln.
 	\begin{equation*}
-		\underset{\text{einfache Existenzformel}}{\varphi} = \exists y \underbrace{\psi[x_1, \dots, x_n]}_{\text{umschreiben in DNF}} \sim \exists y (\psi_1 \lor \dots \lor \psi_n) \sim \underbrace{\overset{n}{\underset{i=1}{\bigvee}} \exists y \psi_i}_{\text{primitive Existenzformel}}
+		\underset{\text{einfache Existenzformel}}{\varphi} = \exists y \underbrace{\psi[x_1, \dots, x_n]}_{\text{umschreiben in DNF}} \sim \exists y (\psi_1 \lor \dots \lor \psi_n) \sim \underbrace{\bigvee\limits^n_{i=1} \exists y \psi_i}_{\text{primitive Existenzformel}}
 	\end{equation*}
 	
 	Zu zeigen: Jede beliebige Formel $\varphi[x_1, \dots, x_n]$ ist "aquivalent zu einer quantorenfreien Formel modulo $T$.
@@ -392,7 +392,7 @@
 \end{proof}
 
 \begin{example}
-	Sei $\mathcal{K} = \{\text{unendliche Mengen}\}$. Diese Klasse l"asst sich definieren durch die Theorie \marginpar{$\exists^\infty x$}$T=\{\exists x_1 \dots \exists x_n(\bigwedge^n_{i \neq j =1}\lnot(x_i \dot= x_j))\}_{n \in \setN}$.
+	Sei $\mathcal{K} = \{\text{unendliche Mengen}\}$. Diese Klasse l"asst sich definieren durch die Theorie \marginpar{$\exists^\infty x$}$T=\{\exists x_1 \dots \exists x_n(\bigwedge\limits^n_{i \neq j =1}\lnot(x_i \dot= x_j))\}_{n \in \setN}$.
 	Diese Theorie ist vollst"andig!
 	Betrachte jetzt die definierbaren Mengen:
 	\begin{equation*}
@@ -421,14 +421,14 @@
 	
 	Das bedeutet (wegen Kompaktheit), dass es $\chi_1, \dots, \chi_r \in \Sigma_\scrA$ gibt mit $T_2 \cup \{\chi_1, \dots, \chi_r\}$ inkonsistent.
 	\begin{equation*}
-		\hookrightarrow T_2 \models {\bigvee}_{i=1}^{r} \lnot \chi_i \Rightarrow T_2 \models \lnot (\underbrace{{\bigwedge}_{i=1}^{r} \chi_i}_{=\chi_\scrA \in \Delta })
+		\hookrightarrow T_2 \models \bigvee\limits_{i=1}^{r} \lnot \chi_i \Rightarrow T_2 \models \lnot (\underbrace{\bigwedge\limits_{i=1}^{r} \chi_i}_{=\chi_\scrA \in \Delta })
 	\end{equation*}
 	Das hei"st f"ur jedes $\scrA \models T_1$ gibt es $\chi_\scrA \in \Delta$ mit $T_2 \models \lnot \chi_\scrA$ und $\scrA \models \chi_\scrA$.
 	
 	Sei nun $T_1 \cup \{\lnot \chi_\scrA \}_{\scrA \models T_1}$.\footnote{Ist das "uberhaupt eine Menge? Es gen"ugt die Einschr"ankung bis auf Isomorphie, das sollte reichen\dots} $\hookrightarrow$ inkonsistent nach Konstruktion.
 	
 	$\underset{\text{Kompaktheit}}{\Rightarrow}$ es existieren $\chi_{\scrA_1}, \dots \chi_{\scrA_n}$ mit $T_1 \cup \{\lnot \chi_{\scrA_1}, \dots, \chi_{\scrA_n} \}$ inkonsistent. Also:\\ 
-	$T_1 \models \bigvee_{j=1}^n \chi_{\scrA_j} \eqqcolon \chi \in \Delta$
+	$T_1 \models \bigvee\limits_{j=1}^n \chi_{\scrA_j} \eqqcolon \chi \in \Delta$
 	
 	$T_1 \models \chi$. Wollen zeigen: $T_2 \models \lnot \chi$. Aber $T_2 \models \lnot \chi_{\scrA_i}, 1 \leq i \leq n$.
 \end{proof}
@@ -464,7 +464,7 @@
 \end{remark}
 
 \begin{proof}
-	\underline{$\ref{beh:1}\Rightarrow\ref{beh:2}$:} Sei $\varphi[x_1, \dots, x_n]$. T hat Quantorenelimination $\longleftarrow$ es gibt $\psi[x_1, \dots, x_n]$ quantorenfrei mit: $T \models \forall \overrightarrow{x} (\varphi[\overrightarrow{x}] \leftrightarrow \psi[\overrightarrow{x}])$
+	\underline{$\ref{beh:1}\Rightarrow\ref{beh:2}$:} Sei $\varphi[x_1, \dots, x_n]$. T hat Quantorenelimination $\longleftarrow$ es gibt $\psi[x_1, \dots, x_n]$ quantorenfrei mit: $T \models \forall \vec{x} (\varphi[\vec{x}] \leftrightarrow \psi[\vec{x}])$
 	\begin{align*}
 		&&\scrA \models \varphi[c_1, \dots, c_n]\\
 		&\underset{\scrA \models T}{\Leftrightarrow} &\scrA \models \psi[c_1, \dots, c_n]\\
@@ -482,12 +482,12 @@
 	
 	Falls $T_1$ und $T_2$ durch eine quantorenfreie Aussage $\underbrace{\psi[e_1, \dots, e_n]}_{\substack{\text{quantorenfreie}\\ \scrL \text{-Formel}}}$ in $\scrL \cup \{e_1, \dots, e_n \}$ trennbar sind, so folgt:
 	\begin{align*}
-		&T \cup \{\varphi[\overrightarrow{e}] \} \models \psi[\overrightarrow{e}] \Rightarrow T \models (\varphi[\overrightarrow{e}] \rightarrow \psi[\overrightarrow{e}])\\
-		&T \cup \{\lnot\varphi[\overrightarrow{e}] \} \models \lnot\psi[\overrightarrow{e}] \Rightarrow T \models (\lnot\varphi[\overrightarrow{e}] \rightarrow \psi[\overrightarrow{e}])\\
-		&\Rightarrow T = (\psi[\overrightarrow{e}] \rightarrow \varphi[\overrightarrow{e}]) \underset{\text{Aufgabe\footnotemark}}{\Rightarrow} T \models \forall \overrightarrow{x} (\varphi[\overrightarrow{x}] \leftrightarrow \underbrace{\psi[\overrightarrow{x}]}_{\text{quantorenfrei}})
+		&T \cup \{\varphi[\vec{e}] \} \models \psi[\vec{e}] \Rightarrow T \models (\varphi[\vec{e}] \rightarrow \psi[\vec{e}])\\
+		&T \cup \{\lnot\varphi[\vec{e}] \} \models \lnot\psi[\vec{e}] \Rightarrow T \models (\lnot\varphi[\vec{e}] \rightarrow \psi[\vec{e}])\\
+		&\Rightarrow T = (\psi[\vec{e}] \rightarrow \varphi[\vec{e}]) \underset{\text{Aufgabe\footnotemark}}{\Rightarrow} T \models \forall \vec{x} (\varphi[\vec{x}] \leftrightarrow \underbrace{\psi[\vec{x}]}_{\text{quantorenfrei}})
 	\end{align*}
 	\footnotetext{weil $e_1, \dots, e_n$ \underline{neue} Konstantenzeichen sind}
-	Sonst, falls also $T_1, T_2$ nicht trennbar sind, gibt es zwei Modelle $\scrA \models T_1 \cup \{\varphi[\overrightarrow{e}] \}, \scrB \models T \cup \{\lnot \varphi[\overrightarrow{e}] \}$, welche alle quantorenfreien Aussagen in $\scrL \cup \{e_1, \dots, e_n \}$ gleich erf"ullen.
+	Sonst, falls also $T_1, T_2$ nicht trennbar sind, gibt es zwei Modelle $\scrA \models T_1 \cup \{\varphi[\vec{e}] \}, \scrB \models T \cup \{\lnot \varphi[\vec{e}] \}$, welche alle quantorenfreien Aussagen in $\scrL \cup \{e_1, \dots, e_n \}$ gleich erf"ullen.
 	
 	Seien $c_1=e^\scrA_i, d_i=e^\scrB_i$. Betrachte jetzt $\langle c_1, \dots, c_n \rangle_\scrA \underset{\scrL \text{-US}}{\subset} \scrA \mid_\scrL$ und $\langle d_1, \dots, d_n \rangle_\scrB \underset{US}{\subset} \scrB \mid_\scrL$. Es gilt: $\scrA \models \varphi[c_1, \dots, c_n]$ und $\scrB \models \lnot \varphi[d_1, \dots, d_n]$.
 	
@@ -500,7 +500,7 @@
 	\begin{align*}
 		\text{Angenommen } &t_1^\scrA[c_1, \dots, c_n] = t_2^\scrA[c_1, \dots, c_n]\\
 		\Leftrightarrow &\underbrace{\scrA}_{\text{als } \scrL \cup \{e_1, \dots, e_n \} \text{-Struktur}} \models (\underbrace{t_1[e_1, \dots, e_n] \dot= t_2[e_1, \dots, e_n]}_{\text{quantorenfreie Aussage}})\\
-		\Leftrightarrow &\scrB \models (t_1[\overrightarrow{e}] \dot= t_2[\overrightarrow{e}])\\
+		\Leftrightarrow &\scrB \models (t_1[\vec{e}] \dot= t_2[\vec{e}])\\
 		\Leftrightarrow &t_1^\scrB[d_1, \dots, d_n] = t_2^\scrB[d_1, \dots, d_n]\\
 		\longrightarrow &\text{ wohldefiniert und injektiv}
 	\end{align*}
@@ -538,8 +538,8 @@
 	\begin{enumerate}
 		\item
 		\begin{align*}
-			&\varphi[x_1, \dots,x_n] &= \exists y (\bigwedge \overbrace{\Theta_i[x_1, \dots,x_n, y]}^{\text{atomar oder Negation davon}})\\
-			&&= \exists y (\psi_1[x_1, \dots, x_n] \land \bigwedge \substack{x_i = y \\ x_i \neq y \\ x_i < y \\ y < x_i})\\ \\
+			&\varphi[x_1, \dots,x_n] &= \exists y (\bigwedge\limits_i \overbrace{\Theta_i[x_1, \dots,x_n, y]}^{\text{atomar oder Negation davon}})\\
+			&&= \exists y (\psi_1[x_1, \dots, x_n] \land \bigwedge\limits_i \substack{x_i = y \\ x_i \neq y \\ x_i < y \\ y < x_i})\\ \\
 			&x_i=y \land x_j=y \Leftrightarrow x_i = x_j\\
 			&x_i = y \land y<x_j \Leftrightarrow x_i < x_j &\longrightarrow \text{ induktiv lassen sich alle Quantoren eliminieren}
 		\end{align*}
