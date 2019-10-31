@@ -297,7 +297,7 @@
 \end{proposition}
 
 \begin{remark}
-	$\setC$ in der Ringsprache $\scrL_\text{Ring}$, $S=\emptyset \Rightarrow$ es gibt eine abz"ahlbare elementare Unterstruktur von $\setC$. $\rightarrow \bar\setQ \leq \setC$
+	$\setC$ in der Ringsprache $\scrL_\text{Ring}$, $S=\emptyset \Rightarrow$ es gibt eine abz"ahlbare elementare Unterstruktur von $\setC$. $\rightarrow \overline{\setQ} \preceq \setC$.
 \end{remark}
 
 \begin{proof}[Beweis \ref{Low:ab}]
@@ -538,7 +538,7 @@
 	\begin{enumerate}
 		\item
 		\begin{align*}
-			&\varphi[x_1, \dots,x_n] &= \exists y (\bigwedge \underbrace{\Theta_i[x_1, \dots,x_n, y]}_{\text{atomar oder Negation davon}})\\
+			&\varphi[x_1, \dots,x_n] &= \exists y (\bigwedge \overbrace{\Theta_i[x_1, \dots,x_n, y]}^{\text{atomar oder Negation davon}})\\
 			&&= \exists y (\psi_1[x_1, \dots, x_n] \land \bigwedge \substack{x_i = y \\ x_i \neq y \\ x_i < y \\ y < x_i})\\ \\
 			&x_i=y \land x_j=y \Leftrightarrow x_i = x_j\\
 			&x_i = y \land y<x_j \Leftrightarrow x_i < x_j &\longrightarrow \text{ induktiv lassen sich alle Quantoren eliminieren}
