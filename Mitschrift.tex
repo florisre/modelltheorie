@@ -54,9 +54,12 @@
 \DeclareMathOperator{\im}{Im}
 \DeclareMathOperator{\dom}{Dom}
 \DeclareMathOperator{\dlo}{DLO}
+\DeclareMathOperator{\acf}{ACF}
+\DeclareMathOperator{\quo}{Quot}
+\DeclareMathOperator{\ring}{Ring}
 
 
-\newtheoremstyle{dotless}{}{}{\itshape}{}{\bfseries}{}{\newline}{}
+\newtheoremstyle{dotless}{}{}{\normalfont}{}{\bfseries}{}{\newline}{}
 	
 \theoremstyle{dotless}
 \newtheorem{theorem}{Satz}[section]
@@ -482,9 +485,9 @@
 	
 	Falls $T_1$ und $T_2$ durch eine quantorenfreie Aussage $\underbrace{\psi[e_1, \dots, e_n]}_{\substack{\text{quantorenfreie}\\ \scrL \text{-Formel}}}$ in $\scrL \cup \{e_1, \dots, e_n \}$ trennbar sind, so folgt:
 	\begin{align*}
-		&T \cup \{\varphi[\vec{e}] \} \models \psi[\vec{e}] \Rightarrow T \models (\varphi[\vec{e}] \rightarrow \psi[\vec{e}])\\
-		&T \cup \{\lnot\varphi[\vec{e}] \} \models \lnot\psi[\vec{e}] \Rightarrow T \models (\lnot\varphi[\vec{e}] \rightarrow \psi[\vec{e}])\\
-		&\Rightarrow T = (\psi[\vec{e}] \rightarrow \varphi[\vec{e}]) \underset{\text{Aufgabe\footnotemark}}{\Rightarrow} T \models \forall \vec{x} (\varphi[\vec{x}] \leftrightarrow \underbrace{\psi[\vec{x}]}_{\text{quantorenfrei}})
+		&T \cup \{\varphi[\vec{e}] \} \models \psi[\vec{e}] &\Rightarrow T &\models (\varphi[\vec{e}] \rightarrow \psi[\vec{e}])\\
+		&T \cup \{\lnot\varphi[\vec{e}] \} \models \lnot\psi[\vec{e}] &\Rightarrow T &\models (\lnot\varphi[\vec{e}] \rightarrow \psi[\vec{e}])\\
+		&\Rightarrow T = (\psi[\vec{e}] \rightarrow \varphi[\vec{e}]) &\underset{\text{Aufgabe\footnotemark}}{\Rightarrow} T &\models \forall \vec{x} (\varphi[\vec{x}] \leftrightarrow \underbrace{\psi[\vec{x}]}_{\text{quantorenfrei}})
 	\end{align*}
 	\footnotetext{weil $e_1, \dots, e_n$ \underline{neue} Konstantenzeichen sind}
 	Sonst, falls also $T_1, T_2$ nicht trennbar sind, gibt es zwei Modelle $\scrA \models T_1 \cup \{\varphi[\vec{e}] \}, \scrB \models T \cup \{\lnot \varphi[\vec{e}] \}$, welche alle quantorenfreien Aussagen in $\scrL \cup \{e_1, \dots, e_n \}$ gleich erf"ullen.
@@ -554,4 +557,107 @@
 		Vollst"andigkeit folgt, weil Unterstruktur und Punkt zu Punkt.
 	\end{enumerate}
 \end{example}
+
+%SITZUNG 5
+\begin{example}[Vektorraum]
+	Sei $K$ ein K"orper, $\scrL_\text{VR} = \{0, +, f_\lambda \}_{\lambda \in K}$. Dann ist die Theorie $\underset{\substack{\rotatebox{90}{$=$} \\ \text{ unendliche}\\ K\text{-VR}}}{T} = \{\Forall x \Forall y \Forall z \dots \} \dots$\footnote{diese Theorie ist axiomatisierbar, f"ur eine beispielhafte Axiomatisierung vergleiche Klausur zu mathematische Logik im SS 2019.} vollst"andig und hat Quantorenelimination.
+	
+	Wie zuvor gibt es zwei verschiedene Methoden, um Quantorenelimination zu zeigen:
+	\begin{enumerate}
+		\item Betrachte die folgende primitive Existenzformel: 
+		\begin{equation*}
+			\varphi[x_1, \dots, x_n] = \Exists y (\bigwedge\limits_{\text{endlich}} (\lambda_1 x_1 + \dots + \lambda_n x_n + \lambda_y \dot= 0) \land \bigwedge\limits_{\text{endlich}} \lnot (\mu_1 x_1 + \dots + \mu_n x_n \dot= 0)
+		\end{equation*}
+		Jetzt gibt es zwei M"oglichkeiten:
+		\begin{enumerate}
+			\item \emph{Alle $\lambda$ vor der Variable $y$ sind Null} $\rightarrow \underbrace{\bigwedge\limits_{\text{endlich}} \lambda x_1 + \dots + \lambda_n x_n = 0}_{\psi[x_1 \dots x_n]}$
+			
+			\item \emph{Es gibt ein $\lambda \neq 0$}. Dann gilt OBdA: $y \dot= \lambda_1 x_1 + \dots + \lambda_n x_n$. Ersetze jetzt jedes Vorkommen von y durch $\tilde{\lambda}_1 x_1 + \dots + \tilde{\lambda}_n x_n$. Erhalte eine quantorenfreie Bedingung in $x_1, \dots x_n$.
+		\end{enumerate}
+		
+		\item (semantisch)
+		
+		\underline{Ansatz:} \begin{align*}
+			&\setQ &&? &\setQ \oplus \setQ \\
+			&\langle 2 \rangle &&\simeq &\langle (3,7) \rangle
+		\end{align*}
+		Wir brauchen also: $\scrA$ und $\scrB$ undendlichdimensional, um ein Back \& Forth-System zu konstruieren. Es sei dazu
+		\begin{equation*}
+			\tilde{\scrA} \succeq \scrA \supset \langle c_1, \dots, c_n \rangle \simeq \langle d_1, \dots , d_n \rangle \subset \scrB \preceq \tilde{\scrB}
+		\end{equation*}
+		f"ur $\tilde{\scrA}, \tilde{\scrB}$ undendlichdimensional.
+		
+		Insbesondere gilt jetzt auch: 
+		\begin{equation*}
+			\scrA \models \varphi[c_1, \dots, c_n] \Leftrightarrow \tilde{\scrA} \models \varphi[c_1, \dots, c_n]
+		\end{equation*}
+		
+		Angenommen $\langle c_1, \dots, c_n \rangle \overset{F}{\longrightarrow} \langle d_1, \dots, d_n \rangle$ liegt in einem Back \& Forth-System zwischen $\tilde{\scrA}$ und $\tilde{\scrB}$. Dann folgt insbesondere auch:
+		\begin{equation*}
+			\tilde{\scrB} \models \varphi[d_1, \dots, d_n] \Leftrightarrow \scrB \models \varphi[d_1, \dots, d_n]
+		\end{equation*}
+		Es ergeben sich also die folgenden beiden Fragen:
+		\begin{enumerate}
+			\item \underline{Finden wir ein Back \& Forth-System zwischen $\tilde{\scrA}$ und $\tilde{\scrB}$?} 
+			
+			Angenommen also wir haben $\tilde{\scrA}$ und $\tilde{\scrB}$ bereits konstruiert. Zeige: Es gibt ein Back \& Forth-System.
+			%TODO Grafik einf"ugen
+			\begin{enumerate}
+				\item[$c \in$ UR:] trivial.
+				\item[$c \notin$ UR:] $\dim_K \tilde{\scrB} = \infty \geq n+1 \longrightarrow$ es gibt ein $d \notin \langle d_1, \dots, d_n \rangle \Rightarrow~G$ die Erweiterung \begin{align*}
+					\langle c_1, \dots, c_n \rangle &\longrightarrow \langle d_1, \dots, d_n \rangle\\c_i &\longmapsto d_i\\c &\longmapsto d
+				\end{align*}
+			\end{enumerate}
+		
+			\item \underline{Zur Existenz von $\tilde{\scrA}, \tilde{\scrB}$:}
+			
+			So funktioniert es nicht: $\vdig(\scrA) \cup \{\Exists x \Exists y \lnot (\lambda x + \mu y \dot{+} 0)\}_{\substack{\lambda, \mu \in K\\(\lambda, \mu) \neq (0,0)}}$.
+			
+			Seien $(e_i)_{i \in \setN}$ neue Konstantenzeichen.
+			\begin{equation*}
+				\underbrace{\vdig(\scrA) \cup \{\lnot \sum_i \lambda_i e_i \dot=0\}_{\substack{(\lambda_1, \dots, \lambda_n) \in K^n \setminus \{(0, \dots, 0) \}\\n \in \setN}}}_\text{endlich konsistent}
+			\end{equation*}
+		\end{enumerate}
+		Zur Vollst"andigkeit: Das endliche Erzeugnis zweier nicht-trivialer Vektoren ist Isomorph, somit folgt Vollst"andigkeit.
+	\end{enumerate}
+\end{example}
+
+\begin{example}{ACF}\label{acf:ex}
+	Wir betrachten jetzt die Theorie algebraisch abgeschlossener K"orper (ACF) in der Ringsprache $\scrL_\text{Ring}=\{0, 1, +, -, \cdot \}$.
+	\begin{equation*}
+		\acf = \begin{cases}
+		\text{K"orperaxiome}\\
+		\{\Forall x_0 \Forall x_1 \dots \Forall x_{k-1} \Exists y (y^k + x_{k-1} y^{k-1} + \dots + x_1 y + x_0 \dot= 0) \}_{k \geq 1}
+		\end{cases}
+	\end{equation*}
+	$\acf$ hat Quantorenelimination, ist aber nicht vollst"andig. Die Vervollst"andigungen sind $\underbrace{\acf_0}_{1+1+ \dots + 1 \dot= 0}$ und $\underbrace{\acf_p}_{\underbrace{1+\dots+1}_{p\text{-Mal}} \dot= 0}$ f"ur jede Primzahl $p$.
+\end{example}
+
+\begin{theorem}[Kurzeinf"uhrung Galois'sche Theorie]
+	%TODO hier noch die Einf"uhrung abschreiben
+\end{theorem}
+
+\begin{proof}[Beweis \ref{acf:ex}]
+	Betrachte OBdA die Abbildung
+	\begin{equation*}
+		F = \quo (\langle c_1, \dots, c_n \rangle) \longrightarrow \quo (\langle d_1, \dots, d_n \rangle)
+	\end{equation*}
+	\underline{Fall 1:} $a$ ist algebraisch "uber $K$
+	
+	$\hookrightarrow$ sei $m_a(T)$ das Minimalpolynom von $a$ "uber $K$. $F(m_a)(T)$ ist ein normiertes Polynom "uber $\quo(\langle d_1, \dots, d_n \rangle) \subset B$.
+	
+	$B$ ist algebraisch abgeschlossen $\Rightarrow$ es gibt $b$ in $B$ mit $F(m_a)(b)=0 \overset{\text{Galoistheorie}}{\Longrightarrow} F$ l"asst sich erweitern. 
+	
+	\underline{Fall2:} $a$ ist transzendent "uber $K = \quo (\langle c_1, \dots, c_n \rangle)$.
+	
+	Wenn wir ein $b \in B$ finden, welches transzendent "uber $\quo(\langle d_1, \dots, d_n \rangle)$ ist
+	
+	$\hookrightarrow \ring_A (K, a) \simeq \ring_B (F(K), b)$
+	
+	\underline{Ziel:} Wir brauchen $\scrA \preceq \tilde{\scrA}$ mit unendlich vielen Elementen, welche algebraisch unabh"angig sind.
+	\begin{equation*}
+		\underbrace{\vdig(A) \cup \{\lnot (B(e_1, \dots, e_n)\dot= 0) \}_{\substack{P \in A[T_1, \dots, T_n] \setminus \{0\}\\P(e_1, \dots e_n) \neq 0}}}_{\text{endlich konsistent}}
+	\end{equation*}
+\end{proof}
+
 \end{document}
