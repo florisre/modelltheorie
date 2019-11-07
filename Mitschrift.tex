@@ -40,6 +40,8 @@
 \newcommand{\scrB}{\mathcal{B}}
 \newcommand{\scrC}{\mathcal{C}}
 \newcommand{\scrD}{\mathcal{D}}
+\newcommand{\scrU}{\mathcal{U}}
+\newcommand{\scrP}{\mathcal{P}}
 
 \DeclareMathOperator{\Diag}{Diag}
 
@@ -660,4 +662,134 @@
 	\end{equation*}
 \end{proof}
 
+
+%Sitzung 6
+\section{Ultrafilter \& der Satz von Ax}
+\underline{Anwendung:} Wir wollen eine Aussage der folgenden Art bekommen: Sei $f: \substack{\setC \longrightarrow \setC \\z \longmapsto z^2}$.\\
+$\rightarrow f$ ist surjektiv, aber nicht injektiv.
+ 
+\begin{theorem}[Ax]\label{ax:thm}
+	Sei $f: \underset{z \longmapsto z^2}{\setC^n \longrightarrow \setC^n}$ eine polynomiale\footnote{polynomial bedeutet, dass jede Koordinate der Abbildung durch Polynome gegeben ist.} injektive Abbildung. Dann ist $f$ surjektiv.
+\end{theorem}
+
+\underline{Motivation:} Sei $G$ eine Gruppe der Ordnung $p$. F"ur einen K"orper der Charakteristik $p$ bekommen wir dann:
+\begin{align*}
+	\underbrace{\setZ / p\setZ}_{\ni \bar{g}} \underset{\text{wirkt}}{\curvearrowright} \underbrace{K}_{\substack{\text{K"orper der}\\ \text{Charakteristik}\\p}} &\longrightarrow K\\
+	x &\longmapsto \underbrace{1+ \cdots +1}_{g \text{-Mal}}+ x\\
+	\rightarrow h+(g+x) = (h+g)+x
+\end{align*}
+F"ur einen K"orper der Charakteristik $0$:
+\begin{align*}
+	&\underbrace{\setZ/p \setZ}_{\ni \bar{k}} \underset{\text{wirkt}}{\curvearrowright} &&\setC \longrightarrow \setC\\
+	&\underbrace{\mu_p}_{\substack{p\text{-te Einheits-}\\ \text{wurzel in } \setC}} = \{e^{\frac{2\pi i k}{p}} \}_{0 \leq k < p} &&z \longmapsto \omega z\\
+	&\rightarrow \omega_1 (\omega \cdot z) = (\omega_1 \omega)\cdot z
+\end{align*}
+
+\begin{theorem}[Lefschetz'sches Prinzip]\label{lef:thm}
+	Eine Aussage $\chi$ in der Ringsprache $\scrL_\text{Ring}$ gilt f"ur $\setC$ genau dann, wenn es unendlich viele Primzahlen $p$ derart gibt, dass $\chi$ in einem algebraisch abgeschlossenen K"orper der Charakteristik $p$ gilt.
+\end{theorem}
+
+\begin{proof}[Beweis von Satz \ref{ax:thm} (Satz von Ax)]
+	Sei $f: \setC^n \longrightarrow \setC^n$ injektiv. Die Aussage "`$f$ injektiv $\Rightarrow f$ surjektiv"' l"asst sich als $\scrL_\text{Ring}$-Aussage schreiben.
+	
+	D. h. es gen"ugt zu zeigen, dass diese Aussage f"ur \underline{alle} K"orper $\mathbb{F}^\text{alg}_p$ gilt.
+	
+	\underline{Was ist $\mathbb{F}^\text{alg}_p$?}\marginpar{Galoistheo.} Ein algebraischer abgeschlossener K"orper der Charakteristik $p$.
+	\begin{align*}
+		\mathbb{F}^\text{alg}_p = \bigcup\limits_{n \in \setN} F_n \text{, wobei } F_n &\subset F_{n+1} \text{ endliche K"orper mit Charakteristik } p.\\
+		F_1&=\{0,1\}\\
+		F_2&= \cdots\\
+		&\vdots
+	\end{align*}
+	Sei nun $g: (\mathbb{F}^\text{alg}_p)^n \longrightarrow (\mathbb{F}^\text{alg}_p)^n$ eine surjektive polynomiale Abbildung.
+	
+	\underline{Zeige: $g$ ist surjektiv.} Sei $(b_1, \dots, b_n) \in (\mathbb{F}^\text{alg}_p)^n$. Dann gibt es ein $N$, sodass $b_i \in \mathbb{F}_n$ f"ur $\mathbb{F}_n$ endlich.
+	
+	Ferner k"onnen wir $N$ so w"ahlen, dass alle Koeffizienten aus $g$ in $\mathbb{F}_n$ liegen.
+	\begin{align*}
+		g_{\upharpoonright \mathbb{F}^n_N}: \underbrace{\mathbb{F}^n_N}_{\text{endlich}} \longrightarrow \underbrace{\mathbb{F}^n_N}_{\text{endlich}} \text{ ist }&\text{injektiv (geerbt)}\\
+		&\Downarrow \text{ endlich} \\
+		&\text{surjektiv}
+	\end{align*}
+\end{proof}
+
+\begin{proof}[Beweis vom Prinzip von Lefschetz (Satz \ref{lef:thm})]
+	\begin{itemize}
+		\item["`$\Rightarrow$"'] Sei $\chi$ eine $\scrL_\text{Ring}$-Aussage derart, dass $\setC \models \chi$. Dann ist $\underbrace{\acf_0}_{\substack{\text{alle elementar}\\ \text{"aquivalent}}} \cup \{\lnot \chi \}$ inkonsistent, weil $\acf_0$ vollst"andig ist.
+		
+		Dann gibt es eine endliche Teilmenge $T_0 \subset \acf_0 \cup \{\lnot \chi \}$, welche inkonsistent ist. $\Rightarrow$ Es gibt ein $N \in \setN$ sodass:
+		\begin{equation*}
+			T_0 \subset \underbrace{\acf \cup \{\lnot (\underbrace{1+ \cdots +1}_k \dot= 0) \}_{k<N} \cup \{\lnot \chi \}}_{\text{inkonsistent}}
+		\end{equation*}
+		F"ur $p>N$ eine Primzahl: $\acf_p \models \chi$
+		
+		\item["`$\Leftarrow$"'] $\rightsquigarrow$ Ultrafilter und Satz von Łoś
+	\end{itemize}
+\end{proof}
+		
+	\heading{Exkurs:} Sei im Folgenden $I \ne \emptyset$.
+	\begin{definition}
+		Ein Ultrafilter $\scrU$ auf $I$ ist ein endlich additives Wahrscheinlichkeitsma"s
+		\begin{equation*}
+			\mu_\scrU : \scrP(I) \longrightarrow \{0,1\}
+		\end{equation*}
+	\end{definition}
+	\begin{remark}
+		Die Definition entspricht der von Blatt 1 Aufgabe 3, denn:
+		\begin{enumerate}
+			\item $\mu_\scrU(I)=1$, $\mu_\scrU(\emptyset)=0$.
+			\item $\underset{X\subset Y \subset I}{\mu_\scrU(X)}=1 \Rightarrow \mu_\scrU(Y)=1$
+			\item Angenommen $\mu_\scrU(X)=\mu_\scrU(Y) = 1$ aber $\mu_\scrU(X \cap Y) = 0$. Dann gilt $X = X \setminus Y \dot\cup X \cap Y \Rightarrow \mu_\scrU(X \setminus Y) = 1$ und $\mu_\scrU(Y \setminus X) =1$, sowie $I \supset X \cup Y = X \setminus Y \dot\cup Y\setminus X \dot\cup X \cap Y$. $\rightsquigarrow \mu_\scrU(I)= 1 \geq 1+1+0$, ein Widerspruch.
+			\item Gegeben $X \subset I$ entweder $\underset{\mu_\scrU(X)=1}{X \in \scrU}$ oder $\underset{\mu_\scrU(I\setminus X)=1}{I\setminus X \in \scrU}$
+		\end{enumerate}
+	\end{remark}
+	
+	\begin{definition}
+		Ein Hauptultrafilter ist ein Ma"s der Form $\delta_x$ f"ur ein $x \in I$.
+	\end{definition}
+
+	\begin{definition}
+		Falls I undendlich ist, so gibt es generisch/reiche Ultrafilter, n"amlich die Ultrafilter, welche alle koendlichen Mengen enthalten.
+	\end{definition}
+
+	\begin{definition}
+		Angenommen $(\scrA_i)_{i \in I}$ ist eine $\scrL$-Struktur. Sei ferner $\scrU$ ein Ultrafilter. Definiere eine "Aquivalenzrelation\footnote{vergleiche dazu Blatt 1, Aufgabe 3} auf $\underbrace{\prod\limits_{\scrU}}_{\substack{\text{karthesisches}\\ \text{Produkt}}} A_i$:
+		\begin{equation*}
+			(a_i)_{i \in I} \sim_\scrU (b_i)_{i \in I} \Longleftrightarrow \{i \in I \mid a_i = b_i \} \in \scrU \Longleftrightarrow \mu_\scrU(\{i \in I \mid a_i = b_i \})=1
+		\end{equation*}
+	\end{definition}
+	\begin{definition}
+		Sei $\underbrace{\prod\limits_\scrU}_{\ne \emptyset} A_i$ die Menge $\prod\limits_{i \in I} A_i / \sim_\scrU$. Wir definieren Interpretationen der Symbole aus $\scrL$ auf $\prod\limits_{\scrU} A_i$:
+		\begin{itemize}
+			\item Sei $c \in \scrL$ ein Konstantenzeichen. Definiere:
+			\begin{equation*}
+				c^{\prod\limits_{\scrU} A_i} = (c^{\scrA_i})_{i \in I} / \sim_\scrU
+			\end{equation*}
+			\item Sei $f \in \scrL$ ein $n$-stelliges Funktionszeichen. Definiere:
+			\begin{equation*}
+				f^{\prod\limits_{\scrU} A_i} ([a_1]_\scrU, \dots, [a_n]_\scrU)= (f^{\scrA_i}(a_1^i, \dots, a_n^i))_{i \in I} / \sim_\scrU 
+			\end{equation*}
+			Ist das wohldefiniert? Ja, denn fast "uberall gleich.
+			\item Sei $\mathcal{R}$ ein $m$-stelliges Relationszeichen auf $\scrL$. Definiere:
+			\begin{equation*}
+				([a_1]_\scrU, \dots, [a_m]_\scrU) \in \mathcal{R}^{\prod\limits_{\scrU} A_i} \Longleftrightarrow \{i \in I \mid (a_1^i, \dots, a_n^i) \in \mathcal{R}^{\scrA_i} \} \in \scrU
+			\end{equation*}
+		\end{itemize}
+	\end{definition}
+	Wenn $\scrU$ ein Hauptfilter ist, dann ist er erzeugt vom Element $\{i_0 \}$.
+	\begin{align*}
+		\overbrace{\prod\limits_{\scrU} \scrA_i}^{\scrL \text{-Struktur}} &\overset{\varphi}{\longrightarrow} \scrA_{i_0} \text{ ist ein Isomorphismus}\\
+		(a_i)_{i \in I} / \sim_\scrU &\longmapsto a_{i_0}
+	\end{align*}
+	
+	\begin{definition}
+		Wenn $\scrA$ eine $\scrL$-Struktur und $\scrU$ ein Ultrafilter ist, dann ist $\scrA^\scrU = \prod\limits_{\scrU} \scrA$ die Ultrapotenz.
+	\end{definition}
+
+	\begin{example}
+		Sei $\scrU$ ein reicher/generischer Ultrafilter auf $\setN$. Betrachte $\mathcal{N} = (\setN, <)$.
+		\begin{equation*}
+			\mathcal{N}^\scrU \ni {(1,2,3, \dots)/\sim_\scrU} > {(1,1,1, \dots)/ \sim_\scrU}
+		\end{equation*}
+	\end{example}
 \end{document}
