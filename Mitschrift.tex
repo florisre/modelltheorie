@@ -59,6 +59,7 @@
 \DeclareMathOperator{\acf}{ACF}
 \DeclareMathOperator{\quo}{Quot}
 \DeclareMathOperator{\ring}{Ring}
+\DeclareMathOperator{\typ}{tp}
 
 
 \newtheoremstyle{dotless}{}{}{\normalfont}{}{\bfseries}{}{\newline}{}
@@ -527,7 +528,7 @@ Ziel dieser Vorlesung ist es, eine Aussage der folgenden Qualit"at zu erhalten:
 	$T=\exists^\infty$ hat Quantorenelimination und ist vollst"andig.
 \end{example}
 
-\begin{example}
+\begin{example}[$\dlo$]
 		$\dlo$ (dichte lineare Ordnung ohne Randpunkte). Sei $\scrL = \{<\}$.
 	\begin{align*}
 		\dlo = &\{\forall x (\lnot x<x) \}\\
@@ -624,7 +625,7 @@ Ziel dieser Vorlesung ist es, eine Aussage der folgenden Qualit"at zu erhalten:
 	\end{enumerate}
 \end{example}
 
-\begin{example}{ACF}\label{acf:ex}
+\begin{example}[$\acf$]\label{acf:ex}
 	Wir betrachten jetzt die Theorie algebraisch abgeschlossener K"orper (ACF) in der Ringsprache $\scrL_\text{Ring}=\{0, 1, +, -, \cdot \}$.
 	\begin{equation*}
 		\acf = \begin{cases}
@@ -639,7 +640,7 @@ Ziel dieser Vorlesung ist es, eine Aussage der folgenden Qualit"at zu erhalten:
 	%TODO hier noch die Einf"uhrung abschreiben
 \end{theorem}
 
-\begin{proof}[Beweis \ref{acf:ex}]
+\begin{proof}[Beweis \nameref{acf:ex}]
 	Betrachte OBdA die Abbildung
 	\begin{equation*}
 		F = \quo (\langle c_1, \dots, c_n \rangle) \longrightarrow \quo (\langle d_1, \dots, d_n \rangle)
@@ -689,7 +690,7 @@ F"ur einen K"orper der Charakteristik $0$:
 	Eine Aussage $\chi$ in der Ringsprache $\scrL_\text{Ring}$ gilt f"ur $\setC$ genau dann, wenn es unendlich viele Primzahlen $p$ derart gibt, dass $\chi$ in einem algebraisch abgeschlossenen K"orper der Charakteristik $p$ gilt.
 \end{theorem}
 
-\begin{proof}[Beweis von Satz \ref{ax:thm} (Satz von Ax)]
+\begin{proof}[Beweis von Satz \ref{ax:thm} (\nameref{ax:thm})]
 	Sei $f: \setC^n \longrightarrow \setC^n$ injektiv. Die Aussage "`$f$ injektiv $\Rightarrow f$ surjektiv"' l"asst sich als $\scrL_\text{Ring}$-Aussage schreiben.
 	
 	D. h. es gen"ugt zu zeigen, dass diese Aussage f"ur \underline{alle} K"orper $\mathbb{F}^\text{alg}_p$ gilt.
@@ -713,7 +714,7 @@ F"ur einen K"orper der Charakteristik $0$:
 	\end{align*}
 \end{proof}
 
-\begin{proof}[Beweis vom Prinzip von Lefschetz (Satz \ref{lef:thm})]
+\begin{proof}[Beweis \nameref{lef:thm} (Satz \ref{lef:thm})]
 	\begin{itemize}
 		\item["`$\Rightarrow$"'] Sei $\chi$ eine $\scrL_\text{Ring}$-Aussage derart, dass $\setC \models \chi$. Dann ist $\underbrace{\acf_0}_{\substack{\text{alle elementar}\\ \text{"aquivalent}}} \cup \{\lnot \chi \}$ inkonsistent, weil $\acf_0$ vollst"andig ist.
 		
@@ -847,7 +848,7 @@ F"ur einen K"orper der Charakteristik $0$:
 	
 	Sei im Weiteren $\scrU$ ein Ultrafilter auf $P$, welcher $\scrB$ enth"alt. $X \cap S \in \scrU$ ist f"ur alle $X \subset P$ koendlich.
 	
-	$\hookrightarrow~ \scrU$ ist reich (kein Hauptultrafilter). F"ur $p_0 \in P$ ist $P \setminus \{p_0\}$ koendlich. $\Rightarrow~P \setminus \{p_0\} \cap S \in \scrU$.
+	$\hookrightarrow~ \scrU$ ist reich (kein Hauptultrafilter). F"ur $p_0 \in P$ ist $P \setminus \{p_0\}$ koendlich. \\$\Rightarrow~P \setminus \{p_0\} \cap S \in \scrU$.
 	
 	$\hookrightarrow~ S \in \scrU$
 	
@@ -882,7 +883,7 @@ F"ur einen K"orper der Charakteristik $0$:
 	
 	Zu zeigen ist: $\scrA \models T$ (sei $\chi \in T$, zeige $\scrA \models \chi$).
 	
-	$\overset{\ref{los:thm}}{\Longleftrightarrow}~ \underbrace{\{s \in T \mid \scrA_s \models \chi \}}_{B_{\{\chi\}}} \in \scrU$
+	$\overset{\text{\nameref{los:thm}}}{\Longleftrightarrow}~ \underbrace{\{s \in T \mid \scrA_s \models \chi \}}_{B_{\{\chi\}}} \in \scrU$
 \end{proof}
 
 \part{Typen und Saturation}
@@ -908,4 +909,101 @@ Sei im Folgenden $\scrL$ eine Sprache und $\scrA$ eine $\scrL$-Struktur.
 \begin{remark}
 	Sei $\scrA$ eine unendliche Struktur. Dann gibt es immer einen partiellen Typen, der vermieden wird: $\{\lnot (x \dot= a) \}_{a \in A}$.
 \end{remark}
+
+%Sitzung 8 14.11.19
+\begin{remark}
+	Sei $\sum (x_1, \dots, x_n)$ ein partieller Typ "uber $C$ in $\scrA$. Dann gibt es eine elementare Erweiterung $\underbrace{\scrB \succeq \scrA}_{\scrL \cup \{c\}_{c \in C} \text{-Struktur}}$, welche $\sum$ realisiert.
+\end{remark}
+\begin{proof}
+	Seien $\zeta_1, \dots, \zeta_n$ neue Konstantenzeichen. Schreibe $T=\vdig(\scrA) \cup \sum(\zeta_1, \dots, \zeta_n)$. $T$ ist eine $\scrL_A \cup \{\zeta_1, \dots, \zeta_n \}$-Theorie. Falls $\scrB \models T$, dann ist $\{\zeta_1^\scrB , \dots, \zeta_n^\scrB \}$ eine Realisierung von $\sum (x_1, \dots, x_n)$.
+	
+	\emph{Zu zeigen ist: $T$ endlich konsistent.}\\
+	$T_0 \underset{\text{endlich}}{\subset} T \longrightarrow T_0 \subset \vdig(\scrA) \cup \{\varphi_i [\zeta_1, \dots, \zeta_n] \}_{i \in M}$ f"ur $\varphi_1, \dots, \varphi_M \in \sum$, $M \in \setN$. $\{\varphi_1, \dots, \varphi_M \}$ ist in $\scrA$ realisierbar von $(a_1, \dots, a_n) \in A^n$.\\
+	$\longrightarrow$ Setze $\tilde{\scrA}$ die $\scrL_A \cup \{\zeta_1, \dots, \zeta_n \}$-Struktur aus $\scrA$ mit Interpretationen $\zeta_i^{\tilde\scrA} = a_i$.
+\end{proof}
+\begin{definition}
+	Ein $n$-Typ "uber $C \subset A$ in der Struktur $\scrA$ ist ein partieller Typ in der Variable $x_1, \dots, x_n$ "uber $C$, welcher maximal endlich erf"ullbar ist bez"uglich der Inklusion zwischen partiellen Typen "uber $C$.\\
+	$S_n^\scrA (C)$ ist die Menge aller Typen in $\scrA$ "uber $C$.
+	\begin{equation*}
+		S^\scrA (C)= \bigcup\limits_{n \in \setN} S_n^\scrA (C)
+	\end{equation*}
+\end{definition}
+\begin{remark}
+	$S_n^\scrA (C) \neq \emptyset$. Gegeben $b_1,\dots, b_n \in A$, setze 
+	\begin{equation*}
+		\typ^\scrA (b_1, \dots, b_n \mid C)= \{\varphi[x_1, \dots, x_n]~ \scrL\text{-Formel} \mid \scrA \models \varphi[b_1, \dots, b_n] \}
+	\end{equation*}
+	ist ein $n$-Typ "uber $C$. 
+\end{remark}
+\begin{proof}
+	Sei $\varphi[x_1, \dots, x_n] \notin \typ^\scrA (b_1, \dots, b_n \mid C)$. Zu zeigen ist: $\typ^\scrA (b_1, \dots, b_n \mid C) \cup \{\varphi[x_1, \dots, x_n] \}$ nicht endlich erf"ullbar. Aus der Annahme folgt:
+	\begin{align*}
+		&\scrA \not\models \varphi[b_1, \dots, b_n]\\
+		\Longrightarrow~ &\scrA \models \lnot \varphi[b_1, \dots, b_n]\\
+		\Longrightarrow~ &\lnot \varphi[x_1, \dots, x_n] \in \typ^\scrA(b_1, \dots, b_n \mid C)\\
+		\Longrightarrow~ &\text{Widerspruch zur Maximalit"at}
+	\end{align*}
+	Sei nun $p (x_1, \dots, x_n) \in S^\scrA_n (C)$. Gegeben $\varphi[x_1, \dots, x_n]$ eine $\scrL_C$-Formel. Zu zeigen ist: $\varphi \in p$ oder $\lnot \varphi \in p$.
+	
+	Angenommen $\varphi \notin p$. $\Longrightarrow p \subsetneq \underbrace{p(x_1, \dots, x_n) \cup \{\varphi[x_1, \dots, x_n] \}}_\text{endlich erf"ullbar}$\\
+	$\rightsquigarrow$ Es gibt $\varphi_1, \dots, \varphi_k \in p$ sodass $\varphi_1, \dots, \varphi_k, \varphi$ in $A$ nicht erf"ullbar ist. Insbesondere
+	\begin{align*}
+		\scrA &\not\models \Exists x_1, \dots, x_n (\bigwedge\liminf_{i=1}^k \varphi_i[x_1, \dots, x_n] \land \varphi[x_1, \dots, x_n])\\
+		\Longleftrightarrow \scrA &\models \lnot \Exists x_1, \dots, x_n (\bigwedge\liminf_{i=1}^k \varphi_i[x_1, \dots, x_n] \land \varphi[x_1, \dots, x_n])\\
+		\Longleftrightarrow \scrA &\models \Forall x_1 \cdots \Forall x_n (\bigwedge\limits_{i=1}^k \varphi_i[x_1, \dots, x_n] \rightarrow \lnot \varphi[x_1, \dots, x_n])
+	\end{align*}
+	Es gen"ugt zu zeigen, dass $p \subseteq p(x_1, \dots, x_n) \cup \{\lnot \varphi[x_1, \dots, x_n]\}$ endlich erf"ullbar ist. 
+	Sei dazu $\psi_1, \dots, \psi_r \in p$. Wir wollen zeigen: 
+	\begin{equation*}
+		\scrA \models \Exists x_1, \dots, x_n (\bigwedge\limits_{j=1}^r \psi_j [x_1, \dots, x_n] \land \lnot \varphi[x_1, \dots, x_n])
+	\end{equation*}
+	$\varphi_1, \dots, \varphi_k, \psi_1, \dots, \psi_r \in p$, $p$ ist insbesondere partieller Typ.\\
+	$\hookrightarrow$ es gibt $(a_1, \dots, a_n) \in A^n$ mit $\scrA \models \bigwedge \varphi_i[a_1, \dots, a_k] \land \bigwedge \psi_j[a_1, \dots, a_n]$.\\
+	$\Longrightarrow~ \scrA \models \lnot \varphi[a_1, \dots, a_n]$
+\end{proof}
+
+\heading{Allgemeiner:} Sei $T$ eine konsistente Theorie in der Sprache $\scrL$. Definiere: $n$-Typ in $T$ ist eine Kollektion von $\scrL$-Formeln in $x_1, \dots, x_n$, welche endlich konsistent mit $T$ ist, es gilt also f"ur $\varphi_1, \dots, \varphi_m \in p$: $T \cup \{\Exists x_1, \dots, x_n (\bigwedge\limits_{j=1}^m \varphi_j [x_1, \dots, x_m]) \}$ ist konsistent, und maximal bez"uglich Inklusion mit dieser Eigenschaft:
+
+F"ur $\scrA$ eine $\scrL$-Struktur und $C \subset A$. Dann sei $T$ die $\scrL_C$-Theorie von $\scrA$. \begin{equation*}
+	\underbrace{p \in S_n (T)}_{n \text{-Typ von }T} \Leftrightarrow p \in S_n^\scrA (C)
+\end{equation*}
+
+\begin{corollary}
+	Gegeben eine $\scrL$-Struktur $\scrA$ gibt es $\scrB \succ \scrA$, welche alle Typen in $S^\scrA (A)$ realisiert.
+\end{corollary}
+\begin{proof}
+	Sei $\{p_\alpha\}_{\alpha < \lambda}$ eine Aufz"ahlung von $S^\scrA (A)$. Wir konstruieren eine elementare Kette $\scrA = \scrA_0 \preceq \scrA_1 \preceq \dots \preceq \scrA_\alpha \preceq \dots$ so, dass $\underbrace{p_\alpha}_{\substack{\text{als part. Typ}\\ \text{"uber } A \text{ in } \scrA_\alpha}}$ in $\scrA_{\alpha+1}$ realisiert wird.\\
+	$\scrA_0 = \scrA$. $\scrA_1$ wird mithilfe des Lemmas f"ur $p_0$ gewonnen. Falls $\gamma$ eine Limeszahl ist: Setze $\scrA_\gamma = \bigcup\limits_{\beta<\gamma} \scrA_\beta$. Sei $\scrA \preceq \scrB = \bigcup\limits_{\alpha<\lambda} \scrA_\lambda$.
+\end{proof}
+
+\heading{Achtung:} $\scrB$ kann sehr gro"s werden!
+\begin{example}
+	$\scrA = (\setR, <) ~\rightsquigarrow$ Typ f"ur jedes Element aus $\setR$.
+	\begin{align*}
+		r \in \setR \longrightarrow p_r \supset &\{x<r \} \cup \{s < x \}_{s<r}\\
+		p_r \text{ "`="' } &\{x<r \} \cup \{s < x \}_{s<r}\\
+		p_{r^+} = &\{x> r\} \cup \{s>x \}_{s>r}
+	\end{align*}
+\end{example}
+
+\heading{Ziel:} $S_n (T)$ ist ein kompakter, $0$-dimensionaler Hausdorff topologischer Raum $\rightsquigarrow$ "`Stoneraum der Theorie $T$"'.
+
+\section[Topologie]{Exkurs: Einf"uhrung in die Topologie}
+Sei $X$ eine Menge.
+\begin{definition}
+	Eine Basis $\scrB$ einer Topologie auf $X$ ist eine Kollektion von Teilmengen derart, dass
+	\begin{enumerate}
+		\item $\Forall x \in X$ gibt es $B \in \scrB$ mit $x \in B$
+		\item $\Forall B_1, B_2 \in \scrB \Forall x \in B_1 \cap B_2$ gibt es ein $B_3 \in \scrB$ mit $x \in B_3 \subset B_1 \cap B_2$
+	\end{enumerate}
+\end{definition}
+\begin{definition}
+	$U\subset X$ ist \emph{offen}, falls es f"ur jedes $x \in U$ ein $B \in \scrB$ gibt mit $x \in B \subset U$.\\
+	Sei $T = \{ U \underset{\text{offen}}{\subset} X\}$. Die Kollektion $T$ erf"ullt folgende Eigenschaften:
+	\begin{enumerate}
+		\item $\emptyset, X \in T$
+		\item $U_1, U_2 \in T \Rightarrow U_1 \cap U_2 \in T$
+		\item Sei $(U_i)_{i \in I} \subset T$. Dann ist $\bigcup\limits_{i \in I} U_i \in T$
+	\end{enumerate}
+\end{definition}
 \end{document}
