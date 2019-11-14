@@ -155,7 +155,7 @@
 		\item $c^\scrA=c^{\scrA_i}$ f"ur ein (alle) $i \in I$, denn $c^{\scrA_i}=c^{\scrA_j}=c^{\scrA_k}$, {wegen gerichteter Ordnung}
 		\item $a_1, \dots a_n \in A = \underset{i \in I}{\bigcup} A_i \Longrightarrow \exists i \in I$ mit $a_1, \dots, a_n \in A_i$.
 		Also ist $f^\scrA (a_1, \dots, a_n) = f^{\scrA_i} (a_1, \dots, a_n)$ wohldefiniert.
-		\item $(a_1, \dots, a_m) \in R^\scrA$ gdw es ein $i \in I$ gibt mit $a_1, \dots, a_m \in A_i$ und $(a_1, \dots, a_m) \in R^{\scrA_i}$
+		\item $(a_1, \dots, a_m) \in R^\scrA$ genau dann, wenn es ein $i \in I$ gibt mit $a_1, \dots, a_m \in A_i$ und $(a_1, \dots, a_m) \in R^{\scrA_i}$
 	\end{itemize}
 
 	\underline{Beachte}, dass $\scrA_i \underset{US}{\subset} \scrA$ f"ur alle $i \in I$.
@@ -183,7 +183,7 @@
 	
 	\begin{itemize}
 		\item Jede Formel $\varphi [x_1, \dots, x_n]$ l"asst sich in \underline{pr"anexer Normalform} umschreiben:	
-		$Q_1 y_1 Q_2 y_2 \dots Q_m y_m \psi [x_1, \dots, x_n, y_1, \dots, y_m]$. Das ist eine quantorfreie Formel, diese l"asst sich weiter zerlegen in KNF bzw. DNF.
+		$Q_1 y_1 Q_2 y_2 \dots Q_m y_m \psi [x_1, \dots, x_n, y_1, \dots, y_m]$, mit $Q_i \in \{\forall, \exists\}$. Das ist eine quantorfreie Formel, diese l"asst sich weiter zerlegen in KNF bzw. DNF.
 		\item Eine Formel ohne freie Variablen ist eine Aussage
 		\item Eine Theorie ist eine Kollektion von Aussagen
 	\end{itemize}
@@ -215,7 +215,7 @@
 \end{definition}
 
 \begin{theorem}[Kompaktheitssatz]
-	Eine Theorie ist genau dann konsistent, wenn sie \underline{endlich konsistent}\footnote{endlich konsistent bedeutet: jede Teilmenge der Theorie besitzt ein Modell.} ist.
+	Eine Theorie ist genau dann konsistent, wenn sie \underline{endlich konsistent}\footnote{endlich konsistent bedeutet: jede endliche Teilmenge der Theorie besitzt ein Modell.} ist.
 \end{theorem}
 
 \underline{Wie zeigen wir, dass $\scrA \equiv \scrB$?}
@@ -723,7 +723,7 @@ F"ur einen K"orper der Charakteristik $0$:
 		\end{equation*}
 		F"ur $p>N$ eine Primzahl: $\acf_p \models \chi$
 		
-		\item["`$\Leftarrow$"'] $\rightsquigarrow$ Ultrafilter und Satz von Łoś
+		\item["`$\Leftarrow$"'] $\rightsquigarrow$ Ultrafilter und \nameref{los:thm}
 	\end{itemize}
 \end{proof}
 		
@@ -792,4 +792,119 @@ F"ur einen K"orper der Charakteristik $0$:
 			\mathcal{N}^\scrU \ni {(1,2,3, \dots)/\sim_\scrU} > {(1,1,1, \dots)/ \sim_\scrU}
 		\end{equation*}
 	\end{example}
+
+%Sitzung 7
+\begin{theorem}[Satz von Łoś]\label{los:thm}
+	Sei $\scrU$ ein Ultrafilter auf $I$, $(\scrA_i)_{i \in I}$ eine Familie von $\scrL$-Strukturen, $\varphi[x_1, \dots, x_n]$ eine $\scrL$-Formel und $[a_1]_\scrU , \dots, [a_n]_\scrU \in \prod\limits_{\scrU} A_i$. Dann gilt:
+	\begin{equation*}
+		\prod\limits_{\scrU} \scrA_i \models \varphi[[a_1]_\scrU , \dots , [a_n]_\scrU] \Longleftrightarrow \{i \in I \mid \scrA_i \models \varphi[a^1, \dots, a^n] \} \in \scrU
+	\end{equation*}
+\end{theorem}
+\begin{proof}
+	Induktiv "uber den Aufbau von $\varphi$. Sei $\varphi = (t_1 \dot= t_2)$. Dann gilt:
+	\begin{align*}
+		\prod\limits_{\scrU} A_i &\models (t_1[[a_1]_\scrU , \dots, [a_n]_\scrU] \dot= t_2[[a_1]_scrU, \dots, [a_n]_\scrU])\\
+		&\Leftrightarrow t_1^{\prod\limits_{\scrU} \scrA_i}[[a_1]_\scrU , \dots, [a_n]_\scrU] \dot= t_2^{\prod\limits_{\scrU} \scrA_i}[[a_1]_\scrU, \dots, [a_n]_\scrU]\\
+		&\underset{\substack{\text{induktiv "uber}\\ \text{den Aufbau}}}{\Leftrightarrow} \{i \in I \mid \scrA_i \models t_1[a_i^1, \dots, a_i^n]\dot= t_2 [a_i^1, \dots, a_i^n] \} \in \scrU
+	\end{align*}
+\end{proof}
+
+\begin{corollary}
+	Sei $\scrA$ eine $\scrL$-Struktur und $\scrU$ ein Ultrafilter auf $I$. Betrachte $\scrA^\scrU = \prod\limits_{\scrU} \scrA$. Das ist eine elementare Erweiterung von $\scrA$ bez"uglich der Abbildung \marginpar{Einbettung,\\injektiv}$\underset{a \longmapsto (a)_{i \in I}/\sim_\scrU}{A \longrightarrow \prod\limits_{\scrU} A}$.
+\end{corollary}
+\begin{proof}
+	Sei $\varphi$ eine $\scrL$-Formel, $a_1, \dots, a_n \in A$. Zu zeigen ist:
+	\begin{equation*}
+		\scrA \models \varphi[a_1, \dots, a_n] \Longleftrightarrow \scrA_i^\scrU \models \varphi[[a_1]_\scrU , \dots, [a_n]_\scrU]
+	\end{equation*}
+	\underline{"`$\Rightarrow$"':} Mit \nameref{los:thm} gilt:
+	\begin{equation*}
+		\scrA_i^\scrU \models \varphi[[a_1]_\scrU , \dots, [a_n]_\scrU] \Longleftrightarrow \{i \in I \mid \scrA \models \varphi[a_1, \dots, a_n] \} \in \scrU
+	\end{equation*}
+	Da dieser Ausdruck jedoch der gesamten Menge I entspricht, folgt die Behauptung direkt.
+	
+	\underline{"`$\Leftarrow$"':} Die leere Menge liegt nicht in $\scrU$, also gibt es $i$ sodass die Formel gilt, da diese jedoch von $i$ unabh"angig ist, gilt sie immer.
+\end{proof}
+
+\begin{proof}[Beweis \nameref{lef:thm} \eqref{lef:thm} "`$\Leftarrow$"']
+	Sei
+	\begin{align*}
+		S= \left\{p \text{ Primzahl}\mid 
+		\begin{array}{l l}
+		\text{ein algebraisch abgeschlossener K"orper mit}\\ 
+		\text{Charakteristik } p\text{ erf"ullt die Aussage } \chi  \end{array}\right\}
+	\end{align*}
+	
+	Zeige: $S$ ist unendlich. Sei $P \subset \setN$ Primzahlen. Betrachte jetzt
+	\begin{equation}
+		\scrB = \{X \cap S \subset P \mid X \subset P \text{ koendlich} \}
+	\end{equation}
+	Ist $\scrB$ eine Filterbasis? $X \cap S = \emptyset$ ist endlich $\Longleftrightarrow~ S \subset P \setminus X$ unendlich, ein Widerspruch.
+	
+	Weiter gilt $(X_1 \cap S) \cap (X_2 \cap S) = \underbrace{(X_1 \cap X_2)}_\text{koendlich} \cap S$.
+	
+	$\overset{\text{Blatt 1}}{\Rightarrow}$ es gibt einen Ultrafilter, welcher alle Elemente aus $\scrB$ enth"alt.
+	
+	Sei im Weiteren $\scrU$ ein Ultrafilter auf $P$, welcher $\scrB$ enth"alt. $X \cap S \in \scrU$ ist f"ur alle $X \subset P$ koendlich.
+	
+	$\hookrightarrow~ \scrU$ ist reich (kein Hauptultrafilter). F"ur $p_0 \in P$ ist $P \setminus \{p_0\}$ koendlich. $\Rightarrow~P \setminus \{p_0\} \cap S \in \scrU$.
+	
+	$\hookrightarrow~ S \in \scrU$
+	
+	Sei $K= \prod\limits_{\scrU} K_p$, wobei $K_p$ ein algebraisch abgeschlossener K"orper der Charakteristik $p$ ist derart, dass
+	
+	\begin{equation*}
+		\begin{cases}
+			K_p \models \chi &p \in S\\
+			\text{egal }_{\text{bspw. } \mathbb{F}_p^{\text{alg}}} &p \notin S
+		\end{cases}	
+	\end{equation*}
+	\begin{enumerate}
+		\item $K \models \acf_0$
+		\item $K \models \chi$, weil $\{p \in P \mid K_p \models \chi \} \supset S \in \scrU$
+	\end{enumerate}
+	$\acf_0$ ist vollst"andig $\Rightarrow~ \setC \models \chi$.
+\end{proof}
+
+\begin{theorem}[Kompaktheitssatz]\label{kmp:thm}
+	Eine Theorie $T$ ist genau dann konsistent, wenn sie endlich konsistent ist.
+\end{theorem}
+\begin{proof}
+	OBdA ist $T$ unendlich. Sei $I = \{\emptyset \neq S \subset T \text{ endlich} \}$. F"ur $s \in I$ gibt es eine $\scrL$-Struktur $\scrA_s$, sodass $\scrA_s \models \chi$ f"ur jedes $\chi \in s$. Sei weiter \begin{equation*}
+		B_s = \{t \in I \mid \scrA_t \models \chi \text{ f"ur jedes } \chi \in s \}
+	\end{equation*}
+	Ist $\scrB = \{B_s\}_{s\in I}$ eine Filterbasis?
+	\begin{enumerate}
+		\item $\emptyset \neq B_s \ni s$
+		\item $B_{s_1} \cap B_{s_2} = \{t \in I \mid \scrA_t \models \chi \text{ f"ur alle } \chi \text{ aus } s_2 \} = B_{s_1 \cup s_2} \in \scrB$!
+	\end{enumerate}
+	Sei $\scrU$ ein Ultrafilter auf $I$, sodass $B_s \in \scrU$ f"ur jedes $\emptyset \neq s \subset T$ endlich. Sei $\scrA = \prod\limits_{\scrU} \scrA_s$.
+	
+	Zu zeigen ist: $\scrA \models T$ (sei $\chi \in T$, zeige $\scrA \models \chi$).
+	
+	$\overset{\ref{los:thm}}{\Longleftrightarrow}~ \underbrace{\{s \in T \mid \scrA_s \models \chi \}}_{B_{\{\chi\}}} \in \scrU$
+\end{proof}
+
+\section{Typen}
+Sei im Folgenden $\scrL$ eine Sprache und $\scrA$ eine $\scrL$-Struktur.
+\begin{definition}
+	Ein partieller Typ $\sum (x_1, \dots, x_n)$ mit Parametern aus $B$ ist eine Kollektion von Formeln in der Sprache $\scrL \cup \{b\}_{b \in B}$, welche in der (kanonischen) $\scrL \cup \{b\}_{b \in B}$-Struktur $\scrA$ endlich erf"ullbar ist, das hei"st f"ur alle $\varphi_1, \dots, \varphi_m \in \sum$ gibt es ein Tupel $(a_1, \dots, a_n) \in A^n$ mit $\scrA \models \varphi_i(a_1, \dots, a_n)$ f"ur $1 \leq i \leq m$.
+	
+	$\scrA$ realisiert $\sum$, falls es ein Tupel $(a_1, \dots, a_n)$ gibt, sodass $\scrA \models \varphi[a_1, \dots, a_n]$ f"ur alle $\varphi \in \sum$. Sonst $\begin{array}{c}
+		\text{vermeidet}\\ 
+		\text{"ubergeht}
+	\end{array} \scrA$ den partiellen Typ $\sum$. 
+\end{definition}
+\begin{example}
+	Betrachte $(\setR, 0, <)$. Sei $\sum (x) = \{0 < x<q \}_{\substack{q \in \setQ \\ q>0}}$ ein partieller Typ.
+	
+	Wird $\sum$ realisiert oder vermieden? $\rightsquigarrow$ vermieden
+	
+	Sei jedoch $\sum' = \{\sqrt{2} \leq x < q \}_{\substack{q \in \setQ \\ q > \sqrt{2}}}$. $\rightsquigarrow$ realisiert von $\sqrt{2}$
+	
+	Betrachte nun $\sum$ auf $\prod\limits_{\scrU} \setR$. Hier realisiert $(1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \dots)$ den partiellen Typen $\sum$!
+\end{example}
+\begin{remark}
+	Sei $\scrA$ eine unendliche Struktur. Dann gibt es immer einen partiellen Typen, der vermieden wird: $\{\lnot (x \dot= a) \}_{a \in A}$.
+\end{remark}
 \end{document}
