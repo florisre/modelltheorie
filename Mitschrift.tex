@@ -22,7 +22,7 @@
 \usetikzlibrary{arrows}
 
 \usepackage{enumitem}
-\setenumerate{label=\arabic*)}
+\setenumerate{label=(\arabic*)}
 
 \newcommand{\setN}{\mathbb{N}}
 \newcommand{\setZ}{\mathbb{Z}}
@@ -1006,4 +1006,163 @@ Sei $X$ eine Menge.
 		\item Sei $(U_i)_{i \in I} \subset T$. Dann ist $\bigcup\limits_{i \in I} U_i \in T$
 	\end{enumerate}
 \end{definition}
+
+%Sitzung 9 19.11.19
+\begin{example}
+	\begin{enumerate}
+		\item die euklidische Topologie auf $\setR^n, \setC^n$
+		\item die triviale Topologie auf $X$ ist $\{\emptyset, X \}$
+		\item die diskrete Topologie auf $X$ ist $\scrP(X)$
+		\item die koendliche Topologie auf $X$ wird gegeben als: 
+		\begin{equation*}
+			U \subset X \text{ offen } \Longleftrightarrow |X \setminus U| \text{ endlich, oder } U = \emptyset
+		\end{equation*}
+	\end{enumerate}
+	So ist beispielsweise $(0,1)$ offen in $\setR$ f"ur die euklidische Topologie, aber nicht f"ur die koendliche Topologie.
+\end{example}
+\begin{remark}
+	$Y \subset X$ ist offen $\Longleftrightarrow~ \Forall x \in Y \underbrace{\Exists \underset{\in T}{U} \ni x}_{\substack{U \text{ ist eine}\\ \text{Umgebung von } x}}$ mit $x \in U \subset Y$
+\end{remark}
+\begin{definition}
+	Eine Menge $C \subset X$ ist \emph{abgeschlossen}, falls das Komplement offen ist.
+\end{definition}
+\begin{definition}
+	Ein topologischer Raum $(X.T)$ ist \emph{0-dimensional}, falls es eine Basis der Topologie gibt, welche aus offen-abgeschlossenen\footnote{Englisch: "`clopen"'} Mengen besteht.
+\end{definition}
+\begin{example}
+	Die diskrete Topologie ist \emph{0-dimensional}, weil sie als Basis $\{\{x\} \}_{x \in X}$ hat.
+\end{example}
+\begin{definition}[Trennungseigenschaften]
+	Sei $(X, T)$ ein topologischer Raum.
+	\begin{enumerate}
+		\item[T1] \label{T1} Falls $x \neq y \in X$ gibt es Umgebungen $\overbrace{U^x, U^y}^{\substack{\text{offene Mange}\\ \text{die } x \text{ enth"alt}}}$ mit $x \in U^x \setminus U^y, y \in U^y \setminus U^x$.
+		\item[T2] \label{T2} (Hausdorff) falls $x \neq y \in X$ gibt es $U^x, U^y$ Umgebungen mit $U^x \cap U^y = \emptyset$
+	\end{enumerate}
+\end{definition}
+\begin{remark}
+	$T2 \Rightarrow T1$
+\end{remark}
+\begin{example}
+	\begin{itemize}
+		\item Ist die euklidische Topologie T2? Ja.
+		\item Sei $X$ unendlich. Ist die koendliche Topologie $T$ Hausdorff? Nein. Ist sie T!? Ja: $U^x = X \setminus \{y\}, U^y = X \setminus \{x\}$
+	\end{itemize}
+\end{example}
+\begin{remark}
+	$(X,T) T1 \Rightarrow$ Jeder Punkt ist abgeschlossen!
+\end{remark}
+\begin{proof}
+	Zu zeigen: $X \setminus \{x\}$ offen\\
+	Sei $y \in X \setminus \{x\}$. Wir suchen $U^y \subset X \setminus \{x\}$. Es gilt $x \neq y \Longrightarrow \begin{array}{l}
+		U^x\\
+		U^y
+	\end{array}$, insbesondere $x \notin U^y \Longrightarrow \underset{\in Y}{U^y} \subset x \setminus \{x\}$
+\end{proof}
+\begin{definition}
+	$(X,T)$ topologischer Raum. \begin{itemize}
+		\item $s \in X$ ist \emph{isoliert}, falls $\{x\}$ offen ist.
+		\item $A \subset X$ ist \emph{dicht}, falls f"ur jede offene Menge $\emptyset \neq U \subset X$ ist $A \cap U \neq \emptyset$
+		\item $x \in X$ ist ein \emph{H"aufungspunkt von $A$}, falls f"ur jede Umgebung $U^x \ni x$ gilt, dass $U^x \cap (A\setminus \{x\}) \neq \emptyset$
+	\end{itemize}
+\end{definition}
+\begin{remark}
+	Sei $A \underset{\text{dicht}}{\subset} X$. $\underbrace{C}_{\supset A} \underset{\text{ageschl.}}{\subset} X \Longrightarrow C=X$
+\end{remark}
+\begin{proof}
+	Zu zeigen ist: $C=X$. Sonst ist $\overbrace{\underset{\neq \emptyset}{X \setminus C}}^U$ offen. $\overset{A \text{ dicht}}{\Longrightarrow} \underbrace{A \cap U}_{\subset C \cap (x \setminus C) = \emptyset} \neq \emptyset$, ein Widerspruch.
+\end{proof}
+\begin{remark}
+	Eine Topologie auf $X$ ist genau dann diskret, \marginpar{"Ubung} falls jeder Punkt isoliert ist.
+\end{remark}
+\begin{remark}
+	Eine Teilmenge $C \subset X$ ist genau dann abgeschlossen, wenn $C$ alle ihre H"aufungspunkte enth"alt.
+\end{remark}
+\begin{proof}
+	\underline{"`$\Rightarrow$"':} $x \notin C \Rightarrow x \in \underbrace{X \setminus C}_{\text{offen}}$ und $(X \setminus C) \cap (\underbrace{C \setminus \{x\}}_{=C}) = \emptyset \Rightarrow x$ kein H"aufungspunkt von $C$.
+	
+	\underline{"`$\Leftarrow$"'}: Zu zeigen: $X \setminus C$ offen. Sei dazu $x \in X \setminus C$ beliebig. $\Rightarrow x$ ist kein H"aufungspunkt von C $\Rightarrow \Exists U^x \ni x$ mit $U^x \cap \underbrace{C \setminus \{x\}}_{= C} = \emptyset \Rightarrow x \in U^x \subset X \setminus C$
+\end{proof}
+\begin{definition}
+	Seien $X, Y$ topologische R"aume. Die Abbildung $f: X \longrightarrow Y$ ist \emph{stetig auf $x_0$}, falls f"ur jede Umgebung $V^{f(x_0)} \ni f(x_0)$ (in $Y$) das Urbild $f^{-1}(V)$ in $X$ offen ist.\\
+	$f$ ist stetig, wenn sie auf jedem Punkt in $X$ stetig ist.
+\end{definition}
+\begin{remark}
+	Es gen"ugt Urbilder von Basiselementen zu betrachten. Warum? Sei $V$ eine Umgebung von $f(x_0)$.\\
+	$\hookrightarrow$ es gibt $B$ ein Basiselement mit $f(x_0) \in B \subset V \Rightarrow x_0 \in \underbrace{f^{-1}(B)}_{\text{offen}} \subset f^{-1}(V)$
+\end{remark}
+\begin{remark}
+	$f: X \longrightarrow Y$ ist genau dann stetig, wenn $f^{-1}(C)$ abgeschlossen in $X$ ist f"ur alle $\underset{\text{abgeschlossen}}{C \subset Y}$.
+	\begin{equation*}
+		X \setminus f^{-1}(C) = f^{-1}(Y \setminus C)
+	\end{equation*}
+\end{remark}
+\begin{example}
+	$f: \begin{array}{c}
+		X \longrightarrow Y\\
+		x \longmapsto y_0
+	\end{array}$ konstant. Ist $f$ stetig? Ja, denn $f^{-1}(x) = \begin{cases}
+		X &x=y_0\\
+		\emptyset &\text{sonst}
+	\end{cases}$.
+\end{example}
+\begin{definition}
+	Die Abbildung $f: X \longrightarrow Y$ ist $\begin{array}{c}
+		\text{offen}\\
+		\text{abgeschlossen}
+	\end{array}$, falls f"ur jede $\begin{array}{c}
+		\text{offene}\\
+		\text{abgeschlossene}
+	\end{array}$ Teilmenge $\begin{array}{c}
+		U\\
+		C
+	\end{array}$ von $X$ das Bild $\begin{array}{c c}
+		f(U) &\text{offen}\\
+		f(C) &\text{abgeschlossen}
+	\end{array}$ ist.
+\end{definition}
+\begin{remark}
+	\begin{equation*}
+		\text{offen} \begin{array}{c}
+			\not\Longrightarrow\\
+			\not\Longleftarrow
+		\end{array} \text{abgeschlossen}
+	\end{equation*}
+\end{remark}
+\begin{example}
+	Betrachte $\Pi : \begin{array}{c}
+		\setR^2 \longrightarrow \setR\\
+		(x,y) \longmapsto x
+	\end{array}$ mit euklidischer Topologie. $\Pi$ ist offen, aber nicht abgeschlossen: Betrachte $\overset{\text{abgeschlossen}}{x \cdot y = 1} \mapsto \overset{\substack{\text{nicht}\\ \text{abgeschlossen}}}{x \neq 0}$.
+\end{example}
+\begin{example}
+	Sei $\begin{array}{c}
+		X \longrightarrow Y\\
+		\text{konstant}
+	\end{array}$ unendlich mit koendlicher Topologie. Diese Abbildung ist abgeschlossen, aber nicht offen.
+\end{example}
+\begin{definition}
+	Ein Hom"oomorphismus $f: X \longrightarrow Y$ ist eine bijektive stetige Abbildung derart, dass die mengentheoretische Abbildung $\begin{array}{c}
+		f^{-1} \text{auch stetig}\\
+		\overset{\text{bzw.}}{f \text{ offen}}\\
+		\overset{\text{bzw.}}{f \text{ abgeschlossen}}
+	\end{array}$ ist.
+\end{definition}
+\begin{definition}
+	$(X,T)$ topologischer Raum. Die MEnge $K \subset X$ ist kompakt, falls jede offene "Uberdeckung $K \subset \bigcup\limits_{i \in I} \underbrace{U_i}_{\text{offen}}$ eine endliche "Uberdeckung besitzt: Es gibt $i_1, \dots, i_n \in I$ mit $K \subset U_{i_1} \cup \dots \cup U_{i_n}$.\\
+	$(X,T)$ ist kompakt, wenn $X$ kompakt ist.
+\end{definition}
+\begin{remark}
+	\begin{itemize}
+		\item Jede endliche Menge ist kompakt
+		\item $f: X \longrightarrow Y$ stetige Abbildung, $K \subset X$ kompakt $\Rightarrow f(K)$ kompakt in $Y$.
+	\end{itemize}
+\end{remark}
+\begin{proof}
+	Zu zeigen: $f(K)$ kompakt.
+	\begin{align*}
+		f(K) \subset \bigcup\limits_{i \in I} \underbrace{V_i}_{\text{offen in }Y} &\Rightarrow K \subset f^{-1}(f(K)) \subset \bigcup\limits_{i \in I} \underbrace{f^{-1}(V_i)}_{\text{offen}}\\
+		&\Rightarrow K \subset f^{-1}(V_{i_1}) \cup \dots \cup f^{-1}(V_{i_n})\\
+		&\Rightarrow f(K) \subset \underbrace{f(f^{-1}(V_{i_1})}_{\subset V_{i_1}} \cup \dots \cup \underbrace{f(f^{-1}(V_{i_n}))}_{\subset V_{i_n}} 
+	\end{align*}
+\end{proof}
 \end{document}
