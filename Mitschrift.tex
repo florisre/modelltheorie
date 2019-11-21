@@ -60,6 +60,7 @@
 \DeclareMathOperator{\quo}{Quot}
 \DeclareMathOperator{\ring}{Ring}
 \DeclareMathOperator{\typ}{tp}
+\DeclareMathOperator{\Th}{Th}
 
 
 \newtheoremstyle{dotless}{}{}{\normalfont}{}{\bfseries}{}{\newline}{}
@@ -71,6 +72,7 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Beispiel}
+\newtheorem{remark}[theorem]{Bemerkung}
 \newtheorem*{axiom}{Axiom}
 
 \makeatletter
@@ -78,8 +80,6 @@
 \makeatother 
 
 
-\theoremstyle{remark}
-\newtheorem*{remark}{Bemerkung}
  
 \hfuzz=5pt 
  
@@ -214,7 +214,7 @@ Ziel dieser Vorlesung ist es, eine Aussage der folgenden Qualit"at zu erhalten:
 	\end{itemize}
 \end{definition}
 
-\begin{theorem}[Kompaktheitssatz]
+\begin{theorem}[Kompaktheitssatz]\label{satz:kompakt}
 	Eine Theorie ist genau dann konsistent, wenn sie \underline{endlich konsistent}\footnote{endlich konsistent bedeutet: jede endliche Teilmenge der Theorie besitzt ein Modell.} ist.
 \end{theorem}
 
@@ -1148,7 +1148,7 @@ Sei $X$ eine Menge.
 	\end{array}$ ist.
 \end{definition}
 \begin{definition}
-	$(X,T)$ topologischer Raum. Die MEnge $K \subset X$ ist kompakt, falls jede offene "Uberdeckung $K \subset \bigcup\limits_{i \in I} \underbrace{U_i}_{\text{offen}}$ eine endliche "Uberdeckung besitzt: Es gibt $i_1, \dots, i_n \in I$ mit $K \subset U_{i_1} \cup \dots \cup U_{i_n}$.\\
+	$(X,T)$ topologischer Raum. Die Menge $K \subset X$ ist kompakt, falls jede offene "Uberdeckung $K \subset \bigcup\limits_{i \in I} \underbrace{U_i}_{\text{offen}}$ eine endliche "Uberdeckung besitzt: Es gibt $i_1, \dots, i_n \in I$ mit $K \subset U_{i_1} \cup \dots \cup U_{i_n}$.\\
 	$(X,T)$ ist kompakt, wenn $X$ kompakt ist.
 \end{definition}
 \begin{remark}
@@ -1164,5 +1164,99 @@ Sei $X$ eine Menge.
 		&\Rightarrow K \subset f^{-1}(V_{i_1}) \cup \dots \cup f^{-1}(V_{i_n})\\
 		&\Rightarrow f(K) \subset \underbrace{f(f^{-1}(V_{i_1})}_{\subset V_{i_1}} \cup \dots \cup \underbrace{f(f^{-1}(V_{i_n}))}_{\subset V_{i_n}} 
 	\end{align*}
+\end{proof}
+
+%Sitzung 10
+\begin{lemma}
+	$K \subset X$ kompakt. $C \underset{\text{abg.}}{\subset} X$ mit $C \subset K \Longrightarrow C$ kompakt.
+\end{lemma}
+\begin{proof}
+	Sei $C \subset \bigcup\limits_{i \in I} \underbrace{U_i}_{\text{offen}}$. $C$ abgeschlossen $\Longrightarrow X \setminus C$ offen.
+	\begin{align*}
+		K \subset X = (X \setminus C) \cup C = (X \setminus C) \cup \bigcup\limits_{i \in I} U_i\\
+		\overset{\substack{\text{oBdA}\\K \text{ kompakt}}}{\hookrightarrow} C \subset K \subset (x \setminus C) \cup U_{i_1} \cup \dots \cup U_{i_n}\\
+		\Longrightarrow C \subset U_{i_1} \cup \dots \cup U_{i_n} ~\checkmark
+	\end{align*}
+\end{proof}
+\begin{lemma}\label{haus:komp}
+	$X$ Hausdorff, $K \underset{\text{kompakt}}{\subset} X \Longrightarrow K$ abgeschlossen.
+\end{lemma}
+\begin{proof}
+	Es gen"ugt zu zeigen, dass wenn $x \notin K$, dann ist $x$ kein H"aufungspunkt von $K$.\\
+	F"ur $y \in K \rightarrow y \neq x \overset{\substack{x\\ \text{Hausdorff}}}{\hookrightarrow} \Exists U^x_y, V^y$ mit $U^x_y \cap V^y = \emptyset \rightarrow K \subset \bigcup\limits_{y \in K} V^y \overset{K\text{ kompakt}}{\Longrightarrow} K \subset V^{y_1} \cup \dots \cup V^{y_n}$ f"ur $y_1, \dots, y_n \in K$.\\
+	Setze $U = \bigcap\limits_{i=1}^n U^x_{y_i} \ni x$ offen. Zu zeigen bleibt: $U \cap \underbrace{K}_{=K \setminus \{x\}} = \emptyset$.\\
+	$U \cap K \subset U \cap (\bigcup\limits_{i=1}^n V^{y_i}) = \bigcup U \cap V^{y_i} \subset U^x_{y_i} \cap V^{y_i} \underset{\text{n. Def.}}{=} \emptyset \Rightarrow x$ ist kein H"aufungspunkt.
+\end{proof}
+\begin{corollary}
+	$X$ Hausdorff, $(K_i)_{i \in I}$ kompakte Teilmengen. $\Longrightarrow \bigcap\limits_{i \in I} K_i$ kompakt.
+\end{corollary}
+\begin{proof}
+	$\underbrace{\bigcap\limits_{i \in I} \underbrace{K_i}_{\text{abg.}}}_{\subset K_i \text{ kompakt}}$ abgeschlossen. $\overset{\eqref{haus:komp}}{\Longrightarrow} \bigcap\limits_{i \in I} K_i$ kompakt.
+\end{proof}
+\begin{corollary}
+	$f: X \longrightarrow Y$ stetig, $X, Y$ topologische R"aume.
+	\begin{equation*}
+		Y \text{ Hausdorff} \Longrightarrow f \text{ abgeschlossen}
+	\end{equation*}
+\end{corollary}
+\begin{proof}
+	Sei $C \subset X$ abgeschlossen. $\Longrightarrow C$ ist kompakt $\Longrightarrow \underbrace{f(C)}_{\subset Y \text{ Hausdorff}}$ ist kompakt $\overset{\eqref{haus:komp}}{\Longrightarrow} f(C)$ abgeschlossen.
+\end{proof}
+
+\section[Stoneraum]{Stoneraum von Typen einer Theorie}
+Sei $T$ eine konsistente Theorie in der Sprache $\scrL$. Ein $n$-Typ ist eine Menge von $\scrL$-Formeln in den Variablen $x_1, \dots, x_n$, welche endlich konsistent bez"uglich $T$ ist, und maximal mit dieser Eigenschaft bez"uglich Inklusion.\\
+Gegeben $\varphi_1, \dots, \varphi_m \in p$. Dann ist $T \cup \{\Exists \vec{x} (\bigwedge\limits_{i=1}^m \varphi_j[\vec{x}]) \}$ konsistent.
+\begin{remark}
+	Wenn $T$ vollst"andig ist, dann gilt
+	\begin{equation*}
+		S_n(T) = S^\scrA_n(\emptyset)
+	\end{equation*}
+	f"ur jedes Modell $\scrA \models T$, wobei $S^\scrA_n(\emptyset)$ die Menge aller Typen $p(x_1, \dots, x_n)$ in $n$ Variablen ist, sodass $\varphi_1, \dots, \varphi_m \in p, \scrA \models \Exists \vec{x}(\bigwedge\limits_{j=1}^m \varphi_j(\vec{x}))$.
+\end{remark}
+\heading{H"aufig:} $\scrA$ eine $\scrL$-Struktur, $B \subset A: S^\scrA_n (B) = S_n(\Th(\scrA, b)_{b \in B})$
+\begin{definition}
+	Gegeben $\varphi = \varphi[x_1, \dots, x_n]$, setze 
+	\begin{equation*}
+		[\varphi] = \{p \in S_n(T) \mid \varphi \in p \}
+	\end{equation*}
+\end{definition}
+\begin{remark}\label{stone:basis}
+	Typen sind unter Deduktion abgeschlossen.
+	\begin{align*}
+		&[\varphi \land \psi] = [\varphi] \cap [\psi]\\
+		&[\varphi \lor \psi] = [\varphi] \cup [\psi]\\
+		&[\lnot (x_1 \dot= x_1)] = \emptyset\\
+		&[\lnot \varphi] = S_n(T) \setminus [\varphi]\\
+		&[(x_1 \dot= x_1)] = S_n(T)
+	\end{align*}
+\end{remark}
+\begin{remark}
+	\begin{equation*}
+		[\varphi] \subset [\psi] \Longleftrightarrow T \models \Forall \vec{x}(\varphi[\vec{x}] \rightarrow \psi[\vec{x}])
+	\end{equation*}
+	Insbesondere $[\varphi] = [\psi]$ genau dann, wenn $\varphi, \psi$ logisch "aquivalent modulo $T$ sind.
+\end{remark}
+\begin{proof}
+	\underline{"`$\Rightarrow$"':} Falls $T \models \Forall \vec{x}(\varphi[\vec{x}] \rightarrow \psi [\vec{x}]) \Longrightarrow T \cup \{\Exists \vec{x} (\varphi[\vec{x}]\land \lnot \psi[\vec{x}]) \}$ konsistent. Das hei"st die Menge $\{(\varphi[\vec{x}] \land \lnot \psi[\vec{x}]) \}$ ist ein partieller Typ.\\
+	$\overset{\text{Zorn}}{\longrightarrow}$ es gibt $p \in S_n(T)$ mit $(\varphi[\vec{x}] \land \lnot \psi[\vec{x}]) \in p \underset{\substack{p\text{ unter}\\\text{Deduktion}\\\text{abgeschlossen}}}{\Longrightarrow} p \in [\varphi] \setminus [\psi]$.
+	
+	\underline{"`$\Leftarrow$"':} $p \in [\varphi] \Rightarrow \varphi \in p \overset{T \models \Forall \bar{x}(\varphi[\bar{x}]\rightarrow\psi[\bar{x}])}{\Longrightarrow} \psi \in p \Rightarrow p \in [\psi]$.
+\end{proof}
+\begin{theorem}
+	Die Kollektion $\{[\varphi] \}_{\varphi[x_1, \dots, x_n] \text{ eine }\scrL \text{-Formel}}$ bildet eine Basis der Topologie auf $S_n(T)$ derart, dass $S_n(T)$ 0-dimensional, Hausdorff und kompakt ist.
+\end{theorem}
+\begin{proof}
+	\underline{Basis:} $\checkmark$ wegen \eqref{stone:basis}.
+	
+	\underline{0-dimensional:} $S_n(T) \setminus [\varphi] = \underbrace{[\lnot \varphi]}_\text{offen} \Rightarrow [\varphi]$ ist abgeschlossen (und offen).
+	
+	\underline{Hausdorff:} Seien $p \neq q \in S_n(T) \Rightarrow$ es gibt $\varphi \in p \setminus q \Rightarrow p \in [\varphi], q \in [\lnot \varphi]$ \emph{disjunkt}.
+	
+	\underline{$S_n(T)$ kompakt:} Es gen"ugt zu zeigen, dass jede offene Umgebung der Form $\bigcup\limits_{i \in I}[\varphi_i]$ eine endliche "Uberdeckung besitzt, denn:
+	\begin{equation*}
+		X = \bigcup\limits_{i \in I} \underbrace{U_i}_{= \bigcup\limits_{j \in J} B_{ij}} = \bigcup\limits_{\substack{i \in I\\j \in J}} B_{ij} \longrightarrow X \subset \underbrace{B_{i_1 j_1} \cup \dots \cup B_{i_n j_n}}_{\subset U_{i_1}}
+	\end{equation*}
+	Also: $S_n(T) = \bigcup\limits_{i \in I} [\varphi_i] \Rightarrow \emptyset = \bigcap\limits_{i \in I} [\lnot\varphi_i] \overset{\text{\nameref{satz:kompakt}}}{\Longrightarrow} \{\lnot \varphi_i[\vec{x}] \}_{i \in I}$ nicht endlich erf"ullbar in T $\Rightarrow$ es gibt $\varphi_{i_1}, \dots, \varphi_{i_n}$ sodass $T \cup \{\Exists \vec{x} (\bigwedge\limits_{j=1}^n \lnot \varphi_{ij}[\vec{x}]) \}$ inkonsistent.\\
+	Also $T \models \Forall \vec{x} (\bigvee\limits_{j=1}^n \varphi_{ij}[\vec{x}]) \overset{\eqref{stone:basis}}{\Longrightarrow} S_n(T) = [\varphi_{i_1}] \cup \dots \cup [\varphi_{i_n}]$. Sonst g"abe es $p \in S_n(T)\setminus \bigcup\limits_{j=1}^n [\varphi_{ij}] \Rightarrow \lnot\varphi_{i_1}, \dots, \varphi_{i_n} \in p \underset{\substack{p\text{ endlich}\\\text{erf"ullbar}\\\text{in }T}}{\Longrightarrow} T \cup \{\{\Exists \vec{x}(\bigwedge\limits_{j=1}^n \lnot \varphi_{ij}[\vec{x}]) \}$
 \end{proof}
 \end{document}
