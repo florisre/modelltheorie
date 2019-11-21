@@ -987,8 +987,8 @@ F"ur $\scrA$ eine $\scrL$-Struktur und $C \subset A$. Dann sei $T$ die $\scrL_C$
 \end{example}
 
 \heading{Ziel:} $S_n (T)$ ist ein kompakter, $0$-dimensionaler Hausdorff topologischer Raum $\rightsquigarrow$ "`Stoneraum der Theorie $T$"'.
-
-\section[Topologie]{Exkurs: Einf"uhrung in die Topologie}
+\newpage
+\section{Exkurs: Einf"uhrung in die Topologie}
 Sei $X$ eine Menge.
 \begin{definition}
 	Eine Basis $\scrB$ einer Topologie auf $X$ ist eine Kollektion von Teilmengen derart, dass
@@ -1132,7 +1132,7 @@ Sei $X$ eine Menge.
 	Betrachte $\Pi : \begin{array}{c}
 		\setR^2 \longrightarrow \setR\\
 		(x,y) \longmapsto x
-	\end{array}$ mit euklidischer Topologie. $\Pi$ ist offen, aber nicht abgeschlossen: Betrachte $\overset{\text{abgeschlossen}}{x \cdot y = 1} \mapsto \overset{\substack{\text{nicht}\\ \text{abgeschlossen}}}{x \neq 0}$.
+	\end{array}$ mit euklidischer Topologie. $\Pi$ ist offen, aber nicht abgeschlossen: Betrachte $\underset{\text{abgeschlossen}}{x \cdot y = 1} \mapsto \underset{\substack{\text{nicht}\\ \text{abgeschlossen}}}{x \neq 0}$.
 \end{example}
 \begin{example}
 	Sei $\begin{array}{c}
@@ -1148,7 +1148,7 @@ Sei $X$ eine Menge.
 	\end{array}$ ist.
 \end{definition}
 \begin{definition}
-	$(X,T)$ topologischer Raum. Die Menge $K \subset X$ ist kompakt, falls jede offene "Uberdeckung $K \subset \bigcup\limits_{i \in I} \underbrace{U_i}_{\text{offen}}$ eine endliche "Uberdeckung besitzt: Es gibt $i_1, \dots, i_n \in I$ mit $K \subset U_{i_1} \cup \dots \cup U_{i_n}$.\\
+	$(X,T)$ topologischer Raum. Die Menge $K \subset X$ ist kompakt, falls jede offene "Uberdeckung $K \subset \bigcup\limits_{i \in I} \underbrace{U_i}_{\text{offen}}$ eine endliche Teil"uberdeckung besitzt: Es gibt $i_1, \dots, i_n \in I$ mit $K \subset U_{i_1} \cup \dots \cup U_{i_n}$.\\
 	$(X,T)$ ist kompakt, wenn $X$ kompakt ist.
 \end{definition}
 \begin{remark}
@@ -1173,9 +1173,9 @@ Sei $X$ eine Menge.
 \begin{proof}
 	Sei $C \subset \bigcup\limits_{i \in I} \underbrace{U_i}_{\text{offen}}$. $C$ abgeschlossen $\Longrightarrow X \setminus C$ offen.
 	\begin{align*}
-		K \subset X = (X \setminus C) \cup C = (X \setminus C) \cup \bigcup\limits_{i \in I} U_i\\
-		\overset{\substack{\text{oBdA}\\K \text{ kompakt}}}{\hookrightarrow} C \subset K \subset (x \setminus C) \cup U_{i_1} \cup \dots \cup U_{i_n}\\
-		\Longrightarrow C \subset U_{i_1} \cup \dots \cup U_{i_n} ~\checkmark
+		K \subset X &= (X \setminus C) \cup C = (X \setminus C) \cup \bigcup\limits_{i \in I} U_i\\
+		&\overset{\substack{\text{oBdA}\\K \text{ kompakt}}}{\hookrightarrow} C \subset K \subset (X \setminus C) \cup U_{i_1} \cup \dots \cup U_{i_n}\\
+		&\Longrightarrow C \subset U_{i_1} \cup \dots \cup U_{i_n} &\checkmark
 	\end{align*}
 \end{proof}
 \begin{lemma}\label{haus:komp}
@@ -1203,7 +1203,7 @@ Sei $X$ eine Menge.
 	Sei $C \subset X$ abgeschlossen. $\Longrightarrow C$ ist kompakt $\Longrightarrow \underbrace{f(C)}_{\subset Y \text{ Hausdorff}}$ ist kompakt $\overset{\eqref{haus:komp}}{\Longrightarrow} f(C)$ abgeschlossen.
 \end{proof}
 
-\section[Stoneraum]{Stoneraum von Typen einer Theorie}
+\section{Stoneraum von Typen einer Theorie}
 Sei $T$ eine konsistente Theorie in der Sprache $\scrL$. Ein $n$-Typ ist eine Menge von $\scrL$-Formeln in den Variablen $x_1, \dots, x_n$, welche endlich konsistent bez"uglich $T$ ist, und maximal mit dieser Eigenschaft bez"uglich Inklusion.\\
 Gegeben $\varphi_1, \dots, \varphi_m \in p$. Dann ist $T \cup \{\Exists \vec{x} (\bigwedge\limits_{i=1}^m \varphi_j[\vec{x}]) \}$ konsistent.
 \begin{remark}
@@ -1211,7 +1211,7 @@ Gegeben $\varphi_1, \dots, \varphi_m \in p$. Dann ist $T \cup \{\Exists \vec{x} 
 	\begin{equation*}
 		S_n(T) = S^\scrA_n(\emptyset)
 	\end{equation*}
-	f"ur jedes Modell $\scrA \models T$, wobei $S^\scrA_n(\emptyset)$ die Menge aller Typen $p(x_1, \dots, x_n)$ in $n$ Variablen ist, sodass $\varphi_1, \dots, \varphi_m \in p, \scrA \models \Exists \vec{x}(\bigwedge\limits_{j=1}^m \varphi_j(\vec{x}))$.
+	f"ur jedes Modell $\scrA \models T$, wobei $S^\scrA_n(\emptyset)$ die Menge aller Typen $p(x_1, \dots, x_n)$ in $n$ Variablen ist, sodass $\varphi_1, \dots, \varphi_m \in p, ~\scrA \models \Exists \vec{x}(\bigwedge\limits_{j=1}^m \varphi_j(\vec{x}))$.
 \end{remark}
 \heading{H"aufig:} $\scrA$ eine $\scrL$-Struktur, $B \subset A: S^\scrA_n (B) = S_n(\Th(\scrA, b)_{b \in B})$
 \begin{definition}
