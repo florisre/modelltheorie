@@ -42,6 +42,7 @@
 \newcommand{\scrD}{\mathcal{D}}
 \newcommand{\scrU}{\mathcal{U}}
 \newcommand{\scrP}{\mathcal{P}}
+\newcommand{\zz}{\mathrm{Z\kern-.3em\raise-0.5ex\hbox{Z}}:~}
 
 \DeclareMathOperator{\Diag}{Diag}
 
@@ -106,7 +107,7 @@
 \setcounter{page}{1}
 %Sitzung 1
 Ziel dieser Vorlesung ist es, eine Aussage der folgenden Qualit"at zu erhalten:
-\begin{theorem}[Morley]
+\begin{theorem}[Morleys Kategorizitätssatz]
 	Sei $T$ eine Theorie, welche ein einziges (bis auf Isomorphie) Modell der M"achtigkeit $\aleph_0$ besitzt. Dann besitzt $T$ f"ur jede Kardinalzahl $\kappa > \aleph_0$ ein einziges Modell der M"achtigkeit $\kappa$ (bis auf Isomorphie).
 \end{theorem}
 
@@ -621,7 +622,7 @@ Ziel dieser Vorlesung ist es, eine Aussage der folgenden Qualit"at zu erhalten:
 				\underbrace{\vdig(\scrA) \cup \{\lnot \sum_i \lambda_i e_i \dot=0\}_{\substack{(\lambda_1, \dots, \lambda_n) \in K^n \setminus \{(0, \dots, 0) \}\\n \in \setN}}}_\text{endlich konsistent}
 			\end{equation*}
 		\end{enumerate}
-		Zur Vollst"andigkeit: Das endliche Erzeugnis zweier nicht-trivialer Vektoren ist Isomorph, somit folgt Vollst"andigkeit.
+		Zur Vollst"andigkeit: Das endliche Erzeugnis zweier nicht-trivialer Vektoren ist isomorph, somit folgt Vollst"andigkeit.
 	\end{enumerate}
 \end{example}
 
@@ -651,7 +652,7 @@ Ziel dieser Vorlesung ist es, eine Aussage der folgenden Qualit"at zu erhalten:
 	
 	$B$ ist algebraisch abgeschlossen $\Rightarrow$ es gibt $b$ in $B$ mit $F(m_a)(b)=0 \overset{\text{Galoistheorie}}{\Longrightarrow} F$ l"asst sich erweitern. 
 	
-	\underline{Fall2:} $a$ ist transzendent "uber $K = \quo (\langle c_1, \dots, c_n \rangle)$.
+	\underline{Fall 2:} $a$ ist transzendent "uber $K = \quo (\langle c_1, \dots, c_n \rangle)$.
 	
 	Wenn wir ein $b \in B$ finden, welches transzendent "uber $\quo(\langle d_1, \dots, d_n \rangle)$ ist
 	
@@ -740,7 +741,7 @@ F"ur einen K"orper der Charakteristik $0$:
 		\begin{enumerate}
 			\item $\mu_\scrU(I)=1$, $\mu_\scrU(\emptyset)=0$.
 			\item $\underset{X\subset Y \subset I}{\mu_\scrU(X)}=1 \Rightarrow \mu_\scrU(Y)=1$
-			\item Angenommen $\mu_\scrU(X)=\mu_\scrU(Y) = 1$ aber $\mu_\scrU(X \cap Y) = 0$. Dann gilt $X = X \setminus Y \dot\cup X \cap Y \Rightarrow \mu_\scrU(X \setminus Y) = 1$ und $\mu_\scrU(Y \setminus X) =1$, sowie $I \supset X \cup Y = X \setminus Y \dot\cup Y\setminus X \dot\cup X \cap Y$. $\rightsquigarrow \mu_\scrU(I)= 1 \geq 1+1+0$, ein Widerspruch.
+			\item Angenommen $\mu_\scrU(X)=\mu_\scrU(Y) = 1$ aber $\mu_\scrU(X \cap Y) = 0$. Dann gilt $X = X \setminus Y \dot\cup X \cap Y \Rightarrow \mu_\scrU(X \setminus Y) = 1$ und $\mu_\scrU(Y \setminus X) =1$, sowie $I \supset X \cup Y = (X \setminus Y) \dot\cup (Y\setminus X) \dot\cup (X \cap Y)$. $\rightsquigarrow \mu_\scrU(I)= 1 \geq 1+1+0$, ein Widerspruch.
 			\item Gegeben $X \subset I$ entweder $\underset{\mu_\scrU(X)=1}{X \in \scrU}$ oder $\underset{\mu_\scrU(I\setminus X)=1}{I\setminus X \in \scrU}$
 		\end{enumerate}
 	\end{remark}
@@ -750,7 +751,7 @@ F"ur einen K"orper der Charakteristik $0$:
 	\end{definition}
 
 	\begin{definition}
-		Falls I undendlich ist, so gibt es generisch/reiche Ultrafilter, n"amlich die Ultrafilter, welche alle koendlichen Mengen enthalten.
+		Falls I undendlich ist, so gibt es generische/reiche Ultrafilter, n"amlich die Ultrafilter, welche alle koendlichen Mengen enthalten.
 	\end{definition}
 
 	\begin{definition}
@@ -1035,7 +1036,7 @@ Sei $X$ eine Menge.
 \begin{definition}[Trennungseigenschaften]
 	Sei $(X, T)$ ein topologischer Raum.
 	\begin{enumerate}
-		\item[T1] \label{T1} Falls $x \neq y \in X$ gibt es Umgebungen $\overbrace{U^x, U^y}^{\substack{\text{offene Mange}\\ \text{die } x \text{ enth"alt}}}$ mit $x \in U^x \setminus U^y, y \in U^y \setminus U^x$.
+		\item[T1] \label{T1} Falls $x \neq y \in X$ gibt es Umgebungen $\overbrace{U^x}^{\substack{\text{offene Menge}\\ \text{die } x \text{ enth"alt}}}, U^y$ mit $x \in U^x \setminus U^y, y \in U^y \setminus U^x$.
 		\item[T2] \label{T2} (Hausdorff) falls $x \neq y \in X$ gibt es $U^x, U^y$ Umgebungen mit $U^x \cap U^y = \emptyset$
 	\end{enumerate}
 \end{definition}
@@ -1193,7 +1194,7 @@ Sei $X$ eine Menge.
 \begin{proof}
 	$\underbrace{\bigcap\limits_{i \in I} \underbrace{K_i}_{\text{abg.}}}_{\subset K_i \text{ kompakt}}$ abgeschlossen. $\overset{\eqref{haus:komp}}{\Longrightarrow} \bigcap\limits_{i \in I} K_i$ kompakt.
 \end{proof}
-\begin{corollary}
+\begin{corollary}\label{huk}
 	$f: X \longrightarrow Y$ stetig, $X, Y$ topologische R"aume.
 	\begin{equation*}
 		Y \text{ Hausdorff} \Longrightarrow f \text{ abgeschlossen}
@@ -1257,6 +1258,107 @@ Gegeben $\varphi_1, \dots, \varphi_m \in p$. Dann ist $T \cup \{\Exists \vec{x} 
 		X = \bigcup\limits_{i \in I} \underbrace{U_i}_{= \bigcup\limits_{j \in J} B_{ij}} = \bigcup\limits_{\substack{i \in I\\j \in J}} B_{ij} \longrightarrow X \subset \underbrace{B_{i_1 j_1} \cup \dots \cup B_{i_n j_n}}_{\subset U_{i_1}}
 	\end{equation*}
 	Also: $S_n(T) = \bigcup\limits_{i \in I} [\varphi_i] \Rightarrow \emptyset = \bigcap\limits_{i \in I} [\lnot\varphi_i] \overset{\text{\nameref{satz:kompakt}}}{\Longrightarrow} \{\lnot \varphi_i[\vec{x}] \}_{i \in I}$ nicht endlich erf"ullbar in T $\Rightarrow$ es gibt $\varphi_{i_1}, \dots, \varphi_{i_n}$ sodass $T \cup \{\Exists \vec{x} (\bigwedge\limits_{j=1}^n \lnot \varphi_{ij}[\vec{x}]) \}$ inkonsistent.\\
-	Also $T \models \Forall \vec{x} (\bigvee\limits_{j=1}^n \varphi_{ij}[\vec{x}]) \overset{\eqref{stone:basis}}{\Longrightarrow} S_n(T) = [\varphi_{i_1}] \cup \dots \cup [\varphi_{i_n}]$. Sonst g"abe es $p \in S_n(T)\setminus \bigcup\limits_{j=1}^n [\varphi_{ij}] \Rightarrow \lnot\varphi_{i_1}, \dots, \varphi_{i_n} \in p \underset{\substack{p\text{ endlich}\\\text{erf"ullbar}\\\text{in }T}}{\Longrightarrow} T \cup \{\{\Exists \vec{x}(\bigwedge\limits_{j=1}^n \lnot \varphi_{ij}[\vec{x}]) \}$
+	Also $T \models \Forall \vec{x} (\bigvee\limits_{j=1}^n \varphi_{ij}[\vec{x}]) \overset{\eqref{stone:basis}}{\Longrightarrow} S_n(T) = [\varphi_{i_1}] \cup \dots \cup [\varphi_{i_n}]$. Sonst g"abe es $p \in S_n(T)\setminus \bigcup\limits_{j=1}^n [\varphi_{ij}] \Rightarrow \lnot\varphi_{i_1}, \dots, \varphi_{i_n} \in p \underset{\substack{p\text{ endlich}\\\text{erf"ullbar}\\\text{in }T}}{\Longrightarrow} T \cup \{\Exists \vec{x}(\bigwedge\limits_{j=1}^n \lnot \varphi_{ij}[\vec{x}]) \}$.
+\end{proof}
+
+%Sitzung 11 26.11.19
+\begin{remark}
+	Jede offene abgeschlossene Menge in $S_n(T)$ ist der Form $[\varphi]$ f"ur eine $\scrL$-Formel $\varphi[x_1, \dots, x_n]$.
+\end{remark}
+\begin{proof}
+	Sei $X$ offen-abgeschlossen. $\underset{X \text{ offen}}{\Longrightarrow} X = \bigcup\limits_{p \in X} [\varphi_p]$, mit $p \ni \varphi_p$.\\
+	$X$ abgeschlossen $\underset{\substack{S_n(T)\\\text{kompakt}}}{\Longrightarrow} X$ kompakt $\underset{\text{Kompaktheit}}{\Longrightarrow} X = \bigcup\limits_{i=1}^n [\varphi_{p_i}] = [\bigvee\limits_{i=1}^n \varphi_{p_i}]$.
+\end{proof}
+\begin{definition}[Erinnerung]
+	Seien $\scrA, \scrB ~\scrL$-Strukturen. $h: A_0 \longrightarrow B_0$ ist elementar, falls f"ur alle $a_1, \dots, a_n \in A_0$, $\varphi=\varphi[a_1, \dots, a_n]$ gilt:
+	\begin{equation*}
+		\scrA \models \varphi[a_1, \dots, a_n] \Longleftrightarrow \scrB \models \varphi[h(a_1), \dots, h(a_n)]
+	\end{equation*}
+\end{definition}
+\begin{remark}\label{hstern}
+	Sei $h: \overset{\subset A}{A_0} \longrightarrow \overset{\subset B}{B_0}$ elementar, $B \supset C \supset B_0$. Dann induziert $h$ eine abgeschlossene stetige surjektive Abbildung
+	\begin{equation*}
+		\underbrace{S_n^\scrB(C)}_{\substack{\text{kompakt \&}\\\text{Hausdorff}}} \overset{h_*}{\longrightarrow} \underbrace{S_n^\scrA(A_0)}_{\substack{\text{kompakt \&}\\\text{Hausdorff}}}
+	\end{equation*}
+	\emph{Bemerke:} Abgeschlossenheit von $h_*$ folgt direkt mit \ref{huk}.
+	\begin{equation*}
+		h_*(q) = \{\varphi[x_1, \dots x_n] \scrL_{A_0} \text{-Formel mit } \underbrace{h(q)}_{\substack{\scrL_{B_0} \text{-Formel}\\\hookrightarrow \scrL_C \text{-Formel}}} \in q \}
+	\end{equation*}
+\end{remark}
+\begin{example}
+	$\varphi = (x_1 \dot= a_1)$, $h(\varphi) = (x_1 \dot= \underbrace{h(a_1)}_{\in B_0 \subset C})$.
+\end{example}
+\begin{proof}[Beweis von Bemerkung \ref{hstern}]
+	Zeige zuerst: $h_*$ ist \emph{wohldefiniert}: Sei $\varphi_1, \dots, \varphi_k \in h_*(q)$. $\zz \scrA \models \Exists \vec{x}(\bigwedge\limits_{i=1}^k \varphi_i [\vec{x}])$.\\
+	Nach Voraussetzung gilt: $h(\varphi_1), \dots, h(\varphi_k) \in q \overset{\substack{\text{endlich}\\\text{erf"ullbar}}}{\Longrightarrow} \scrB \models \Exists \vec{x} (\underbrace{\bigwedge\limits_{i=1}^k h(\varphi_i[\vec{x}])}_{= \Theta[h(a_1), \dots, h(a_m)]}) \\\Longrightarrow$ Behauptung.
+	
+	Zeige weiter: $h_*(q)$ ist \emph{maximal endlich erf"ullbar}. Es gen"ugt zu zeigen, dass falls $\varphi \notin h_*(q) \Longrightarrow \lnot \varphi \in h_*(q)$.\\
+	Angenommen $h_*(q) \subsetneq \sum$. $\zz \sum$ nicht endlich erf"ullbar in $\scrA$.\\
+	Nach Voraussetzung gibt es \marginpar{Typen sind Ultrafilter}$\varphi \in \sum \setminus h_*(q)$. $\Longrightarrow \lnot \varphi \in h_*(q) \subset \sum \Longrightarrow \{\varphi, \lnot \varphi \} \subset \sum$. Sei $\varphi \notin h_*(q) \Longrightarrow h(\varphi) \in q \overset{q \text{ vollst"andig}}{\Longrightarrow} \underbrace{\lnot h(\varphi)}_{=h(\lnot \varphi)} \in q \Longrightarrow \lnot \varphi \in h_*(q)$.
+	
+	Zeige weiter: $h_*$ ist \emph{stetig}. Es gen"ugt zu zeigen, dass $h_*^{-1}([\varphi])$ offen ist.
+	\begin{equation*}
+		[h(\overbrace{\varphi}^{\scrL_{B_0} \text{-Formel}})] = \{q \in S_n^\scrB (C) \mid \underbrace{h_*(q) \in [\varphi]}_{\substack{\updownarrow\\\varphi \in h_*(q)\\\updownarrow\\h(\varphi) \in q}} \} = h_*^{-1}([\varphi])
+	\end{equation*}
+	
+	Zeige nun \emph{Surjektivit"at}. Sei $p \in S_n^\scrA (A_0)$. Wir suchen ein $q$ mit $\underbrace{\varphi}_{\scrL_{A_0}\text{-Formel}} \in h_*(q) = p \\\Longrightarrow h(\varphi) \in q$.
+	
+	\begin{example}
+		Betrachte $(\setR, <) \preceq \underbrace{(\mathcal{R}, <)}_{0 < \varepsilon < r,~ r>0}$ "uber $\setQ \cup \{\varepsilon\}$. Hier werden zwei verschiedene Typen in einen einzigen abgebildet:
+		\begin{equation*}
+			\begin{array}{c}
+				q \in \setR\\
+				q>x>\varepsilon\\
+				0<x<\varepsilon
+			\end{array} \longrightarrow \begin{array}{c}
+				0<x<q\\
+				q>0
+			\end{array}
+		\end{equation*}
+	\end{example}
+	Zur "Ubung: Wenn in Bemerkung \ref{hstern} $B_0$ anstelle von $C$ st"unde, so w"are $h_*$ ein Hom"oomorphismus.
+	
+	\underline{Frage:} Ist $\{h(\varphi) \mid \varphi \in p \}$ endlich erf"ullbar?\\
+	Seien dazu $\varphi_1, \dots, \varphi_k \in p$. $\zz \scrB \models \Exists \vec{x} (\bigwedge\limits_{i=1}^k h(\varphi_i)[\vec{x}])$\\
+	Aus dem vorherigen Teil des Beweises folgt $\scrA \models \Exists \vec{x}(\bigwedge\limits_{i=1}^k h(\varphi_i[\vec{x}])) \Longrightarrow$ Behauptung.
+\end{proof}
+\begin{example}
+	Sei $\scrA = \scrB$ und $A_0 \subset C$. Dann besagt der Satz:
+	\begin{equation*}
+		\begin{array}{c c c}
+			S_n^\scrA(C) &\overset{\substack{\text{Einschr"ankung}\\\text{von Prametern}}}{\longrightarrow} &S_n^\scrA (A_0)\\
+			q &\longmapsto & q_{\upharpoonright_{A_0}}
+		\end{array}
+	\end{equation*}
+\end{example}
+Im Folgenden betrachten wir \emph{isolierte Typen}. Topologisch betrachtet sieht das so aus:
+\begin{equation*}
+	\overset{\in S_n(T)}{p} \text{ isoliert } \Longleftrightarrow \underset{\text{abgeschlossen}}{\overset{\text{offen}}{\{p\}}} = [p] \text{f"ur eine } \scrL \text{-Formel } \varphi \in p
+\end{equation*}
+Wir m"ochten das syntaktisch verstehen.
+\begin{remark}\label{bem:voll}
+	Ein $n$-Typ $p \in S_n(T)$ ist genau dann isoliert, wenn er eine \emph{komplette} Formel $\varphi =\varphi[x_1, \dots, x_n]$ enth"alt, das hei"st
+	\begin{equation*}
+		p = \{\psi \scrL\text{-Formel} \mid T \models \Forall \vec{x} (\varphi[\vec{x}] \rightarrow \psi[\vec{x}]) \}
+	\end{equation*}
+	\underline{Insbesondere} ist jeder isolierte Typ in jedem Modell von $T$ realisiert, falls $T$ vollst"andig ist!
+\end{remark}
+
+\heading{Aufgaben} (Blatt 6): Betrachte $\overbrace{(\setR, <)}^{\text{hat QE}}$. 
+\begin{itemize}
+	\item Ist der Typ $\{0 < x < q \}_{\substack{q \in \setQ\\q>0}}$ isoliert?
+	\item Ist der Typ $\{(x \dot= 15) \}$ isoliert\footnote{das ist nur ein Typ, denn er muss endlich erf"ullbar sein}?
+\end{itemize}
+\begin{proof}[Beweis von Bemerkung \ref{bem:voll}]
+	\underline{"`$\Rightarrow$"':} Sei $\psi \in p$. $\Longrightarrow [(\underbrace{\varphi \land \psi}_{\in p})] \subset [\varphi] = \{p\} \Longrightarrow [\varphi] = [(\varphi \land \psi)] \Longleftrightarrow T \models \Forall \vec{x} (\varphi[\vec{x}]\rightarrow\psi[\vec{x}])$
+	
+	$\Longrightarrow p \overset{}{\subseteq} \{\psi~ \scrL \text{-Formel} \mid T\models \Forall \vec{x} (\varphi[\vec{x}]\rightarrow \psi[\vec{x}]) \}$\\
+	Hier m"ochten wir eigentlich Gleichheit zeigen. Weil $p$ jedoch bez"uglich $\subset$ maximal ist, gen"ugt es zu zeigen, dass die rechte Seite endlich erf"ullbar ist: $\{\psi_1, \dots, \psi_k \mid T \models \Forall \vec{x}(\varphi[\vec{x}]\rightarrow \psi_i[\vec{x}]) \}$. Also: $T \models \Forall \vec{x} (\varphi[\vec{x}] \rightarrow (\bigwedge\limits_{i=1}^k \psi_i[\vec{x}]))$.\\ 
+	$\zz T \cup \{\Exists \vec{x} (\bigwedge\limits_{i=1}^k \psi_i[\vec{x}]) \}$ konsistent.\\
+	$\varphi \in \underbrace{p}_{\substack{\text{endlich}\\\text{erf"ullbar}}} \Longrightarrow T\cup \{ \Exists \vec{x} \varphi[\vec{x}] \}$ ist konsistent $\Longrightarrow$ Behauptung.
+	
+	\underline{"`$\Leftarrow$"':} Angenommen $p = \underbrace{\{\psi \mid T \models \Forall \vec{x} (\varphi[\vec{x}] \rightarrow \psi[\vec{x}]) \}}_{\ni \varphi}$. Dann folgt $\varphi \in p$, und somit $\{p\} \underbrace{\overset{\subset \text{ klar}}{=}}_{\text{Hausdorff}} \bigcap\limits_{\psi \in p} [\psi] \supset [\varphi] \ni p \Longrightarrow \{p\} = [\varphi]$ ist isoliert!
+	
+	\underline{Zu "`Insbesondere"':} $T$ vollst"andig. Sei $p$ isoliert durch $\varphi$. $\overset{T \text{ vollst"andig}}{\Longrightarrow} T \models \Exists \vec{x} \varphi[\vec{x}]$. Sei $\mathcal{M} \models T$ und $\vec{a} \in M^{|\vec{x}|} \mid \mathcal{M} \models \varphi[\vec{a}] \Longrightarrow \mathcal{M} \models \psi [\vec{a}]$ f"ur $\psi \in p$.
 \end{proof}
 \end{document}
