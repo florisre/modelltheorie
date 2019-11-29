@@ -1361,4 +1361,52 @@ Wir m"ochten das syntaktisch verstehen.
 	
 	\underline{Zu "`Insbesondere"':} $T$ vollst"andig. Sei $p$ isoliert durch $\varphi$. $\overset{T \text{ vollst"andig}}{\Longrightarrow} T \models \Exists \vec{x} \varphi[\vec{x}]$. Sei $\mathcal{M} \models T$ und $\vec{a} \in M^{|\vec{x}|} \mid \mathcal{M} \models \varphi[\vec{a}] \Longrightarrow \mathcal{M} \models \psi [\vec{a}]$ f"ur $\psi \in p$.
 \end{proof}
+
+%Sitzung 12 28.11.
+\begin{remark}
+	$h: A_0 \longrightarrow B_0 = \im (h)$ elementar $\Longrightarrow h_* : S_n^\scrB (B_0) \longrightarrow S_n^\scrA (A_0)$ Hom"oomorphismus\footnote{Hom"oomorphismen interessieren uns, weil unter diesen Topologien erhalten bleiben}.
+\end{remark}
+%PRUEFUNGSRELEVANT
+\begin{example}
+	Sei\marginpar{Vgl. Blatt 5 Aufgabe 3} $T = \exists^\infty$ (diese Theorie ist vollst"andig und hat Quantorenelimination). Betrachte $\scrA \models T$. Wir wollen $S_1^\scrA(A)$ besser verstehen. $S_1^\scrA(A)$ enth"alt Typen der Form $(x \dot= a)$ f"ur jedes Element $a$ (diese Typen sind isoliert), sowie einen Typen der Form $\{\lnot (x \dot= a) \}_{a \in A}$ (ohne diesen Typen h"atten wir ein Problem, denn dann w"aren alle Typen isoliert).
+	Insbesondere folgt auch: F"ur $A$ abz"ahlbar gilt $|S_1^\scrA (A)| \leq \aleph_0$.
+	%TODO Bild: KArtoffel
+\end{example}
+%PRUEFUNGSRELEVANT
+\begin{example}
+	Sei $\mathcal{G} = (G, R)$ Zufallsgraph. Alle Typen sind der Form $\{xRa \}_{a \in A} \cup \{\lnot xRb \}_{b \in G \setminus A} \cup \{\lnot (x \dot= g) \}_{g \in G}$. Somit folgt insbesondere $|S^\mathcal{G}_1 (G)| \geq 2^{|G|}$.
+\end{example}
+\begin{theorem}[Typenvermeidungssatz]
+	Sei $T$ eine abz"ahlbare konsistente Theorie (Theorie in einer abz"ahlbaren Sprache), $p \in S_n(T)$ ein nicht-isolierter $n$-Typ. Es gibt ein abz"ahlbares Modell $\mathcal{M}$ von $T$, welches $p$ vermeidet, das hei"st $p$ wird nicht in $\mathcal{M}$ realisiert.
+\end{theorem}
+\begin{proof}[Beweis mit Henkins Methode]
+	Sei $C$ eine abz"ahlbare Menge von neuen Konstanten. In der Sprache $\scrL \cup C$, sei $\{\varphi_m[\vec{x}] \}_{m \in \setN}$ eine Aufz"ahlung aller Formeln in einer Variablen. Sei $\{\vec{c_k} \}_{k \in \setN}$ eine Aufz"ahlung aller $n$-Tupel aus $C$. Konstruiere eine Kette $\sum_0 \subset \sum_1 \subset \sum_2 \subset \dots$ von endlichen Mengen von ($\scrL \cup C$)-Aussagen derart, dass $T \cup \sum_k$ konsistent ist f"ur jedes $k \in \setN$.\\
+	$\sum_0 = \emptyset$.\\
+	Angenommen $\sum_k$ bereits konstruiert.
+	
+	\underline{1. Fall:} $k=2m$. Sei $i \in \setN$ minimal, sodass $c_i$ weder in $\varphi_m$ noch in den Aussagen aus $\sum_k$ vorkommt. Setze 
+	\begin{equation*}
+		\sum_{k+1} = \sum_k \cup \{(\Exists x \varphi_m [x] \rightarrow \varphi[c_i]) \}
+	\end{equation*}
+	$T \cup \sum_{k+1}$ ist konsistent.
+	
+	\underline{2. Fall:} $k= 2m +1$. Sei $\bigwedge\limits_{\chi \in \sum_k} \chi = \Theta[\overbrace{\vec{c}}^{\substack{\text{Tupel}\\\text{aus } C}}]$, f"ur $\Theta$ eine $\scrL$-Formel. OBdA schreibe $\Theta[\vec{c}] = \Theta[\underbrace{\vec{c_m}}_{n\text{-Tupel}},\vec{c}]$. Setze $\varphi[x_1, \dots, x_n] =  \Exists \vec{y} \Theta[\vec{x}, \vec{y}]$.
+	
+	\emph{Bemerke:} $T \cup \{\Exists \vec{x} \varphi[\vec{x}] \}$ ist konsistent.\\
+	Also ist $\emptyset \neq [\varphi]$ eine nicht-leere Umgebung $S_n(T)$. Weil $p$ nicht isoliert ist, gibt es $\psi \in p$ mit $T \not\models \Forall \vec{x} (\varphi[\vec{x}]) \Longrightarrow$ es gibt ein Modell $\underbrace{\mathcal{M}}_{\scrL \text{-Struktur}}$ von $T$ mit $\vec{a} \in M^n \mid \mathcal{M} \models \varphi[\vec{a}]$, aber $\mathcal{M} \models \lnot \psi[\vec{a}]$. Damit folgt insbesondere: es gibt ein $\vec{d}$ in $M$ mit $\mathcal{M} \models \Theta[\vec{a}, \vec{d}]$.
+	
+	Setze
+	\begin{equation*}
+		\sum_{k+1} = \sum_k \cup \{\lnot \psi[\vec{c_m}] \}
+	\end{equation*}
+	Ist $T \cup \sum_{k+1}$ konsistent? $\rightarrow$ ja.\\
+	Sei $T' = T \cup \bigcup\limits_{k \in \setN} \sum_k$ ist endlich konsistent und $C$ ist eine Menge von Henkinkonstanten f"ur $T \cup \sum_k$.
+	
+	$\underset{\substack{\text{Beweis von}\\\text{Henkin}}}{\Longrightarrow}$ Es gibt ein abz"ahlbares Modell $\mathcal{M}$ von $T'$, welches nur aus Interpretationen der Konstanten aus $C$ besteht.
+	
+	\underline{Insbesondere:} $\mathcal{M} \models T$ abz"ahlbar.\\
+	$\zz p$ wird in $\mathcal{M}$ nicht realisiert:\\
+	Sei $\vec{a} \in M^n \rightarrow \vec{a}$ ist die Interpretation des Tupels $\vec{c_m}$ f"ur eon $m \in \setN$.\\
+	$\underset{\substack{\text{Schritt}\\ 2m+1}}{\Longrightarrow} \mathcal{M} \models \lnot \psi[\vec{a}]$ f"ur ein $\psi \in p$.
+\end{proof}
 \end{document}
