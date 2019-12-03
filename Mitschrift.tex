@@ -42,6 +42,8 @@
 \newcommand{\scrD}{\mathcal{D}}
 \newcommand{\scrU}{\mathcal{U}}
 \newcommand{\scrP}{\mathcal{P}}
+\newcommand{\scrM}{\mathcal{M}}
+\newcommand{\scrN}{\mathcal{N}}
 \newcommand{\zz}{\mathrm{Z\kern-.3em\raise-0.5ex\hbox{Z}}:~}
 
 \DeclareMathOperator{\Diag}{Diag}
@@ -1046,7 +1048,7 @@ Sei $X$ eine Menge.
 \begin{example}
 	\begin{itemize}
 		\item Ist die euklidische Topologie T2? Ja.
-		\item Sei $X$ unendlich. Ist die koendliche Topologie $T$ Hausdorff? Nein. Ist sie T!? Ja: $U^x = X \setminus \{y\}, U^y = X \setminus \{x\}$
+		\item Sei $X$ unendlich. Ist die koendliche Topologie $T$ Hausdorff? Nein. Ist sie T1? Ja: $U^x = X \setminus \{y\}, U^y = X \setminus \{x\}$
 	\end{itemize}
 \end{example}
 \begin{remark}
@@ -1408,5 +1410,117 @@ Wir m"ochten das syntaktisch verstehen.
 	$\zz p$ wird in $\mathcal{M}$ nicht realisiert:\\
 	Sei $\vec{a} \in M^n \rightarrow \vec{a}$ ist die Interpretation des Tupels $\vec{c_m}$ f"ur eon $m \in \setN$.\\
 	$\underset{\substack{\text{Schritt}\\ 2m+1}}{\Longrightarrow} \mathcal{M} \models \lnot \psi[\vec{a}]$ f"ur ein $\psi \in p$.
+\end{proof}
+
+%Sitzung 13 3.12.19
+\begin{remark}
+	$p \in S_n (T)$ nicht isoliert. $\{p\}$ abgeschlossen, aber $\{\mathring{p} \} = \emptyset$, wobei $\mathring{A}$ die gr"o"ste offene Menge $U$ ist, welche ganz in $A$ liegt. (das Innere von $A$)
+	
+	\emph{Warum?} $\underset{\text{offen}}{U \subset} \{p\} \Longrightarrow \begin{array}{c}
+		U = \emptyset\\
+		\overset{\text{oder}}{\underbrace{U = \{p\}}_{\substack{\text{abgeschlossen}\\\text{und offen}}}} 
+	\end{array}\Longrightarrow p$ isoliert.
+\end{remark}
+\begin{definition}
+	Eine Menge $A$ in einem topologischen Raum $(X,T)$ ist \emph{nirgends dicht}, falls $\mathring{\bar{A}}=\emptyset$, wobei $\bar{A}$ kleinste abgeschlossene Menge welche $A$ enth"alt ist.
+\end{definition}
+\begin{example}
+	Ist $\setQ \subset \setR$ nirgends dicht? Nein, denn $\bar{\setQ} = \setR, \mathring{\setR} = \setR$.
+\end{example}
+\begin{definition}
+	$A$ ist \emph{mager}\footnote{Idee hier: "`nicht so gro"s"'}, falls $A = \bigcup\limits_{n \in \setN} A_n$, wobei $A_n$ nirgends dicht.
+\end{definition}
+\begin{theorem}[Verallgemeinerter Typenvermeidungssatz]
+	$T$ abz"ahlbar konsistent. Sei $A_n \subset S_n(T)$ mager f"ur jedes $n \in \setN$. Dann gibt es ein abz"ahlbares Modell $\scrM \models T$, welches alle Typen in $\bigcup\limits_{n \in \setN} A_n$ vermeidet.
+\end{theorem}
+\begin{proof}[Hier ohne Beweis]
+\end{proof}
+\begin{definition}
+	Sei $\scrA$ ein $\scrL$-Struktur. Ein $n$-Typ $p \in S_n^\scrA (B), \scrB \subset \scrA$ ist \emph{atomar}, falls $p$ isoliert ist.
+\end{definition}
+%PRUEFUNGSRELEVANT
+\begin{lemma}
+	Sei $\scrA$ ein $\scrL$-Struktur, $\vec{a}, \vec{b}$ endliche Tupel.
+	\begin{equation*}
+		\underbrace{\typ^\scrA(\vec{a},\vec{b}) }_{\{\varphi[\vec{x}, \vec{y}]~ \scrL \text{-Formel} \mid \scrA \models \varphi[\vec{a},\vec{b}] \}} \text{ ist isoliert} \Longleftrightarrow \typ^\scrA(\vec{b}) \text{ und } \underbrace{\typ^\scrA(\vec{a} / \vec{b})}_{\substack{= \{\psi[\vec{x}] \text{ Formeln in}\\ \scrL \cup \{b_1, \dots, b_n\} \mid \scrA \models \psi [\vec{a}]}} \text{ sind beide isoliert.}
+	\end{equation*}
+\end{lemma}
+\begin{proof}
+	\underline{"`$\Rightarrow$"':} Angenommen $\varphi[\vec{x}, \vec{y}]$ isoliert $\typ^\scrA(\vec{a},\vec{b})$. Zeige zuerst, dass $\varphi[\vec{x}, \vec{b}]$ den Typ $\typ^\scrA(\vec{a}/\vec{b})$ isoliert. (liegt bereits im Typ nach Definition)
+	
+	Sei $\psi[\vec{x}, \vec{b}] \in \typ^\scrA (\vec{a}/\vec{b}) \Rightarrow \scrA \models \psi[\vec{a},\vec{b}]$.
+	
+	Zu zeigen: $\scrA \models \Forall \vec{x}(\varphi[\vec{x}, \vec{b}] \rightarrow \psi[\vec{x}, \vec{b}])$.\\
+	Wegen $\varphi[\vec{x},\vec{y}]$ isoliert $\typ^\scrA(\vec{a},\vec{b})$, gilt auch $\scrA \models \Forall\vec{x} \Forall \vec{y}(\varphi[\vec{x}, \vec{y}]\rightarrow \psi[\vec{x},\vec{y}]) \Rightarrow$ Behauptung.
+	
+	%PRUEFUNGSRELEVANT
+	F"ur $\typ^\scrA(\vec{b}) \ni \underline{\Exists \vec{x} \varphi[\vec{x},\vec{y}]} \rightarrow$ zeige, dass diese Formel den Typ isoliert.
+	
+	$\scrA \models \Forall \vec{y}(\Exists \vec{x}\varphi[\vec{x}, \vec{y}]\rightarrow \Theta[\vec{y}]), \underset{\scrA \models \Theta[\vec{b}] \Rightarrow \scrA \models \Theta[\vec{a}, \vec{b}]}{\Theta \in \typ^\scrA(\vec{b})}$.
+	
+	Sei $\vec{b_1} \in A$ beliebig mit $\scrA \models \Exists\vec{x} \varphi[\vec{x}, \vec{b_1}] \Rightarrow$ es gibt ein $\vec{a_1} \in A$ mit $\scrA \models \varphi[\vec{a_1}, \vec{b_1}]$.
+	
+	Es gilt immer $\scrA \models \Forall \vec{x} \Forall \vec{y} (\varphi[\vec{x}, \vec{y}] \rightarrow \Theta[\vec{y}]) \Longrightarrow \scrA \models \Theta[\vec{b_1}]$.
+	
+	\underline{"`$\Leftarrow$"':} Sei $\Theta[\vec{y}] \in \typ^\scrA(\vec{b})$ und $\varphi[\vec{x}, \vec{b}] \in \typ^\scrA (\vec{a}/\vec{b})$ isolierende Formeln. Setze $\psi[\vec{x}, \vec{y}] = (\varphi[\vec{x}, \vec{y}] \land \Theta[\vec{y}]) \in \typ^\scrA(\vec{a}, \vec{b})$.
+	
+	$\zz \scrA \models \Forall \vec{x} \Forall \vec{y} (\psi[\vec{x}, \vec{y}] \rightarrow \chi[\vec{x}, \vec{y}])$ f"ur alle $\chi \in \typ^\scrA(\vec{a}/\vec{b}): \scrA \models \chi[\vec{x}, \vec{y}]$.
+	
+	$\chi[\vec{x}, \vec{b}] \in \typ^\scrA(\vec{a}/\vec{b}) \Rightarrow \scrA \models \underbrace{\Forall \vec{x}(\varphi[\vec{x}, \vec{b}] \rightarrow \chi[\vec{a}, \vec{b}])}_{\Theta_1[\vec{b}]}$. Also $\Theta_1[\vec{y}] \in \typ^\scrA(\vec{b}) \rightarrow \scrA \models \Forall \vec{y} (\Theta[\vec{y}] \rightarrow \Theta_1[\vec{y}])$.\\
+	Sei nun $\vec{a_1}, \vec{b_1} \in A$ mit $\scrA \models \psi[\vec{a_1}, \vec{b_1}] \begin{cases}
+		\scrA \models \varphi[\vec{a_1},\vec{b_1}]\\
+		\overset{\text{und}}{\scrA \models \Theta[\vec{b_1}]}
+	\end{cases}$. $\overset{\text{mit "`also"'}}{\Longrightarrow} \scrA \models \Theta_1[\vec{b_1}] \underset{\scrA \models \varphi[\vec{a_1},\vec{b_1}]}{\Longrightarrow} \scrA \models \chi[\vec{a_1},\vec{b_1}]$. 
+\end{proof}
+
+\heading{Ab jetzt:} $T$ ist eine konsistente abz"ahlbare Theorie.
+\begin{definition}
+	$\scrM \models T$ ist ein \emph{Primmodell}, falls $\scrM$ sich in jedes andere Modell von $T$ elementar einbetten l"asst.
+\end{definition}
+\begin{example}
+	$\underbrace{\setQ}_\text{Primmodell} , \setQ \oplus \setQ , \dots, \setQ^n , \dots, \setQ^\omega$. Wegen Quantorenelimination ist jede Einbettung elementar!
+\end{example}
+\begin{remark}
+	\begin{itemize}
+		\item Wenn $T$ ein Primmodell besitzt, dann ist $T$ vollst"andig
+		\item Wenn $\scrM$ ein Primmodell von $T$ ist, dann ist $\scrM$ abz"ahlbar
+		\item Wenn $\scrM$ ein Primmodell von $T$ ist, dann ist der Typ $\typ^\scrM(\vec{a})$ f"ur $\vec{a} \in M$ immer $\begin{array}{c}
+			\text{atomar}\\\text{isoliert}
+		\end{array}$ (sonst finde Modell das Typen nicht realisiert. Einbettung liefert doch eine Realisierung)
+	\end{itemize}
+\end{remark}
+
+\heading{Ab jetzt:} $T$ ist vollst"andige, abz"ahlbare Theorie ohne endliche Modelle.
+\begin{theorem}
+	$T$ wie oben. $\scrM \models T$ ist genau dann prim, wenn $\scrM$ abz"ahlbar ist und f"ur jedes Tupel $\underset{\text{endlich}}{\vec{a}\in M}$ gilt, dass $\typ^\scrM (\vec{a})$ atomar ist.
+\end{theorem}
+\begin{proof}
+	\underline{"`$\Rightarrow$"':} $\checkmark$ (gerade gesehen)
+	
+	\underline{"`$\Leftarrow$"':} Sei $\scrN \models T$ beliebig. $\zz \scrM \hookrightarrow \scrN$ elementar.
+	
+	Sei $(a_n)_{n \in \setN}$ eine Aufz"ahlung von $M$. Konstruiere eine Kette $(f_n)_{n \in \setN}$ elementarer Abbildungen zwischen endlich erzeugten Teilmengen von $\scrM$ un $\scrN$ derart, dass $a \in \dom(f_{n+1})$.
+	
+	Sei $f_0 = \emptyset \overset{T\text{ vollst.}}{\longrightarrow} \scrM \equiv \scrN$.\\
+	Angenommen $f_n$ konsistent. Betrachte \underline{$a_n$}.
+	
+	\underline{1. Fall:} $a_n \in \dom(f_n) \rightarrow f_{n+1} = f_n$
+	
+	\underline{2. Fall:} Sonst schreibe $\vec{a}$ eine Auz"ahlung von $\dom(f_n)$, $\vec{b} \in N$ eine Aufz"ahlung von $\im(f_n)$.\\
+	$\typ^\scrM(\vec{a}, a_n)$ atomar $\Longrightarrow \underbrace{\typ^\scrM(a_n/\vec{a})}_{\in S_1^\scrM(\vec{a})}$ ist atomar.
+	
+	$f_n^{-1}: \vec{b} \longrightarrow \vec{a}$ elementar. $\rightarrow (f_n^{-1})_* : S_1^\scrM(\vec{a}) \longrightarrow S_1^\scrN(\vec{b})$ Hom"oomorphismus (denn die Parametermenge ist gleich).
+	
+	Insbesondere: Topologie bleibt erhalten: $(f_n^{-1})_*(\typ^\scrM(a_n/\vec{a}))$ ist isoliert $\Rightarrow$ wird in $\scrN$ von Element $b$ realisiert.
+	
+	Setze $f_{n+1} = f_n \cup \{(a_n, b) \}$.
+	
+	$\scrM \models \varphi[a_n, \vec{a}] \Leftrightarrow \varphi[x, \vec{a}] \in \typ^\scrM(a/\vec{a}) \underset{\text{Bild unter } (f_n^{-1})_*}{\Longleftrightarrow} \varphi[\vec{x}, \vec{b}] \in \typ^\scrN (b/\vec{b}) \Leftrightarrow \scrN \models \varphi[b, \vec{b}]$.
+\end{proof}
+\begin{corollary}
+	Das Primmodell einer vollst"andigen abz"ahlbaren Theorie $T$ ist, wenn es existiert, bis auf Isomorphie eindeutig.
+\end{corollary}
+\begin{proof}
+	Analog.
 \end{proof}
 \end{document}
