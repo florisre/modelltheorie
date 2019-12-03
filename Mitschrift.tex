@@ -1333,6 +1333,7 @@ Gegeben $\varphi_1, \dots, \varphi_m \in p$. Dann ist $T \cup \{\Exists \vec{x} 
 		\end{array}
 	\end{equation*}
 \end{example}
+\section{Typenvermeidungssatz und Isolation}
 Im Folgenden betrachten wir \emph{isolierte Typen}. Topologisch betrachtet sieht das so aus:
 \begin{equation*}
 	\overset{\in S_n(T)}{p} \text{ isoliert } \Longleftrightarrow \underset{\text{abgeschlossen}}{\overset{\text{offen}}{\{p\}}} = [p] \text{f"ur eine } \scrL \text{-Formel } \varphi \in p
@@ -1421,6 +1422,7 @@ Wir m"ochten das syntaktisch verstehen.
 		\overset{\text{oder}}{\underbrace{U = \{p\}}_{\substack{\text{abgeschlossen}\\\text{und offen}}}} 
 	\end{array}\Longrightarrow p$ isoliert.
 \end{remark}
+\section{Magere Mengen und Typenvermeidungssatz}
 \begin{definition}
 	Eine Menge $A$ in einem topologischen Raum $(X,T)$ ist \emph{nirgends dicht}, falls $\mathring{\bar{A}}=\emptyset$, wobei $\bar{A}$ kleinste abgeschlossene Menge welche $A$ enth"alt ist.
 \end{definition}
@@ -1473,6 +1475,7 @@ Wir m"ochten das syntaktisch verstehen.
 	\end{cases}$. $\overset{\text{mit "`also"'}}{\Longrightarrow} \scrA \models \Theta_1[\vec{b_1}] \underset{\scrA \models \varphi[\vec{a_1},\vec{b_1}]}{\Longrightarrow} \scrA \models \chi[\vec{a_1},\vec{b_1}]$. 
 \end{proof}
 
+\section{Primmodelle. Existenz und Eindeutigkeit}
 \heading{Ab jetzt:} $T$ ist eine konsistente abz"ahlbare Theorie.
 \begin{definition}
 	$\scrM \models T$ ist ein \emph{Primmodell}, falls $\scrM$ sich in jedes andere Modell von $T$ elementar einbetten l"asst.
@@ -1506,7 +1509,7 @@ Wir m"ochten das syntaktisch verstehen.
 	
 	\underline{1. Fall:} $a_n \in \dom(f_n) \rightarrow f_{n+1} = f_n$
 	
-	\underline{2. Fall:} Sonst schreibe $\vec{a}$ eine Auz"ahlung von $\dom(f_n)$, $\vec{b} \in N$ eine Aufz"ahlung von $\im(f_n)$.\\
+	\underline{2. Fall:} Sonst schreibe $\vec{a}$ eine Aufz"ahlung von $\dom(f_n)$, $\vec{b} \in N$ eine Aufz"ahlung von $\im(f_n)$.\\
 	$\typ^\scrM(\vec{a}, a_n)$ atomar $\Longrightarrow \underbrace{\typ^\scrM(a_n/\vec{a})}_{\in S_1^\scrM(\vec{a})}$ ist atomar.
 	
 	$f_n^{-1}: \vec{b} \longrightarrow \vec{a}$ elementar. $\rightarrow (f_n^{-1})_* : S_1^\scrM(\vec{a}) \longrightarrow S_1^\scrN(\vec{b})$ Hom"oomorphismus (denn die Parametermenge ist gleich).
