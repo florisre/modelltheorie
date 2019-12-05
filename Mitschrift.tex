@@ -109,7 +109,7 @@
 \setcounter{page}{1}
 %Sitzung 1
 Ziel dieser Vorlesung ist es, eine Aussage der folgenden Qualit"at zu erhalten:
-\begin{theorem}[Morleys Kategorizitätssatz]
+\begin{theorem}[Morleys Kategorizitätssatz]\label{morley}
 	Sei $T$ eine Theorie, welche ein einziges (bis auf Isomorphie) Modell der M"achtigkeit $\aleph_0$ besitzt. Dann besitzt $T$ f"ur jede Kardinalzahl $\kappa > \aleph_0$ ein einziges Modell der M"achtigkeit $\kappa$ (bis auf Isomorphie).
 \end{theorem}
 
@@ -1052,7 +1052,7 @@ Sei $X$ eine Menge.
 	\end{itemize}
 \end{example}
 \begin{remark}
-	$(X,T) T1 \Rightarrow$ Jeder Punkt ist abgeschlossen!
+	$(X,T) ~T1 \Rightarrow$ Jeder Punkt ist abgeschlossen!
 \end{remark}
 \begin{proof}
 	Zu zeigen: $X \setminus \{x\}$ offen\\
@@ -1525,5 +1525,77 @@ Wir m"ochten das syntaktisch verstehen.
 \end{corollary}
 \begin{proof}
 	Analog.
+\end{proof}
+
+%Sitzung 14 5.12.19
+\begin{example}[Beispiele von Primmodellen]
+	\begin{itemize}
+		\item $\setQ$-Vektorraum $\longrightarrow \setQ$
+		\item $\exists^\infty \longrightarrow \scrM$ abz"ahlbar
+		\item $\acf_0 \longrightarrow \bar{\setQ}$
+		\item $\scrM = \{0,1\}^\omega$ in der Sprache $\scrL = \{P_s\}$, $s$ endliche Folge von $0, 1$. $P_s^\scrM(t) = \{$der Anfang von $T$ ist $s\}$.\\
+		$T = \Th(\scrM)$ hat Quantorenelimination: \begin{equation*}
+			\underbrace{\Exists y (\bigwedge \varphi[x_1, \dots, x_n, y])}_\text{primitive Existenzformel} \sim \Theta[x_1, \dots, x_n] \land \Exists y \rho[y] \sim \begin{cases*}
+				x_1 \dot= x_1 &eine Tautologie\\
+				\lnot x_1 \dot= x_1 &immer falsch
+			\end{cases*}
+		\end{equation*}
+		Zudem \begin{equation*}
+			T \vdash \Forall x (P_{000}(x) \lor P_{001}(x) \lor P_{010}(x) \lor P_{011}(x) \lor P_{100}(x) \lor P_{110}(x) \lor P_{111}(x) \lor P_{101}(x))
+		\end{equation*}
+		$\longrightarrow$ Man kann keine Typen isolieren, weil sich Typen nicht eindeutig durch endlich viele Aussagen bestimmen lassen.
+	\end{itemize}
+\end{example}
+\begin{theorem}
+	Es sei $T$ vollst"andig, abz"ahlbar mit unendlichen Modellen. Dann gilt: \\$T$ besitzt ein Primmodell $\Longleftrightarrow$ f"ur jedes $n \in \setN$ liegen die isolierten Typen dicht in $S_n(T)$.
+\end{theorem}
+\begin{proof}
+	\underline{"`$\Rightarrow$"':} Sei $n \in \setN$ und $[\varphi[x_1, \dots, x_n]] \neq \emptyset$ in $S_n(T)$. $T$ besitzt ein Primmodell $\scrM$. Also $T \cup \{\Exists \vec{x} \varphi[\vec{x}]\}$ konsistent. $\overset{T \text{ vollst"andig}}{\underset{\scrM \text{ Modell}}{\Longrightarrow}} \scrM \models \Exists \vec{x} \varphi[\vec{x}] \Rightarrow$ es gibt ein $\vec{a} \in M^n \mid \scrM \models \varphi[\vec{a}]$. Dann gilt $\underbrace{\typ^\scrM(\vec{a})}_{\substack{\text{isoliert, weil Typen}\\\text{in Primmodell}\\\text{immer isoliert}}} \in [\varphi]$.
+	
+	\underline{"`$\Leftarrow$"':} Ein abz"ahlbares Modell $\scrM \models T$ ist dann prim, falls f"ur jedes $n \in \setN ~\scrM$ die Menge von Formeln $\sum_n = \{\lnot \varphi[x_1, \dots, x_n] \}_{\varphi~ \scrL \text{-Formel, } [\varphi] = \{\text{pt} \} \text{ in }S_n(T)}$
+	
+	Ein $n$-Typ $p$ enth"alt $\sum_n \Leftrightarrow p \in \overbrace{\bigcap\limits_{\substack{\varphi[x_1, \dots, x_n]\\\scrL \text{-Formel mit}\\ [\varphi]= \{\text{pt}\}}} \underbrace{[\lnot \varphi]}_{\text{abgeschlossen}}}^{\substack{\text{Schnitte abgeschlossener Mengen}\\ \text{sind abgeschlossen}}}$
+	
+	Wenn $\bigcap\limits_{\substack{\varphi_n\\\text{isolierende}\\\text{Formel}}} [\lnot \varphi]$ mager ist, dann gibt es ein abz"ahlbares Modell, welches kein $\underbrace{\Sigma_n}_\text{Primmodell}$ realisiert.
+	
+	Wir zeigen $\bigcap\limits_{\substack{\varphi_n\\\text{isolierende}\\\text{Formel}}} [\lnot \varphi]$ nirgends dicht. Wie sieht das Innere von $\underbrace{\bigcap\limits_{\substack{\varphi_n\\\text{isolierende}\\\text{Formel}}} [\lnot \varphi]}_\text{abgeschlossen}$ aus?
+	
+	Sei $\underset{\text{offen}}{U \subset} \bigcap\limits_{\substack{\varphi_n\\\text{isolierende}\\\text{Formel}}} [\lnot \varphi]$. Es gen"ugt, den Fall $U = [\psi]$ zu betrachten.
+	
+	$\zz [\psi] = \emptyset$. Falls $[\psi] \neq \emptyset \Rightarrow $ es gibt ein $p \in [\psi]$ isolierter Typ $\Longrightarrow$ es gibt eine isolierende Formel $\chi \in p$. Somit $ p \in \bigcap\limits_{\substack{\varphi_n\\\text{isolierende}\\\text{Formel}}} [\lnot \varphi] \Longrightarrow p \in [\lnot \chi]$. Widerspruch, denn jetzt enth"alt $p$ eine Formel und deren Negation.
+\end{proof}
+\begin{definition}
+	Sei $\scrA$ eine $\scrL$-Struktur. Ein bin"arer Baum von Formeln in einer freien Variablen mit Parametern aus $A$ ist eine Menge $\{\varphi_s [x]\}_{s \in \phantom{}^{<\omega}2}$ ($s$ ist also eine endliche Folge von $0,1$) von $\scrL_A$-Formeln mit folgenden Eigenschaften:
+	\begin{enumerate}
+		\item $\scrA \models \Exists x \varphi_s[x]$ f"ur jede endliche Folge $s$
+		\item $\scrA \models \Forall x ((\varphi_{s \land 0}[x] \lor \varphi_{s \land 1}[x])\rightarrow \varphi_s[x])$
+		\item $\scrA \models \lnot \Exists x (\varphi_{s \land 0}[x] \land \varphi_{s \land 1}[x])$
+	\end{enumerate}
+\end{definition}
+\begin{definition}
+	$T$ ist \emph{total transzendent}, falls $T$ kein Modell besitzt, in welchem es einen bin"aren Baum von Formeln in einer Variablen gibt.
+\end{definition}
+\begin{example}
+	%TODO Baumgrafik einf"ugen
+\end{example}
+\begin{example}
+	$T = \exists^\infty$. $\underbrace{X \subset}_\text{definierbar} M$ mit Parametern $\longrightarrow X$ endlich oder koendlich\footnote{das ist genau, was \nameref{morley} besagt (versteckt)}.
+	%TODO Grafik mit Beschriftungen
+\end{example}
+\begin{example}[Nicht-Beispiel]
+	$T =$ Zufallsgraphen. %TODO Grafik
+\end{example}
+\begin{lemma}
+	$T$ vollst"andig abz"ahlbar mit unendlichen Modellen. Falls $T$ total transzendent ist, dann liegen f"ur jedes $\scrM \models T, \underbrace{A \subset}_\text{abz"ahlbar} M$ die isolierten Typen dicht in $S_n^\scrM(A)$.
+	
+	Insbesondere besitzt $T$ ein Primmodell.
+\end{lemma}
+\begin{proof}
+	Es gen"ugt zu zeigen, dass die isolierten Typen dicht in $S_1^\scrM(A)$ liegen (vgl. "Ubung). %TODO Zahl einf"ugen
+	Sonst gibt es eine offene, nicht-leere Umgebung ohne isolierte Typen. OBdA wird diese Umgebung durch $[\varphi[x]]$ gegeben.
+	
+	$0 \neq |[\varphi]| \geq 2$. Finde also $p \neq q \in [\varphi]$. Weil $S_1^\scrM$ Hausdorff ist, finden wir insbesondere $\psi_1 \ni p, \psi_2 \ni q$ mit $[\psi_1] \cap [\psi_2] = \emptyset$.
+	
+	Dadurch bricht der Baum nicht ab. %TODO Grafik
 \end{proof}
 \end{document}
