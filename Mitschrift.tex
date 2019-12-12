@@ -54,6 +54,8 @@
 \newcommand{\abs}[1]{{\left| #1 \right|}}
 \newcommand{\dabs}[1]{{\left\lVert #1 \right\rVert}}
 \newcommand{\heading}{\underline}
+
+\newcommand{\ubar}[1]{\text{\b{$#1$}}}
  
 \DeclareMathOperator{\charac}{char}
 \DeclareMathOperator{\im}{Im}
@@ -1342,7 +1344,7 @@ Wir m"ochten das syntaktisch verstehen.
 \begin{remark}\label{bem:voll}
 	Ein $n$-Typ $p \in S_n(T)$ ist genau dann isoliert, wenn er eine \emph{komplette} Formel $\varphi =\varphi[x_1, \dots, x_n]$ enth"alt, das hei"st
 	\begin{equation*}
-		p = \{\psi \scrL\text{-Formel} \mid T \models \Forall \vec{x} (\varphi[\vec{x}] \rightarrow \psi[\vec{x}]) \}
+		p = \{\psi~ \scrL\text{-Formel} \mid T \models \Forall \vec{x} (\varphi[\vec{x}] \rightarrow \psi[\vec{x}]) \}
 	\end{equation*}
 	\underline{Insbesondere} ist jeder isolierte Typ in jedem Modell von $T$ realisiert, falls $T$ vollst"andig ist!
 \end{remark}
@@ -1598,4 +1600,332 @@ Wir m"ochten das syntaktisch verstehen.
 	
 	Dadurch bricht der Baum nicht ab. %TODO Grafik
 \end{proof}
+
+%Sitzung 15 10.12.19
+\begin{definition}
+	Sei $\scrA$ eine $\scrL$-Struktur, $C \subset A$. $B \subset A$ ist \emph{konstruktibel "uber $C$}, falls $B = (b_\alpha)_{\alpha<\lambda}$ so\footnote{ist das unabh"angig von der Aufz"ahlung? Das ist unklar, wird in dieser Vorlesung umgangen.}, dass der Typ $\typ^\scrA(b_\alpha / C, (b_\beta)_{\beta<\alpha})$ isoliert ist f"ur alle $\alpha < \lambda$.
+\end{definition}
+\begin{remark}
+	$T$ eine Theorie, $\scrA \models T$, $C \subset A$. $T_C = T \cup \vdig(C)$. Wenn $T_C$ ein konstruktibles Modell ("uber $C$) besitzt, dann ist dieses Modell ein Primmodell von $T_C$.
+\end{remark}
+\begin{proof}
+	Sei $\scrM = (m_i)_{i < \lambda}$ konstruktibel "uber $C$, $\scrN \models T_C$ beliebig. $\zz \scrM \overset{\simeq}{\hookrightarrow} \scrN$.
+	
+	Konstruiere eine Kette von $\scrL_C$-elementarer Abbildungen $f_\alpha: \dom(f_\alpha) \subset \scrM \dots \scrN$ so, dass $m_\alpha \in \dom(f_{\alpha+1})$\\
+	$f_0 = \emptyset$.\\
+	Sei $f_\alpha$ bereits konstruiert. $m_\alpha \in \dom(f_\alpha) \longrightarrow f_{\alpha+1} = f_\alpha$.\\
+	Wenn nicht: $\underbrace{(f_\alpha^{-1})_*}_{\substack{\text{Hm"oomorphismus,}\\\text{erh"alt Topologie}}} (\typ^\scrM (m_\alpha / C, (m_\beta)_{\beta < \alpha}))$ ist isoliert. $\Longrightarrow$ es wird in $\scrN$ von $b$ realisiert. $\Longrightarrow f_{\alpha+1} = f_\alpha \cup \{(a_\alpha, b) \}$.
+\end{proof}
+\begin{corollary}
+	Je zwei konstruktible Modelle sind isomorph "uber $C$. %TODO KArtoffelgrafik
+\end{corollary}
+\begin{proposition}
+	Wenn $T$ total transzendent ist, dann gibt es f"ur jedes $C \subset A$, $\scrA \models T$, ein Primmodell "uber $C$.
+\end{proposition}
+\begin{proof}
+	oBdA $C \neq \emptyset$. Sei $\scrA$ ein konkretes Modell.
+	\begin{equation*}
+		S = \left\{(B, \alpha, f), \begin{array}{c}
+			B \subset A\\ \alpha \in O_n\\ f: \alpha \rightarrow B \text{ Bijektion}
+		\end{array} \begin{array}{c} \text{derart, dass f"ur jedes } \beta < \alpha\\ \typ^\scrA(b_\beta / C, (b_\gamma)_{\gamma < \beta}) \text{ atomar, } b_\beta=f(\beta) \end{array} \right\}
+	\end{equation*}
+	Setze $(B_1, \alpha_1, f_1) \leq (B_2, \alpha_2, f_2)$, falls $B_1 \subset B_2$, $\alpha_a \leq \alpha_2$ und ${f_2}_{\upharpoonright \alpha_1} = f_1$; eine partielle Ordnung auf $S$.
+	\begin{remark}\label{hilf:bem}
+		$(B, \alpha, f) \in S, \typ^\scrA(d/B, C)$ atomar f"ur ein $d \in A$ $\Longrightarrow \left(B \cup \{d\}, S(\alpha), \begin{array}{c}
+			S(\alpha) \longrightarrow B \cup \{d\}\\ \beta \longmapsto f(\beta)\\ \alpha \longmapsto d
+		\end{array}\right) {\in S}$
+	\end{remark}
+	Ferner $(c, \ubar{1}, \ubar{0} \longrightarrow c) \in S$ f"ur alle $c \in C~ \Longrightarrow S \neq \emptyset$.\\
+	$S$ ist induktiv. Sei $\Gamma(B_i, \alpha_i, f_i)$ eine Kette in $S$. Setze $B = \bigcup B_i$, $\alpha = \sup \alpha_i$, \\$f= \bigcup f_i:\alpha \underset{\text{Bijektion}}{\longrightarrow} B$.
+	
+	Noch $\zz (B,\alpha,f) \in S$.\\
+	Sei $\beta < \alpha$. $\typ^\scrA(b_\beta / C, (b_\gamma)_{\gamma < \beta})$ atomar. $b_\beta = \underbrace{f(\beta),~ \beta < \alpha_i}_{=f_i(\beta)}$ f"ur ein $i$, sonst Widerspruch.
+	
+	$b_\gamma = f_i(\gamma)$ f"ur $\gamma < \beta < \alpha_i$. Somit: $\typ^\scrA(f_i(\beta)/C,(f_i(\gamma))_{\gamma < \beta})$ atomar, $(B_i, \alpha_i, f_i) \in S$. $\Longrightarrow C \subset B$
+	
+	Sei $(B, \alpha, f) \in S$ maximal.
+	
+	Tarskis Test: $\varphi[x_1, \dots, x_n, y], b_1, \dots, b_n \in B, \scrA \models \varphi[b_1, \dots, b_n, a]$ f"ur ein $a \in A$. Betrachte jetzt $\emptyset \neq [\varphi[b_1, \dots, b_n, y]]$ in $S_1^\scrA(B)$. $\overset{\substack{T\text{ total}\\\text{transzendent}}}{\Longrightarrow}$ es gibt $d \in A$, sodass $\typ^\scrA(d/B)$ atomar ist (folgt mit \eqref{hilf:bem}) und $\scrA \models \varphi[b_1, \dots, b_n, d]$.
+	
+	$\underbrace{(B, \alpha, f)}_{\substack{\text{maximal, somit}\\\text{Gleichheit}}} \leq \underbrace{(B \cup \{d\}, S(\alpha), f \cup \{(\alpha, d)\})}_{\in S} \Longrightarrow d \in B \Longrightarrow~ B$ ist Universum einer elementaren Unterstruktur.
+\end{proof}
+
+\section{Saturation}
+Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \oplus \setQ, \dots , \setQ^\omega$ haben, wobei $\setQ$ das Primmodell ist. Jetzt m"ochten wir $\setQ^\omega$ verstehen.
+
+\begin{definition}
+	Sei $\kappa \geq \aleph_0$ eine Kardinalzahl. Eine $\scrL$-Struktur $\scrA$ ist \emph{$\kappa$-saturiert}, falls jeder $n$-Typ "uber eine Menge $C \subset A, |C|<\kappa$, in $\scrA$ realisiert wird.\\
+	$\scrA$ ist \emph{saturiert}, falls es $|A|$-saturiert ist.
+\end{definition}
+\begin{remark}
+	$\scrA$ ist $\kappa$-saturiert genau dann, wenn $\scrA$ jeden $1$-Typ "uber $C \subset A$ mit $|C| < \kappa$ realisiert.
+\end{remark}
+\begin{proof}
+	\underline{"`$\Rightarrow$"':} klar.
+	
+	\underline{"`$\Leftarrow$"':} Sei $p(x,y) \in S_2^\scrA(C)$. Betrachte \begin{equation*}
+		\overbrace{q(x)}^{\in S_1^\scrA(C)} = p(x,y)_{\upharpoonright \text{ die Variable }x}=\{\varphi[x] \mid \varphi[x] \in p(x,y),~ \varphi~\scrL_C \text{-Formel} \}
+	\end{equation*}
+	$\overset{\text{n. V.}}{\Longrightarrow}$ es gibt $b \in A$ Realisierung von $q$ sodass $S_1^\scrA(Cb)$, $|Cb| < \kappa$, $p(b,y) = \{\varphi[b,y] \mid \varphi[x,y] \in p \}$
+	
+	Es gibt eine Realisierung $d$ in $\scrA$ von $p(b,y)$. Aus der Konstruktion folgt, dass $(b,d)$ den Typ $p$ realisiert.
+\end{proof}
+\begin{example}
+	$\setQ^{(\omega)}$ ist $\aleph_0$-saturiert. Insbesondere werden alle Typen in $\setQ^{(\omega)}$ realisiert!
+		
+	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+	
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+	%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+	
+	%Shape: Circle [id:dp816368925068694] 
+	\draw   (81,142) .. controls (81,89.53) and (123.53,47) .. (176,47) .. controls (228.47,47) and (271,89.53) .. (271,142) .. controls (271,194.47) and (228.47,237) .. (176,237) .. controls (123.53,237) and (81,194.47) .. (81,142) -- cycle ;
+	%Shape: Circle [id:dp0789960819291129] 
+	\draw   (113,142) .. controls (113,107.21) and (141.21,79) .. (176,79) .. controls (210.79,79) and (239,107.21) .. (239,142) .. controls (239,176.79) and (210.79,205) .. (176,205) .. controls (141.21,205) and (113,176.79) .. (113,142) -- cycle ;
+	%Straight Lines [id:da10557663539244588] 
+	\draw    (205,123) -- (321.19,67.86) ;
+	\draw [shift={(323,67)}, rotate = 514.61] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	
+	%Straight Lines [id:da7590702284738848] 
+	\draw    (176,142) -- (324,142) ;
+	\draw [shift={(326,142)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	
+	
+	% Text Node
+	\draw (155,121) node   [align=left] {$\displaystyle v_{1}$};
+	% Text Node
+	\draw (183,117) node   [align=left] {$\displaystyle v_{2}$};
+	% Text Node
+	\draw (180,171) node   [align=left] {$\displaystyle v_{4}$};
+	% Text Node
+	\draw (152,154) node   [align=left] {$\displaystyle v_{3}$};
+	% Text Node
+	\draw (358,66) node   [align=left] {$\displaystyle ( x\dot=v_{i})$};
+	% Text Node
+	\draw (384,138) node   [align=left] {$\displaystyle ( x\dot=\sum\limits ^{n}_{i=1} \lambda _{i} v_{i})$};
+	% Text Node
+	\draw (389,192) node   [align=left] {$\displaystyle \lnot ( x\dot=\sum\limits_{i\leq \omega } \mu _{i} v_{i})$};
+	
+	
+	\end{tikzpicture}
+\end{example}
+\begin{example}
+	$(\setR, <)~ \aleph_1$-saturiert? Nein, denn $\{0<x<q \}_{q \in \setQ^{>0}}$ wird nicht in $\setR$ realisiert.
+\end{example}
+\begin{remark}
+	Sei $\scrA~ \kappa$-saturiert, $\underbrace{X \subset}_\text{definierbar} A^n$ unendlich. $\Longrightarrow |X| \geq \kappa$.
+\end{remark}
+\begin{proof}
+	Sonst: \marginpar{Kompaktheit} $|X| < \kappa$. Sei $X = (\vec{c_\alpha})_{\alpha<\mu}$ Aufz"ahlung mit $\mu < \kappa$. \begin{equation*}
+		\sum(\vec{x}) = \{\vec{x} \in X \} \cup \{\lnot (\vec{x} \dot=\vec{c_\alpha}) \}_{\alpha<\mu}
+	\end{equation*}
+	ist eine partieller Typ "uber einer Menge $D$ von Parametern, $|D|< \kappa$. Des Weiteren muss $\sum$ eine Realisierung haben, das w"are jedoch ein $c_\alpha$. Widerspruch.
+\end{proof}
+\begin{remark}
+	$\scrA \equiv \scrB$ saturiert mit $|A|=|B|~\Longrightarrow \scrA \simeq \scrB$
+\end{remark}
+\begin{proof}
+	Betrachte das folgende Bild:
+	
+	
+	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+	
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+	%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+	
+	%Shape: Ellipse [id:dp3169296457881807] 
+	\draw   (31,157) .. controls (31,84.1) and (77.11,25) .. (134,25) .. controls (190.89,25) and (237,84.1) .. (237,157) .. controls (237,229.9) and (190.89,289) .. (134,289) .. controls (77.11,289) and (31,229.9) .. (31,157) -- cycle ;
+	%Shape: Ellipse [id:dp78296195310755] 
+	\draw   (401,157) .. controls (401,84.1) and (447.11,25) .. (504,25) .. controls (560.89,25) and (607,84.1) .. (607,157) .. controls (607,229.9) and (560.89,289) .. (504,289) .. controls (447.11,289) and (401,229.9) .. (401,157) -- cycle ;
+	%Curve Lines [id:da42235618145857756] 
+	\draw    (161,143) .. controls (283.39,28.57) and (389.93,69.58) .. (475.71,143.88) ;
+	\draw [shift={(477,145)}, rotate = 221.09] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	
+	
+	% Text Node
+	\draw (129,142) node   [align=left] {$\displaystyle  \begin{array}{{>{\displaystyle}l}}
+		a_{0}\\
+		\vdots \\
+		a_{\alpha }\\
+		\vdots 
+		\end{array}$};
+	% Text Node
+	\draw (222,32) node   [align=left] {$\displaystyle \mathcal{A}$};
+	% Text Node
+	\draw (499,142) node   [align=left] {$\displaystyle  \begin{array}{{>{\displaystyle}l}}
+		b_{0}\\
+		\vdots \\
+		b_{\alpha }\\
+		\vdots 
+		\end{array}$};
+	% Text Node
+	\draw (592,32) node   [align=left] {$\displaystyle \mathcal{B}$};
+	% Text Node
+	\draw (315,93) node   [align=left] {$\displaystyle f_{\alpha }$};
+	
+	
+	\end{tikzpicture}
+	\\$f_\alpha \subset f_{\alpha+1}$ elementare Abbildung, $f_\gamma = \bigcup\limits _{\beta < \gamma} f_\beta$ f"ur $\gamma$ Limes, sodass $a_\alpha \in \underbrace{\dom(f_{\alpha+1})}_{\text{M"achtigkeit }<|A|}, b_\alpha \in \im(f_{\alpha+1})~ \longrightarrow \bigcup f_\alpha: \scrA \simeq \scrB$
+	
+	$f_0 = \emptyset~ \checkmark$
+	
+	Sei $f_\alpha$ bereits konstruiert. $\longrightarrow$ oBdA $a_\alpha \notin \dom(f_\alpha)$.\\
+	$\typ^\scrA(a_\alpha/\dom(f_\alpha)) \longrightarrow$ $1$-Typ in $\scrB$ "uber $\im(f_\alpha)$. Finde $b'$ Realisierung. \\$\overset{\text{saturiert}}{\Longrightarrow}~ f_\alpha ' = f_\alpha \cup \{(a_\alpha, b') \}$ elementar.
+	
+	Analog f"ur $b_\alpha$: $\typ^\scrB(b_\alpha / \im(f_\alpha ')) \longrightarrow~1$-Typ in $\scrA$ "uber $\underbrace{\dom(f_\alpha) \cup \{a_\alpha\}}_{\text{M"achtigkeit }<|A|}$
+\end{proof}
+\begin{theorem}
+	Sei $\scrL$ eine abz"ahlbare Sprache und $A$ eine $\scrL$-Struktur, $\lambda \geq \aleph_0$. Es existiert eine $\lambda$-saturierte elementare Erweiterung von $A$.
+\end{theorem}
+\begin{proof}
+	Sei $(p_\alpha)_{\alpha<\kappa}$ eine Aufz"ahlung aller $n$-Typen in $A$ "uber Teilmengen der M"achtigkeit $< \lambda$.\\
+	$\scrA = \scrA_0 \preceq \scrA_1 ' \preceq \scrA_2 ' \preceq \dots \dots \scrA_\alpha '$ realisiert den Typen $p_\alpha$. Setze $\scrA_1 = \bigcup \scrA_\alpha '$.
+	
+	Iteriere\marginpar{Kofinalit"at} $\underbrace{\scrA = \scrA_0 \preceq \scrA_1 \preceq \dots \dots \preceq \scrA_\alpha \preceq \scrA_{\alpha+1} \preceq \dots }_{\lambda^+}$, wobei $\scrA_{\alpha+1}$ \underline{alle} $n$-Typen "uber Teilmengen von $A_\alpha$ der M"achtigkeit $< \lambda$ realisiert.
+	
+	$\scrA \preceq \scrB = \bigcup\limits _{\alpha < \lambda^+} \scrA_\alpha$. $\zz \scrB$ ist $\lambda$-saturiert.
+	
+	Sei $C \subset B$ mit $|C| < \lambda$. Es gen"ugt zu zeigen, dass $C \subset A_\alpha$ f"ur ein $\alpha <\lambda^+$. F"ur jedes $c \in C$ gibt es $\alpha = \alpha(c) < \lambda^+$ kleinstm"oglich mit $c \in A_{\alpha(c)}$. Wir m"ussen zeigen, dass es ein $\beta < \lambda^+$ gibt, mit $\alpha(c) \leq \beta$ f"ur alle $c \in C$.
+	
+	Sonst gibt es f"ur jedes $\beta < \lambda^+$ ein $c \in C$ mit $\beta < \alpha(c) \Longrightarrow \lambda^+ \subset \bigcup\limits_{c \in \underbrace{C}_{<\lambda}} \underbrace{\alpha(c)}_{\leq \lambda} {\Longrightarrow |\lambda^+| \leq \lambda}$.
+\end{proof}
+\begin{corollary}
+	Sei $T$ eine konsistente, abz"ahlbare Theorie mit unendlichen Modellen. Die Theorie $T$ hat genau dann Quantorenelimination, wenn zwischen je zwei $\aleph_0$-saturierten Modellen von $T$ die Kollektion aller partiellen Isomorphismen zwischen endlich erzeugten Unterstrukturen ein Back-\&-Forth-System besitzt.\\
+	Ferner, wenn diese Kollektion nicht leer ist, ist $T$ vollst"andig.
+\end{corollary}
+\begin{proof}
+	\underline{"`$\Rightarrow$"':} $\scrM, \scrN_0$ seien $\aleph_0$-saturiert.\\
+	
+	
+	
+	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+	
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+	%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+	
+	%Shape: Ellipse [id:dp3169296457881807] 
+	\draw   (31,125.03) .. controls (31,69.27) and (57.58,24.06) .. (90.37,24.06) .. controls (123.16,24.06) and (149.74,69.27) .. (149.74,125.03) .. controls (149.74,180.79) and (123.16,226) .. (90.37,226) .. controls (57.58,226) and (31,180.79) .. (31,125.03) -- cycle ;
+	%Shape: Ellipse [id:dp78296195310755] 
+	\draw   (244.26,125.03) .. controls (244.26,69.27) and (270.84,24.06) .. (303.63,24.06) .. controls (336.42,24.06) and (363,69.27) .. (363,125.03) .. controls (363,180.79) and (336.42,226) .. (303.63,226) .. controls (270.84,226) and (244.26,180.79) .. (244.26,125.03) -- cycle ;
+	%Straight Lines [id:da4843379487748446] 
+	\draw    (114,79) -- (302.02,105.72) ;
+	\draw [shift={(304,106)}, rotate = 188.09] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	
+	
+	% Text Node
+	\draw (141.09,29.41) node   [align=left] {$\displaystyle \mathcal{M}$};
+	% Text Node
+	\draw (300.75,137.56) node   [align=left] {$\displaystyle \langle d_{1} ,\dots ,d_{n} \rangle $};
+	% Text Node
+	\draw (354.35,29.41) node   [align=left] {$\displaystyle \mathcal{N}$};
+	% Text Node
+	\draw (197.69,73.07) node   [align=left] {$\displaystyle f$};
+	% Text Node
+	\draw (92.75,138.56) node   [align=left] {$\displaystyle \langle c_{1} ,\dots ,c_{n} \rangle $};
+	% Text Node
+	\draw (90,74) node   [align=left] {$\displaystyle a$};
+	
+	
+	\end{tikzpicture}
+	
+	$T$ hat Quantorenelimination $\Longrightarrow~f$ ist elementar.\\
+	$\zz \scrM \models \varphi[c_1, \dots, c_n] \Longrightarrow \scrN \models \varphi[d_1, \dots, d_n]$
+	
+	$T\models \Forall \vec{x} (\varphi[\vec{x}] \leftrightarrow \underbrace{\psi[\vec{x}]}_\text{quantorenfrei})$. $\scrM \models \psi[c_1, \dots, c_n] \Rightarrow \scrN \models \psi[d_1, \dots, d_n] \Rightarrow \scrN \models \varphi[d_1, \dots, d_n]$.\\
+	$\typ^\scrA(a/a_1, \dots, a_n) \longrightarrow~ 1$-Typ "uber $d_1, \dots, d_n$ in $\scrN$. $\underset{\substack{\scrN~\aleph_0\\\text{-saturiert}}}{\longrightarrow}$ es wird von $b$ in $\scrN$ realisiert. $\longrightarrow~ f \cup \{(a,b)\}$ ist elementar $\Rightarrow$ definiert einen partiellen Isomorphismus $\langle c_1, \dots, c_n,a \rangle \simeq \langle d_1, \dots, d_n ,b \rangle$
+	
+	\underline{"`$\Leftarrow$"':} Gegeben $\begin{array}{c c}
+		\scrM \models T &\scrN \models T\\
+		\cup ~\text{US} &\cup ~\text{US}\\
+		\langle c_{1} ,\dots ,c_{n} \rangle &\langle d_{1} ,\dots ,d_{n} \rangle
+	\end{array}$. 
+	
+	$\begin{array}{c c c c}
+		\zz &(\scrM, c_1, \dots, c_n)&\equiv &(\scrN, d_1, \dots, d_n)\\
+		\phantom{x}&\preceq &\phantom{x} &\preceq\\
+		\phantom{x}&(\tilde{\scrM}, c_1, \dots, c_n) &\equiv &(\tilde{\scrN}, d_1, \dots, d_n)\\
+		\phantom{x}&\aleph_0 \text{-saturiert} &\text{n. Konstr.} &\aleph_0 \text{-saturiert}
+	\end{array}$
+	
+\end{proof}
+\begin{example}
+	$T$, $\scrL = \{P_n\}_{n\in \setN}$. JEdes $P_n$ unendlich, $P_n$ \& $P_m$ disjunkt. Was ist das $\aleph_0$-saturierte Modell?
+	
+	
+	
+	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+	
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+	%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+	
+	%Shape: Rectangle [id:dp013429297480446634] 
+	\draw   (5,87) -- (41.17,87) -- (41.17,212) -- (5,212) -- cycle ;
+	%Shape: Rectangle [id:dp3732131188625225] 
+	\draw   (41.17,87) -- (77.33,87) -- (77.33,212) -- (41.17,212) -- cycle ;
+	%Shape: Rectangle [id:dp08847510723168839] 
+	\draw   (77.33,87) -- (191.67,87) -- (191.67,212) -- (77.33,212) -- cycle ;
+	%Shape: Rectangle [id:dp27946935609309886] 
+	\draw   (191.67,87) -- (227.83,87) -- (227.83,212) -- (191.67,212) -- cycle ;
+	%Shape: Rectangle [id:dp16885101464940977] 
+	\draw   (227.83,87) -- (264,87) -- (264,212) -- (227.83,212) -- cycle ;
+	%Shape: Rectangle [id:dp7067098029428056] 
+	\draw   (382,85) -- (415.69,85) -- (415.69,210) -- (382,210) -- cycle ;
+	%Shape: Rectangle [id:dp5550107316473013] 
+	\draw   (415.69,85) -- (449.37,85) -- (449.37,210) -- (415.69,210) -- cycle ;
+	%Shape: Rectangle [id:dp29772475675498744] 
+	\draw   (449.37,85) -- (555.86,85) -- (555.86,210) -- (449.37,210) -- cycle ;
+	%Shape: Rectangle [id:dp3994851521856324] 
+	\draw   (555.86,85) -- (589.54,85) -- (589.54,210) -- (555.86,210) -- cycle ;
+	%Shape: Rectangle [id:dp3871298873549738] 
+	\draw   (589.54,85) -- (623.23,85) -- (623.23,210) -- (589.54,210) -- cycle ;
+	%Shape: Ellipse [id:dp8770673140978872] 
+	\draw   (265,151.5) .. controls (265,124.71) and (272.16,103) .. (281,103) .. controls (289.84,103) and (297,124.71) .. (297,151.5) .. controls (297,178.29) and (289.84,200) .. (281,200) .. controls (272.16,200) and (265,178.29) .. (265,151.5) -- cycle ;
+	%Straight Lines [id:da8425602572395875] 
+	\draw    (303,143) -- (374,143.97) ;
+	\draw [shift={(376,144)}, rotate = 180.78] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	
+	
+	% Text Node
+	\draw (19,58) node   [align=left] {$\displaystyle \mathcal{M}$};
+	% Text Node
+	\draw (23,222) node   [align=left] {$\displaystyle P_{1}$};
+	% Text Node
+	\draw (59,222) node   [align=left] {$\displaystyle P_{2}$};
+	% Text Node
+	\draw (210,222) node   [align=left] {$\displaystyle P_{n}$};
+	% Text Node
+	\draw (135,157) node   [align=left] {$\displaystyle \dotsc $};
+	% Text Node
+	\draw (131,222) node   [align=left] {$\displaystyle \dotsc $};
+	% Text Node
+	\draw (285,148) node   [align=left] {$\displaystyle  \begin{array}{{>{\displaystyle}l}}
+		m\\
+		m'\\
+		m''\\
+		\vdots 
+		\end{array}$};
+	% Text Node
+	\draw (397.83,241) node   [align=left] {$\displaystyle \mathcal{N}$};
+	% Text Node
+	\draw (400.63,75) node   [align=left] {$\displaystyle P_{1}$};
+	% Text Node
+	\draw (434.16,75) node   [align=left] {$\displaystyle P_{2}$};
+	% Text Node
+	\draw (574.8,75) node   [align=left] {$\displaystyle P_{n}$};
+	% Text Node
+	\draw (503.08,155) node   [align=left] {$\displaystyle \dotsc $};
+	% Text Node
+	\draw (501.22,75) node   [align=left] {$\displaystyle \dotsc $};
+	% Text Node
+	\draw (642.79,146) node   [align=left] {$\displaystyle  \begin{array}{{>{\displaystyle}l}}
+		n\\
+		n'\\
+		n''\\
+		\vdots 
+		\end{array}$};
+	
+	
+	\end{tikzpicture}
+	$\sum (x)= \{\lnot P_n(x) \}_{n \in \setN}$ muss auch realisiert werden!
+\end{example}
 \end{document}
