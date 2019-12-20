@@ -45,6 +45,7 @@
 \newcommand{\scrM}{\mathcal{M}}
 \newcommand{\scrN}{\mathcal{N}}
 \newcommand{\zz}{\mathrm{Z\kern-.3em\raise-0.5ex\hbox{Z}}:~}
+\newcommand{\fK}{\mathfrak{K}}
 
 \DeclareMathOperator{\Diag}{Diag}
 
@@ -2049,7 +2050,7 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 	\end{array}$
 	
 \end{proof}
-\begin{example}
+\begin{example} \label{ex:aek}
 	$T$, $\scrL = \{P_n\}_{n\in \setN}$. Jedes $P_n$ unendlich, $P_n$ \& $P_m$ disjunkt. Was ist das $\aleph_0$-saturierte Modell?
 	
 	
@@ -2274,14 +2275,89 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 	Betrachte $\scrL = \{<\} \cup \{c_n \}_{n \in \setN}$. Die Theorie $\Th(\setQ, <, c_n = n)$ hat $3$ abz"ahlbare Modelle (bis auf Isomorphie).\footnote{Hinweis f"ur den Beweis: Muss eine monoton wachsende Folge eine obere Schranke haben?}
 \end{remark}
 \begin{proof}[Beweis \nameref{2M}]
-	Sei $T$ abz"ahlbar, vollst"andig mit genau $2$ abz"ahlbaren Modellen (nicht isomorph). $\Rightarrow~ T$ ist nicht $\aleph_0$-kategorisch!\\
+	Sei $T$ abz"ahlbar, vollst"andig mit genau $2$ abz"ahlbaren Modellen (nicht isomorph) $\Rightarrow~ T$ ist nicht $\aleph_0$-kategorisch!\\
 	$\Rightarrow$ es gibt ein $n \in \setN$ mit $S_n(T)$ unendlich\\
 	$\Rightarrow$ es gibt einen $n$-Typ $p$, der nicht isoliert ist\\
 	$\curvearrowright$ Der Typ $p$ wird in $\underset{\text{abz.}}{\scrA}$ von $\vec{a}$ realisiert\\
 	$\curvearrowright$ Der Typ $p$ wird in $\underset{\text{abz.}}{\scrB}$ vermieden
 	
 	Jetzt haben wir: $\Th(\scrA, \vec{a})$ ist nicht $\aleph_0$-kategorisch (folgt mit \eqref{K2}).\\
-	$\curvearrowright$ es gibt $(\scrC, \vec{c}) \models \Th(\scrA, \vec{a})$ mit $(\scrC, \vec{c}) \not\simeq (\scrA, \vec{a})$.\\
+	$\curvearrowright$ es gibt $(\scrC, \vec{c}) \models \Th(\scrA, \vec{a})$ mit $(\scrC, \vec{c}) \not\simeq (\scrA, \vec{a})$.\footnote{Unklar bleibt hier: warum sollte $\scrA \simeq \scrC$ nicht gelten? Der gegebene Beweis ist fehlerhaft. Ein korrekter Beweis findet sich auf Seite \pageref{korrekt}.}\\
 	Beachte, dass $\scrC \not\simeq \scrB$, denn in $\scrC$ wird $p$ durch $\vec{c}$ realisiert.
+\end{proof}
+%Sitzung 18 19.12.19
+\begin{definition}
+	Sei $T$ abz"ahlbar und vollst"andig. $T$ ist schmal, falls f"ur jedes $n \in \setN$ der Typ $S_n(T)$ abz"ahlbar ist.
+\end{definition}
+\begin{example}
+	\begin{enumerate}
+		\item Die Theorie der $\setQ$-Vektorr"aume ist schmal, aber nicht $\aleph_0$-kategorisch
+		\item Die Theorie $\acf_p$ mit $p=0$ oder $p$ eine Primzahl ist nicht $\aleph_0$-kategorisch, aber schmal. Betrachte dazu insbesondere $\bar{\setQ} \not\simeq \bar{\setQ(\pi)}$
+		\item $\Diag(\setQ, <)$ ist nicht schmal
+		\item die Theorie aus Beispiel \ref{ex:aek} ist nicht $\aleph_0$-kategorisch, aber schmal
+	\end{enumerate}
+\end{example}
+\begin{lemma}
+	Eine vollst"andige, abz"ahlbare Theorie ist genau dann schmal, wenn $T$ ein abz"ahlbares, saturiertes Modell besitzt.
+\end{lemma}
+\begin{proof}
+	\underline{"`$\Leftarrow$"':} Sei $\scrM \models T$ abz"ahlbar und saturiert. Wir haben gesehen: $S_n(T) = S_n^\scrM(\emptyset)$ ist abz"ahlbar, weil $\scrM$ abz"ahlbar ist, und jeder $n$-Typ "uber $\emptyset$ muss in $\scrM$ realisiert werden.
+	
+	\underline{"`$\Rightarrow$"':} $T$ schmal $\rightarrow~ S_n(T)$ abz"ahlbar $\hookrightarrow$ f"ur jedes $\scrM \models T$, $\underset{\text{endlich}}{A \subset} M$: $S_n^\scrM(A)$ abz"ahlbar. Weiter konstruieren wir, wie zuvor, eine Kette von Modellen wie folgt:
+	\begin{equation*}
+		\underset{\text{abz.}}{\scrM_0} \preceq \underset{\text{abz.}}{\scrM_1} \preceq \dots \preceq \underset{\text{abz.}}{\scrM_k} \preceq \dots
+	\end{equation*}
+	wobei wir jeweils alle $1$-Typen auf endlichen Teilmengen betrachten und diese im nachfolgenden Modell realisieren\footnote{Vergleiche dazu auch "Ubung xyz}%TODO auf "Ubung "uber Fasern verweisen
+	. Schlie"slich setzen wir
+	\begin{equation*}
+		\underbrace{\scrM}_{\models T} = \bigcup\limits_{k \in \setN} \scrM_k
+	\end{equation*}
+	$\scrM$ ist als abz"ahlbare Vereinigung abz"ahlbarer Mengen ebenfalls abz"ahlbar.
+\end{proof}
+\begin{proof}[Korrekter Beweis \nameref{2M}] \label{korrekt}
+	Wenn $S_n(T)$ "uberabz"ahlbar w"are, dann sind wir fertig, denn ein abz"ahlbares Modell kann nur abz"ahlbar viele Typen realisieren $\rightarrow$ es muss "uberabz"ahlbar viele Modelle geben.
+	
+	D. h. oBdA k"onnen wir annehmen, dass $T$ schmal ist $\Rightarrow$ es gibt $\scrA$ saturiert, abz"ahlbar.\\
+	Wenn $T$ $\aleph_0$-kategorisch ist $\rightarrow$ fertig.\\
+	Sonst g"abe es ein $p \in S_n(T)$ nicht isoliert $\rightarrow$ $p$ wird im abz"ahlbaren Modell $\scrB$ vermieden. Aber: $p$ wird in $\scrA$ von $\vec{a}$ realisiert.\\
+	$\Th(\scrA, \vec{a})$ ist nicht $\aleph_0$-kategorisch $\Rightarrow$ es gibt $\underbrace{(\scrC, \vec{c})}_\text{vermeidet einen Typ} \not\simeq (\scrA, \vec{a})$ abz"ahlbar.\\
+	$\hookrightarrow~ \scrC \models T$. $\scrC \not\simeq \scrB$ (weil $\vec{c} \models p$)\\
+	Es gilt $\scrC \not\simeq \scrA$ ,weil $\scrC$ nicht saturiert ist! Angenommen $\scrC$ w"are saturiert. Dann finden wir ein nicht-leeres Back-\&-Forth-System zwischen $\scrC$ und $\scrA$. Insbesondere gibt es dann einen Isomorphismus mit $\vec{c} \longmapsto \vec{a}$. Das steht im Widerspruch zur Konstruktion!
+\end{proof}
+
+\section{Fra"isses Amalgamierungsmethode f"ur $\aleph_0$-kategorische Theorien}
+\begin{definition}
+	Sei $\scrL$ eine abz"Ahlbare Sprache. Eine Klasse $\fK$ von endlich erzeugten abz"ahlbaren $\scrL$-Strukturen ist eine \emph{Fra"isse-Klasse}, falls $\fK$ bis auf Isomorphie abz"ahlbar ist und folgende Eigenschaften besitzt:
+	\begin{enumerate}
+		\item[HP]\label{HP}\footnote{hereditary property} F"ur $A \in \fK$ und $B \subset A$ Unterstruktur $\Rightarrow B \in \fK$
+		\item[JEP]\label{JEP}\footnote{joint embedding property} F"ur $A, B \in \fK$ gibt es ein $D \in \fK$ mit \begin{equation*}
+			A \hookrightarrow D \hookleftarrow B
+		\end{equation*}
+		\item[AP]\label{AP}\footnote{amalgumation property} F"ur alle Diagramme aus $\fK$ %TODO Diragramme einf"ugen
+		gibt es ein $D \in \fK$ mit kommutiert
+	\end{enumerate}
+\end{definition}
+\begin{example}
+	\begin{itemize}
+		\item Klasse aller endlichen Graphen f"ur $\scrL = \{R\}$
+		\item Klasse aller endlichen K"orper mit $\charac = p$ mit $\scrL_{\ring}$. F"ur JEP: $\mathbb{F}_{p^k} \subset \mathbb{F}_{p^m}$, AP ebenso, HP: endliche Teilringe sind
+		\item Klasse aller zykelfreien endlichen Graphen: ist keine Fra"isse-Klasse
+	\end{itemize}
+\end{example}
+\begin{definition}\label{reich}
+	Eine $\scrL$-Struktur $\scrM$ ist $\fK$-reich, falls $\scrM$ abz"ahlbar ist und 
+	\begin{equation*}
+		\fK \underset{\substack{\text{bis auf}\\\text{Isomorphie}}}{=} \{\scrA \underset{\text{US}}{\subset}\scrM, \scrA~ \text{endlich erzeugt} \}
+	\end{equation*}
+	und f"ur jede endlich erzeugte Unterstruktur $\scrA \subset \scrM$ und $\scrA \underset{f}{\hookrightarrow} \scrB \in \fK$ gint es ein $\scrB' \underset{\text{US}}{\subset} \scrM$ endlich erzeugt, welches $\scrA$ enth"alt und
+	\begin{equation*}
+		\scrB \underset{g}{\simeq} \scrB' \mid g(f(a))=a~ \text{f"ur alle}~ a \in A
+	\end{equation*}
+\end{definition}
+\begin{remark}
+	Es gen"ugt f"ur Reichheit, wenn $\{\scrA \underset{\text{US}}{\subset}~ \text{endlich erzeugt} \} \subset \fK$ und $\scrM$ und den Rest von Definition \ref{reich} erf"ullt.
+\end{remark}
+\begin{proof}
+	Sei $\scrB \in \fK$ beliebig. %TODO Bild zeichnen
 \end{proof}
 \end{document}
