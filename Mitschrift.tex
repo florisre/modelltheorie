@@ -2327,7 +2327,7 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 
 \section{Fra"isses Amalgamierungsmethode f"ur $\aleph_0$-kategorische Theorien}
 \begin{definition}
-	Sei $\scrL$ eine abz"Ahlbare Sprache. Eine Klasse $\fK$ von endlich erzeugten abz"ahlbaren $\scrL$-Strukturen ist eine \emph{Fra"isse-Klasse}, falls $\fK$ bis auf Isomorphie abz"ahlbar ist und folgende Eigenschaften besitzt:
+	Sei $\scrL$ eine abz"ahlbare Sprache. Eine Klasse $\fK$ von endlich erzeugten abz"ahlbaren $\scrL$-Strukturen ist eine \emph{Fra"isse-Klasse}, falls $\fK$ bis auf Isomorphie abz"ahlbar ist und folgende Eigenschaften besitzt:
 	\begin{enumerate}
 		\item[HP]\label{HP}\footnote{hereditary property} F"ur $A \in \fK$ und $B \subset A$ Unterstruktur $\Rightarrow B \in \fK$
 		\item[JEP]\label{JEP}\footnote{joint embedding property} F"ur $A, B \in \fK$ gibt es ein $D \in \fK$ mit \begin{equation*}
@@ -2349,7 +2349,7 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 	\begin{equation*}
 		\fK \underset{\substack{\text{bis auf}\\\text{Isomorphie}}}{=} \{\scrA \underset{\text{US}}{\subset}\scrM, \scrA~ \text{endlich erzeugt} \}
 	\end{equation*}
-	und f"ur jede endlich erzeugte Unterstruktur $\scrA \subset \scrM$ und $\scrA \underset{f}{\hookrightarrow} \scrB \in \fK$ gint es ein $\scrB' \underset{\text{US}}{\subset} \scrM$ endlich erzeugt, welches $\scrA$ enth"alt und
+	und f"ur jede endlich erzeugte Unterstruktur $\scrA \subset \scrM$ und $\scrA \underset{f}{\hookrightarrow} \scrB \in \fK$ gibt es ein $\scrB' \underset{\text{US}}{\subset} \scrM$ endlich erzeugt, welches $\scrA$ enth"alt und
 	\begin{equation*}
 		\scrB \underset{g}{\simeq} \scrB' \mid g(f(a))=a~ \text{f"ur alle}~ a \in A
 	\end{equation*}
@@ -2358,6 +2358,511 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 	Es gen"ugt f"ur Reichheit, wenn $\{\scrA \underset{\text{US}}{\subset}~ \text{endlich erzeugt} \} \subset \fK$ und $\scrM$ und den Rest von Definition \ref{reich} erf"ullt.
 \end{remark}
 \begin{proof}
-	Sei $\scrB \in \fK$ beliebig. %TODO Bild zeichnen
+	Sei $\scrB \in \fK$ beliebig. 
+	
+	
+	
+	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+	
+
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+	%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+	
+	%Shape: Ellipse [id:dp8024736529934057] 
+	\draw   (95.5,147.5) .. controls (95.5,100.28) and (119.45,62) .. (149,62) .. controls (178.55,62) and (202.5,100.28) .. (202.5,147.5) .. controls (202.5,194.72) and (178.55,233) .. (149,233) .. controls (119.45,233) and (95.5,194.72) .. (95.5,147.5) -- cycle ;
+	
+	% Text Node
+	\draw (80,63) node   [align=left] {$\displaystyle \mathcal{M}$};
+	% Text Node
+	\draw (319,211) node   [align=left] {$\displaystyle \mathcal{B}$};
+	% Text Node
+	\draw (251,153) node   [align=left] {$\displaystyle \mathcal{D}$};
+	% Text Node
+	\draw (149,191) node   [align=left] {$\displaystyle \mathcal{A}$};
+	% Text Node
+	\draw (149,103) node   [align=left] {$\displaystyle \mathcal{B} '$};
+	% Text Node
+	\draw (130.73,211) node  [rotate=-315.15]  {$=$};
+	% Text Node
+	\draw (91,250) node    {$\underbrace{\langle \{a\} \rangle _{\mathcal{M}}}_{\in \mathfrak{K}}$};
+	% Connection
+	\draw    (231.5,143.44) -- (163.3,110.01) ;
+	\draw [shift={(161.5,109.13)}, rotate = 386.11] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	\draw [shift={(231.5,143.44)}, rotate = 206.11] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0,0) .. controls (-3.09,0) and (-5.59,2.5) .. (-5.59,5.59) .. controls (-5.59,8.68) and (-3.09,11.18) .. (0,11.18) ;
+	% Connection
+	\draw    (169,183.55) -- (237.63,157.98) ;
+	\draw [shift={(239.5,157.28)}, rotate = 519.5699999999999] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	\draw [shift={(169,183.55)}, rotate = 339.57] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0,0) .. controls (-3.09,0) and (-5.59,2.5) .. (-5.59,5.59) .. controls (-5.59,8.68) and (-3.09,11.18) .. (0,11.18) ;
+	% Connection
+	\draw    (300.5,195.22) -- (264.02,164.11) ;
+	\draw [shift={(262.5,162.81)}, rotate = 400.46000000000004] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	\draw [shift={(300.5,195.22)}, rotate = 220.46] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0,0) .. controls (-3.09,0) and (-5.59,2.5) .. (-5.59,5.59) .. controls (-5.59,8.68) and (-3.09,11.18) .. (0,11.18) ;
+	
+	\end{tikzpicture}
+
+	
+	%TODO Inklusionspfeile
+\end{proof}
+
+%Sitzung 19 7.1.2020
+\begin{lemma}
+	Je zwei abz"ahlbare $\fK$-reiche Strukturen sind isomorph.
+\end{lemma}
+\begin{proof}
+	Konstruiere ein Back-\&-Forth-System.
+	
+	
+	
+	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+	
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+	%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+	
+	%Shape: Ellipse [id:dp18022197532417028] 
+	\draw   (45,146.5) .. controls (45,102.04) and (70.3,66) .. (101.5,66) .. controls (132.7,66) and (158,102.04) .. (158,146.5) .. controls (158,190.96) and (132.7,227) .. (101.5,227) .. controls (70.3,227) and (45,190.96) .. (45,146.5) -- cycle ;
+	%Shape: Ellipse [id:dp1425239474162091] 
+	\draw   (255,146.5) .. controls (255,102.04) and (280.3,66) .. (311.5,66) .. controls (342.7,66) and (368,102.04) .. (368,146.5) .. controls (368,190.96) and (342.7,227) .. (311.5,227) .. controls (280.3,227) and (255,190.96) .. (255,146.5) -- cycle ;
+	
+	% Text Node
+	\draw (32,65) node    {$\mathcal{M}$};
+	% Text Node
+	\draw (244.5,65) node    {$\mathcal{N}$};
+	% Text Node
+	\draw (91,193) node    {$A$};
+	% Text Node
+	\draw (67,249) node   [align=left] {endlich erzeugt};
+	% Connection
+	\draw    (85.86,205) -- (72.36,236.5) ;
+	
+	
+	
+	\end{tikzpicture}
+	$A \in \fK = \{B \underset{\text{US}}{\subset} \scrN~ \text{endlich erzeugt} \}$. Also: Es gibt ein $B \underset{\text{US}}{\subset} \scrN, A \simeq B$. $\hookrightarrow$ Das Back-\&-Forth-System ist nicht leer.
+	
+	
+	
+	
+	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+	
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+	%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+	
+	%Shape: Ellipse [id:dp18022197532417028] 
+	\draw   (45,146.5) .. controls (45,102.04) and (70.3,66) .. (101.5,66) .. controls (132.7,66) and (158,102.04) .. (158,146.5) .. controls (158,190.96) and (132.7,227) .. (101.5,227) .. controls (70.3,227) and (45,190.96) .. (45,146.5) -- cycle ;
+	%Shape: Ellipse [id:dp1425239474162091] 
+	\draw   (255,146.5) .. controls (255,102.04) and (280.3,66) .. (311.5,66) .. controls (342.7,66) and (368,102.04) .. (368,146.5) .. controls (368,190.96) and (342.7,227) .. (311.5,227) .. controls (280.3,227) and (255,190.96) .. (255,146.5) -- cycle ;
+	%Shape: Circle [id:dp7448220146587021] 
+	\draw   (85,173.5) .. controls (85,164.39) and (92.39,157) .. (101.5,157) .. controls (110.61,157) and (118,164.39) .. (118,173.5) .. controls (118,182.61) and (110.61,190) .. (101.5,190) .. controls (92.39,190) and (85,182.61) .. (85,173.5) -- cycle ;
+	%Shape: Circle [id:dp2642626825335065] 
+	\draw   (295,176.5) .. controls (295,167.39) and (302.39,160) .. (311.5,160) .. controls (320.61,160) and (328,167.39) .. (328,176.5) .. controls (328,185.61) and (320.61,193) .. (311.5,193) .. controls (302.39,193) and (295,185.61) .. (295,176.5) -- cycle ;
+	%Shape: Ellipse [id:dp025019120005968065] 
+	\draw   (295,176.5) .. controls (295,155.86) and (335.52,139.13) .. (385.5,139.13) .. controls (435.48,139.13) and (476,155.86) .. (476,176.5) .. controls (476,197.14) and (435.48,213.88) .. (385.5,213.88) .. controls (335.52,213.88) and (295,197.14) .. (295,176.5) -- cycle ;
+	%Shape: Ellipse [id:dp6331978609963701] 
+	\draw   (276.5,140.5) .. controls (276.5,111.51) and (292.17,88) .. (311.5,88) .. controls (330.83,88) and (346.5,111.51) .. (346.5,140.5) .. controls (346.5,169.49) and (330.83,193) .. (311.5,193) .. controls (292.17,193) and (276.5,169.49) .. (276.5,140.5) -- cycle ;
+	%Curve Lines [id:da24163138547803142] 
+	\draw    (422,179) .. controls (429.96,125.27) and (382.48,78.47) .. (312.56,111.5) ;
+	\draw [shift={(311.5,112)}, rotate = 334.25] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	\draw [shift={(422,179)}, rotate = 278.43] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0,0) .. controls (-3.09,0) and (-5.59,2.5) .. (-5.59,5.59) .. controls (-5.59,8.68) and (-3.09,11.18) .. (0,11.18) ;
+	
+	% Text Node
+	\draw (32,65) node    {$\mathcal{M}$};
+	% Text Node
+	\draw (244.5,65) node    {$\mathcal{N}$};
+	% Text Node
+	\draw (101.5,201) node    {$A$};
+	% Text Node
+	\draw (110.5,114) node    {$c$};
+	% Text Node
+	\draw (207,146.5) node  [font=\Huge]  {$\simeq $};
+	% Text Node
+	\draw (311.5,207) node    {$B$};
+	% Text Node
+	\draw (435,90) node   [align=left] {$\displaystyle h_{1}$ Einbettung};
+	% Text Node
+	\draw (524,251) node    {$ \begin{array}{l}
+		D\ \simeq \langle A,c\rangle ,\ B\ \leftarrow A,\ \\
+		h:\langle A,c\rangle \longrightarrow D\ \text{ein} \ \mathcal{L}\text{\mbox{-}Isomorphismus}\\
+		\Rightarrow D\ \in \mathfrak{K}
+		\end{array}$};
+	
+	
+	\end{tikzpicture}
+	Betrachte jetzt $\underbrace{\langle A, c \rangle_\scrM}_{\in \fK}$. Es gilt: $h_1 \circ h: \langle A, c \rangle \rightarrow D$ ist ein $\scrL$-Isomorphismus, welcher den Isomorphismus $A \rightarrow B$ erweitert.
+\end{proof}
+\begin{corollary}
+	Jede abz"ahlbare $\fK$-reiche Struktur ist \underline{\emph{ultrahomogen}}: Jeder partielle Isomorphismus zwischen zwei endlich erzeugten Unterstrukturen l"asst sich zu einem globalen Automorphismus fortsetzen.
+\end{corollary}
+\begin{theorem}
+	Jede Fra"isséklasse $\fK$ hat eine (bis auf Isomorphie) eindeutige abz"ahlbare $\fK$-reiche Struktur, welche der Fra"issélimes der Klasse hei"st.
+\end{theorem}
+\begin{example}
+	\begin{itemize}
+		\item $\fK = \{$endliche Mengen$ \}~ \rightsquigarrow~ \omega$
+		\item $\fK = \{$endliche K"orper der $\charac p \}~ \rightsquigarrow~ \bigcup\limits_{n \in \setN} \mathbb{F}_{p^n} = \overline{\mathbb{F}_p}$
+		\item $\fK = \{$endliche Graphen$\}~ \rightsquigarrow~$ Zufallsgraph
+	\end{itemize}
+\end{example}
+\begin{proof}[Beweis des Satzes]
+	Wir konstruieren eine Kette $\scrM_n \subset \scrM_{n+1}$, wobei mit "`$\subset$"' lediglich die Existenz einer Einbettung gemeint ist, keine tats"achliche Teilmenge, von Elementen aus $\fK$ derart, dass f"ur jedes $n \in \setN$ gilt:
+	
+	
+	
+	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+	
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+	%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+	
+	
+	% Text Node
+	\draw (16,106) node    {$\mathcal{M}_{n}$};
+	% Text Node
+	\draw (45,132) node  [rotate=-48.73]  {$\underset{\text{US}}{\subset }$};
+	% Text Node
+	\draw (71,152) node    {$A$};
+	% Text Node
+	\draw (191,152.02) node    {$B\ \in \mathfrak{K}$};
+	% Text Node
+	\draw (263,152.02) node  [font=\LARGE]  {$\Rightarrow $};
+	% Text Node
+	\draw (407,53) node   [align=left] {es existiert ein $\displaystyle n\leq k\ \in \mathbb{N}$ mit};
+	% Text Node
+	\draw (317,106) node    {$\mathcal{M}_{n}$};
+	% Text Node
+	\draw (372,196) node    {$A$};
+	% Text Node
+	\draw (463,152.02) node    {$B\ $};
+	% Text Node
+	\draw (328,164.02) node   [align=left] {US};
+	% Text Node
+	\draw (409,77) node    {$\mathcal{M}_{k}$};
+	% Text Node
+	\draw (475,106) node   [align=left] {"uber $\displaystyle A$};
+	% Connection
+	\draw    (89.5,152) -- (162,152.02) ;
+	\draw [shift={(164,152.02)}, rotate = 180.01] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	\draw [shift={(89.5,152)}, rotate = 0.01] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0,-11.18) .. controls (-3.09,-11.18) and (-5.59,-8.68) .. (-5.59,-5.59) .. controls (-5.59,-2.5) and (-3.09,0) .. (0,0) ;
+	% Connection
+	\draw    (324.94,119) -- (364.67,184) ;
+	
+	
+	% Connection
+	\draw    (390.5,187.06) -- (449.7,158.45) ;
+	\draw [shift={(451.5,157.58)}, rotate = 514.21] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	\draw [shift={(390.5,187.06)}, rotate = 334.21] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0,-11.18) .. controls (-3.09,-11.18) and (-5.59,-8.68) .. (-5.59,-5.59) .. controls (-5.59,-2.5) and (-3.09,0) .. (0,0) ;
+	% Connection
+	\draw    (342.5,97.96) -- (390.59,82.8) ;
+	\draw [shift={(392.5,82.2)}, rotate = 522.5] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	\draw [shift={(342.5,97.96)}, rotate = 342.5] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0,-11.18) .. controls (-3.09,-11.18) and (-5.59,-8.68) .. (-5.59,-5.59) .. controls (-5.59,-2.5) and (-3.09,0) .. (0,0) ;
+	% Connection
+	\draw    (448.6,132.02) -- (419.53,91.62) ;
+	\draw [shift={(418.36,90)}, rotate = 414.25] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	\draw [shift={(448.6,132.02)}, rotate = 234.25] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0,0) .. controls (-3.09,0) and (-5.59,2.5) .. (-5.59,5.59) .. controls (-5.59,8.68) and (-3.09,11.18) .. (0,11.18) ;
+	
+	\end{tikzpicture}
+	\\Wir konstruieren $\scrM_n, H_n\underbrace{(k)}_{k \geq n} \in \fK$ so, dass:
+	\begin{enumerate}
+		\item $\scrM_n \subset \scrM_{n+1} = H_n(n)$
+		\item $\scrM_n \subseteq H_n(k) \underbrace{\subseteq}_{\substack{\text{wenn es Sinn}\\\text{macht}~(k \geq n+1)}} H_{n+1}(k)$
+		\item $\scrM_n \underset{\text{US}}{\supset} A \hookrightarrow B \Rightarrow~$es existiert $k\geq n$ mit $B \hookrightarrow \scrM_k$ "uber $A$ eingebettet
+	\end{enumerate}
+
+	F"ur (2): \underline{$n=0$:} $\rightarrow$ sei $\scrM_0 \in \fK$ beliebig. Setze $H_0(k) = \scrM_0$ f"ur alle $k$.
+	
+	F"ur (1): \underline{$n \rightarrow n+1$:} Angenommen $\scrM_n$ und $H_n(k), k \geq n$ wurden bereits konstruiert. Betrachte nun alle endlich erzeugten Unterstrukturen von $\scrM_n$ und jeweils alle Erweiterungen.
+	
+	
+	
+	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+	
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+	%uncomment if require: \path (0,493); %set diagram left start at 0, and has height of 493
+	
+	
+	% Text Node
+	\draw (25,94) node    {$\mathcal{M}_{n}$};
+	% Text Node
+	\draw (45,132) node  [rotate=-48.73]  {$\underset{\substack{\text{endl. erz.} \\\text{US}}}{\supset }$};
+	% Text Node
+	\draw (71,152) node    {$A_{k}$};
+	% Text Node
+	\draw (203,112.02) node    {$B_{k}$};
+	% Text Node
+	\draw (50,196.02) node  [font=\LARGE]  {$\underset{\text{wegen AP}}{\Rightarrow }$};
+	% Text Node
+	\draw (238,42) node   [align=left] {$\displaystyle k\ \geq n+1$};
+	% Text Node
+	\draw (85,288) node    {$\mathcal{M}_{n}$};
+	% Text Node
+	\draw (140,378) node    {$A$};
+	% Text Node
+	\draw (239,346.02) node    {$B\ $};
+	% Text Node
+	\draw (177,259) node    {$H_{n}( k)$};
+	% Text Node
+	\draw (155,146) node    {$f_{n,k}$};
+	% Text Node
+	\draw (124,57) node    {$H_{n}( k)$};
+	% Text Node
+	\draw (69,77) node  [rotate=-335.96]  {$\subseteq $};
+	% Text Node
+	\draw (121,334) node  [rotate=-52.91] [align=left] {$\displaystyle \supseteq $};
+	% Text Node
+	\draw (129,276) node  [rotate=-332.17]  {$\subseteq $};
+	% Text Node
+	\draw (313,250) node    {$H_{n+1}( k)$};
+	% Text Node
+	\draw (393,181) node   [align=left] {es gibt nur abz"ahlbar viele M"oglichkeiten};
+	% Text Node
+	\draw (199,379) node    {$f_{n,k}$};
+	% Text Node
+	\draw (335,339) node   [align=left] {kommutiert};
+	% Connection
+	\draw    (93,145.34) -- (188.59,116.39) ;
+	\draw [shift={(190.5,115.81)}, rotate = 523.15] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	\draw [shift={(93,145.34)}, rotate = 343.15] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0,-11.18) .. controls (-3.09,-11.18) and (-5.59,-8.68) .. (-5.59,-5.59) .. controls (-5.59,-2.5) and (-3.09,0) .. (0,0) ;
+	% Connection
+	\draw    (158.5,372.02) -- (225.6,350.35) ;
+	\draw [shift={(227.5,349.74)}, rotate = 522.1] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	\draw [shift={(158.5,372.02)}, rotate = 342.1] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0,-11.18) .. controls (-3.09,-11.18) and (-5.59,-8.68) .. (-5.59,-5.59) .. controls (-5.59,-2.5) and (-3.09,0) .. (0,0) ;
+	% Connection
+	\draw    (51.05,83.93) -- (42.5,87.24) ;
+	
+	
+	% Connection
+	\draw    (86.95,70.47) -- (99.5,65.91) ;
+	
+	
+	% Connection
+	\draw    (254.41,326.02) -- (301.76,264.58) ;
+	\draw [shift={(302.98,263)}, rotate = 487.62] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	\draw [shift={(254.41,326.02)}, rotate = 307.62] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0,-11.18) .. controls (-3.09,-11.18) and (-5.59,-8.68) .. (-5.59,-5.59) .. controls (-5.59,-2.5) and (-3.09,0) .. (0,0) ;
+	% Connection
+	\draw    (209.5,256.85) -- (280,252.18) ;
+	\draw [shift={(282,252.05)}, rotate = 536.21] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	\draw [shift={(209.5,256.85)}, rotate = 356.21] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0,-11.18) .. controls (-3.09,-11.18) and (-5.59,-8.68) .. (-5.59,-5.59) .. controls (-5.59,-2.5) and (-3.09,0) .. (0,0) ;
+	
+	\end{tikzpicture}
+	
+	Wir wollen noch (3) zeigen:
+	
+	
+	
+	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+	
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+	%uncomment if require: \path (0,493); %set diagram left start at 0, and has height of 493
+	
+	
+	% Text Node
+	\draw (25,94) node    {$\mathcal{M}_{n}$};
+	% Text Node
+	\draw (45,132) node  [rotate=-48.73]  {$\underset{\text{endl. erz. \\US}}{\supset }$};
+	% Text Node
+	\draw (71,152) node    {$A$};
+	% Text Node
+	\draw (203,112.02) node    {$B$};
+	% Text Node
+	\draw (134,197) node   [align=left] {$\displaystyle \Rightarrow \text{es existiert} \ k\ \geq n+1$ sodass};
+	% Text Node
+	\draw (85,288) node    {$\mathcal{M}_{n}$};
+	% Text Node
+	\draw (140,378) node    {$A=A_{k}$};
+	% Text Node
+	\draw (239,346.02) node    {$B\ $};
+	% Text Node
+	\draw (177,259) node    {$H_{n}( k)$};
+	% Text Node
+	\draw (129,276) node  [rotate=-332.17]  {$\subseteq $};
+	% Text Node
+	\draw (199,379) node    {$f_{n,k}$};
+	% Text Node
+	\draw (439,332) node   [align=left] {$\displaystyle  \begin{array}{{>{\displaystyle}c}}
+		\Rightarrow B_{k} \ \underset{\text{"uber} \ A}{\hookrightarrow } &{H_{n+1}( k)}\\
+		&\cap \\
+		&{H_{n+2}( k)}\\
+		&\cap \\
+		&\vdots \\
+		\mathcal{M}_{k+1} \ &{H_{k}( k)}
+		\end{array}$};
+	% Connection
+	\draw    (93,145.34) -- (188.09,116.54) ;
+	\draw [shift={(190,115.96)}, rotate = 523.15] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	\draw [shift={(93,145.34)}, rotate = 343.15] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0,-11.18) .. controls (-3.09,-11.18) and (-5.59,-8.68) .. (-5.59,-5.59) .. controls (-5.59,-2.5) and (-3.09,0) .. (0,0) ;
+	% Connection
+	\draw    (179,365.4) -- (225.6,350.35) ;
+	\draw [shift={(227.5,349.74)}, rotate = 522.1] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	\draw [shift={(179,365.4)}, rotate = 342.1] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0,-11.18) .. controls (-3.09,-11.18) and (-5.59,-8.68) .. (-5.59,-5.59) .. controls (-5.59,-2.5) and (-3.09,0) .. (0,0) ;
+	% Connection
+	\draw    (132.06,365) -- (92.94,301) ;
+	
+	
+	
+	\end{tikzpicture}
+	
+\end{proof}
+\begin{corollary}
+	Wenn die Sprache endlich ist und nur aus Konstanten- und Relationszeichen besteht, ist die Theorie des Fra"issélimes $\aleph_0$-kategorisch.
+\end{corollary}
+
+%Sitzung 20 9.1.2020
+\begin{proof}
+	Wegen \nameref{rn} gen"ugt es zu zeigen, dass die Theorie $T = \Th(\underbrace{\scrM}_{\text{Fra"issélimes}})$ Quantorenelimination besitzt.
+	
+	Es gen"ugt, einfache Existenzformeln $\Exists y \varphi[x_1, \dots, x_n,y]$ zu betrachten, wobei $\varphi[x_1, \dots, x_n, y]$ quantorenfrei ist.
+	
+	Die Sprache $\scrL$ ist endlich, ohne Funktionszeichen $\Rightarrow$ es gibt nur endlich viele Strukturen in $\fK$ (bis auf Isomorphie), welche von einem Erzeugendensystem der Gr"o"se $n$ kommen k"onnen. Die sind alle endlich! Insbesondere gibt es nur endlich viele solche Strukturen welche von $(a_1, \dots, a_n)$ erzeugt werden, mit
+	\begin{equation*}
+		\scrM \models \Exists y \varphi[a_1, \dots, a_n,y]
+	\end{equation*}
+	Seien $\bar{a_1}, \dots, \bar{a_m}$ eine Aufz"ahlung aller M"oglichkeiten (bis auf $\scrL$-Isomorphie). Das hei"st f"ur jedes $(c_1, \dots, c_n)$ Realisierung von $\Exists y \varphi[x_1, \dots, x_n, y] \Rightarrow \langle c_1, \dots, c_n \rangle_\scrM \simeq \langle a_1', \dots, a_n'\rangle_\scrM$ f"ur ein $i \leq m$.
+	
+	Es gibt quantorenfreie $\scrL$-Formeln $\psi_{1}[x_1, \dots, x_n], \dots, \psi_n [x_1, \dots, x_n]$ mit $\bar{a_i}$ Realisierung von $\psi_i$, welche den Isomorphietyp von $\langle\bar{a_i}\rangle_\scrM$ vollst"andig beschreiben.
+	
+	$\zz T \models \Forall x_1 \dots \Forall x_n (\Exists y \varphi[x_1, \dots, x_n, y] \leftrightarrow \bigvee\limits_{i=1}^m \psi_i [x_1, \dots, x_n]) \\\Leftrightarrow \scrM \models \Forall \bar{x} (\Exists y \varphi[\bar{x},y] \leftrightarrow \bigvee \psi_i[\bar{x}])$
+	
+	"`$\rightarrow$"': klar, weil $\psi_{1}, \dots, \psi_m$ alle solchen M"oglichkeiten beschreiben.
+	
+	"`$\leftarrow$"': Sei $\bar{c} \in M^n \mid \scrM \models \psi_i[\bar{c}]$. $\Rightarrow \langle\bar{c}\rangle_\scrM \simeq \langle \bar{a_i} \rangle_\scrM, F:\langle \bar{a_i} \rangle_\scrM \longrightarrow \langle\bar{c}\rangle_\scrM$ partieller Isomorphismus.\\
+	$\overset{\scrM~\text{ultrahomogen}}{\Longrightarrow}~ \scrM$ l"asst sich durch $\tilde{F}: \scrM \longrightarrow \scrM$ Isomorphismus fortsetzen. $\scrM \models \Exists y \varphi[\bar{a_i}]\\ \underset{\tilde{F}~\text{anwenden}}{\Longrightarrow} \scrM \models \Exists y \varphi[\bar{c}]~ \checkmark$.
+
+\end{proof}
+
+\section{Ununterscheidbare Folgen}
+\begin{definition}
+	Sei $\scrM$ eine $\scrL$-Struktur, $B \subset M$ eine Menge von Parametern, $(I,<)$ eine lineare Ordnung. Die Folge $(a_i)_{i \in I}$ ist \emph{ununterscheidbar} "uber $B$, falls f"ur jedes $n \in \setN$ jede Formel $\varphi[x_1, \dots, x_n, y_1, \dots, y_m]$, jedes Tupel $b_1, \dots, b_m \in B$ und alle Elemente $i_1< \dots < i_n, j_1<\dots <j_n \in I$ gilt\footnote{ich kann sie nicht "uber $B$ unterscheiden}:
+	\begin{equation*}
+		\scrM \models \varphi[a_{i_1}, \dots, a_{i_n}, b] \Leftrightarrow \scrM \models \varphi[a_{j_1}, \dots, a_{j_n}, b]
+	\end{equation*}
+	Wenn $B=\emptyset$, dann ist die Folge ununterscheidbar.
+\end{definition}
+\begin{example}
+	\begin{itemize}
+		\item jede konstante Folge ist immer "uber jeder Menge ununterscheidbar!
+		\item $T = \exists^\infty$ 
+		
+		
+		
+		\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+		
+		\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+		%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+		
+		%Shape: Ellipse [id:dp3426260465311449] 
+		\draw   (10,167.5) .. controls (10,137.95) and (46.26,114) .. (91,114) .. controls (135.74,114) and (172,137.95) .. (172,167.5) .. controls (172,197.05) and (135.74,221) .. (91,221) .. controls (46.26,221) and (10,197.05) .. (10,167.5) -- cycle ;
+		%Shape: Ellipse [id:dp9087071352381062] 
+		\draw   (46,162) .. controls (46,143.77) and (55.18,129) .. (66.5,129) .. controls (77.82,129) and (87,143.77) .. (87,162) .. controls (87,180.23) and (77.82,195) .. (66.5,195) .. controls (55.18,195) and (46,180.23) .. (46,162) -- cycle ;
+		
+		% Text Node
+		\draw (21,112) node    {$\mathcal{M}$};
+		% Text Node
+		\draw (66.5,162) node  [font=\small]  {${\textstyle a_{1} =b}$};
+		% Text Node
+		\draw (83,202) node    {$B$};
+		% Text Node
+		\draw (233,167.5) node    {$\rightsquigarrow \text{konstant}$};
+		
+		
+		\end{tikzpicture}
+		
+		
+		
+		\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+		
+		\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+		%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+		
+		%Shape: Ellipse [id:dp3426260465311449] 
+		\draw   (10,167.5) .. controls (10,137.95) and (46.26,114) .. (91,114) .. controls (135.74,114) and (172,137.95) .. (172,167.5) .. controls (172,197.05) and (135.74,221) .. (91,221) .. controls (46.26,221) and (10,197.05) .. (10,167.5) -- cycle ;
+		%Shape: Ellipse [id:dp9087071352381062] 
+		\draw   (46,162) .. controls (46,143.77) and (55.18,129) .. (66.5,129) .. controls (77.82,129) and (87,143.77) .. (87,162) .. controls (87,180.23) and (77.82,195) .. (66.5,195) .. controls (55.18,195) and (46,180.23) .. (46,162) -- cycle ;
+		
+		% Text Node
+		\draw (21,112) node    {$\mathcal{M}$};
+		% Text Node
+		\draw (83,202) node    {$B$};
+		% Text Node
+		\draw (105,136) node  [font=\small]  {$a_{1}$};
+		% Text Node
+		\draw (117,167.5) node  [font=\small]  {$a_{3}$};
+		% Text Node
+		\draw (130,141) node  [font=\small]  {$a_{2}$};
+		% Text Node
+		\draw (130,189) node  [font=\small]  {$a_{5}$};
+		% Text Node
+		\draw (108,188) node  [font=\small]  {$a_{4}$};
+		
+		
+		\end{tikzpicture}
+		
+		
+		
+		\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+		
+		\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+		%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+		
+		%Shape: Ellipse [id:dp3426260465311449] 
+		\draw   (10,167.5) .. controls (10,137.95) and (46.26,114) .. (91,114) .. controls (135.74,114) and (172,137.95) .. (172,167.5) .. controls (172,197.05) and (135.74,221) .. (91,221) .. controls (46.26,221) and (10,197.05) .. (10,167.5) -- cycle ;
+		%Shape: Ellipse [id:dp9087071352381062] 
+		\draw   (46,162) .. controls (46,143.77) and (55.18,129) .. (66.5,129) .. controls (77.82,129) and (87,143.77) .. (87,162) .. controls (87,180.23) and (77.82,195) .. (66.5,195) .. controls (55.18,195) and (46,180.23) .. (46,162) -- cycle ;
+		
+		% Text Node
+		\draw (21,112) node    {$\mathcal{M}$};
+		% Text Node
+		\draw (83,202) node    {$B$};
+		% Text Node
+		\draw (316,167.5) node    {$ \begin{array}{l}
+			\text{Formel in 2 Variablen:} \ ( x_{1} =x_{2})\\
+			\rightsquigarrow \text{konstant}
+			\end{array}$};
+		% Text Node
+		\draw (124,167.5) node  [font=\small]  {$a_{1} =a_{2}$};
+		
+		
+		\end{tikzpicture}
+		\item $T = \dlo$. Betrachte $\setQ$ mit $B=\emptyset$ 
+		
+		
+		
+		\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+		
+		\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+		%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+		
+		%Straight Lines [id:da5201362407401574] 
+		\draw    (34,167.5) -- (429,167.5) (44,163.5) -- (44,171.5)(54,163.5) -- (54,171.5)(64,163.5) -- (64,171.5)(74,163.5) -- (74,171.5)(84,163.5) -- (84,171.5)(94,163.5) -- (94,171.5)(104,163.5) -- (104,171.5)(114,163.5) -- (114,171.5)(124,163.5) -- (124,171.5)(134,163.5) -- (134,171.5)(144,163.5) -- (144,171.5)(154,163.5) -- (154,171.5)(164,163.5) -- (164,171.5)(174,163.5) -- (174,171.5)(184,163.5) -- (184,171.5)(194,163.5) -- (194,171.5)(204,163.5) -- (204,171.5)(214,163.5) -- (214,171.5)(224,163.5) -- (224,171.5)(234,163.5) -- (234,171.5)(244,163.5) -- (244,171.5)(254,163.5) -- (254,171.5)(264,163.5) -- (264,171.5)(274,163.5) -- (274,171.5)(284,163.5) -- (284,171.5)(294,163.5) -- (294,171.5)(304,163.5) -- (304,171.5)(314,163.5) -- (314,171.5)(324,163.5) -- (324,171.5)(334,163.5) -- (334,171.5)(344,163.5) -- (344,171.5)(354,163.5) -- (354,171.5)(364,163.5) -- (364,171.5)(374,163.5) -- (374,171.5)(384,163.5) -- (384,171.5)(394,163.5) -- (394,171.5)(404,163.5) -- (404,171.5)(414,163.5) -- (414,171.5)(424,163.5) -- (424,171.5) ;
+		
+		
+		
+		% Text Node
+		\draw (170,180.5) node    {$a_{0}$};
+		% Text Node
+		\draw (128,180.5) node    {$a_{1}$};
+		% Text Node
+		\draw (87,180.5) node    {$a_{2}$};
+		
+		
+		\end{tikzpicture}
+		
+	\end{itemize}
+\end{example}
+%PRUEFUNGSRELEVANT
+\begin{remark}
+	Sei $\varphi[x_1, \dots, x_n]$ eine Formel, sodass $\{m \in M \mid \scrM \models \varphi[a_1, \dots, a_{n-1},m] \}$ endlich. Sei au"serdem $(a_i)_{i \in \setN}$ eine ununterscheidbare Folge mit $\scrM \models \varphi[a_1, \dots, a_{n-1}] \Rightarrow {a_k = a_l},~ {k,l \in \setN}$
+\end{remark}
+\newpage
+\heading{Ziel:} \begin{theorem}
+	Sei $T$ eine vollst"andige Theorie mit unendlichen Modellen. Dann gibt es f"ur jede lineare Ordnung $I$ ein Modell $\scrM \models T$ und eine nicht-triviale ununterscheidbare Folge $(a_1)_{i \in I}$ in $\scrM$.
+\end{theorem}
+Daf"ur brauchen wir den Satz von Ramsey:
+\begin{theorem}[Ramsey]\label{rams}
+	Sei $A$ unendliche Menge, $n \in \setN$, $[A]^n = \{n$-elementige Teilmengen von $A \}$. Gegeben eine endliche Zerlegung $[A]^n = \bigcup\limits_{i=1}^k C_i$ in endliche Farben, gibt es eine unendliche Teilmenge $A_0 \subset A$ mit $[A_0]^n$ monochrom.
+\end{theorem}
+\begin{proof}[Beweisidee]
+	Induktiv "uber $n$. $1 \rightsquigarrow$ Schubfachprinzip.
 \end{proof}
 \end{document}
