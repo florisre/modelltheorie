@@ -238,6 +238,7 @@ Ziel dieser Vorlesung ist es, eine Aussage der folgenden Qualit"at zu erhalten:
 \end{theorem}
 
 %Sitzung 2
+\newpage
 \part{Theorien und Quantorenelimination}
 \section{Tarskis Test}
 \begin{lemma}[Tarskis Test]
@@ -529,6 +530,7 @@ Ziel dieser Vorlesung ist es, eine Aussage der folgenden Qualit"at zu erhalten:
 	\end{equation*}
 \end{proof}
 
+\newpage
 \section{Beispiele klassischer Theorien}
 \begin{example}
 	$T=\exists^\infty$ hat Quantorenelimination und ist vollst"andig.
@@ -558,8 +560,8 @@ Ziel dieser Vorlesung ist es, eine Aussage der folgenden Qualit"at zu erhalten:
 		
 		OBdA w"ahle $c_1<c_2<\dots<c_n \underset{F}{\mapsto} d_1<d_2<\dots<d_n$. $\longrightarrow F$ in Back-\&-Forth-System.
 		\begin{align*}
-			&\text{1. Fall: } &a< c_1 \rightarrow &\text{ w"ahle } b<d_1 \text{ in } \scrB \text{, weil } d_i \text{ kein Randpunkt ist.}\\
-			&\text{2. Fall: } &a>c_n \rightarrow &\text{ w"ahle } b<c_n \text{ in } \scrB \text{, weil } d_i \text{ kein Randpunkt ist.}\\
+			&\text{1. Fall: } &a< c_1 \rightarrow &\text{ w"ahle } b<d_1 \text{ in } \scrB \text{, weil } d_1 \text{ kein Randpunkt ist.}\\
+			&\text{2. Fall: } &a>c_n \rightarrow &\text{ w"ahle } b<d_n \text{ in } \scrB \text{, weil } d_n \text{ kein Randpunkt ist.}\\
 			&\text{3. Fall: } &\exists i \mid c_i<a<c_{i+1} \rightarrow &\text{ w"ahle } b \text{ zwischen } d_i \text{ und } d_{i+1} \text{ weil } \scrB \text{ dicht ist.}
 		\end{align*}
 		
@@ -569,13 +571,13 @@ Ziel dieser Vorlesung ist es, eine Aussage der folgenden Qualit"at zu erhalten:
 
 %SITZUNG 5
 \begin{example}[Vektorraum]
-	Sei $K$ ein K"orper, $\scrL_\text{VR} = \{0, +, f_\lambda \}_{\lambda \in K}$. Dann ist die Theorie $\underset{\substack{\rotatebox{90}{$=$} \\ \text{ unendliche}\\ K\text{-VR}}}{T} = \{\Forall x \Forall y \Forall z \dots \} \dots$\footnote{diese Theorie ist axiomatisierbar, f"ur eine beispielhafte Axiomatisierung vergleiche Klausur zu mathematische Logik im SS 2019.} vollst"andig und hat Quantorenelimination.
+	Sei $K$ ein K"orper, $\scrL_\text{VR} = \left\{0, +, f_\lambda \right\}_{\lambda \in K}$. Dann ist die Theorie $\underset{\substack{\rotatebox{90}{$=$} \\ \text{ unendliche}\\ K\text{-VR}}}{T} = \{\Forall x \Forall y \Forall z \dots \} \dots$\footnote{diese Theorie ist axiomatisierbar, f"ur eine beispielhafte Axiomatisierung vergleiche Klausur zu mathematische Logik im SS 2019.} vollst"andig und hat Quantorenelimination.
 	
 	Wie zuvor gibt es zwei verschiedene Methoden, um Quantorenelimination zu zeigen:
 	\begin{enumerate}
 		\item Betrachte die folgende primitive Existenzformel: 
 		\begin{equation*}
-			\varphi[x_1, \dots, x_n] = \Exists y (\bigwedge\limits_{\text{endlich}} (\lambda_1 x_1 + \dots + \lambda_n x_n + \lambda_y \dot= 0) \land \bigwedge\limits_{\text{endlich}} \lnot (\mu_1 x_1 + \dots + \mu_n x_n \dot= 0)
+			\varphi[x_1, \dots, x_n] = \Exists y \left( \bigwedge\limits_{\text{endlich}} \left(\lambda_1 x_1 + \dots + \lambda_n x_n + \lambda_y \dot= 0\right) \land \bigwedge\limits_{\text{endlich}} \lnot \left(\mu_1 x_1 + \dots + \mu_n x_n \dot= 0\right)\right)
 		\end{equation*}
 		Jetzt gibt es zwei M"oglichkeiten:
 		\begin{enumerate}
@@ -665,12 +667,13 @@ Ziel dieser Vorlesung ist es, eine Aussage der folgenden Qualit"at zu erhalten:
 	
 	\underline{Ziel:} Wir brauchen $\scrA \preceq \tilde{\scrA}$ mit unendlich vielen Elementen, welche algebraisch unabh"angig sind.
 	\begin{equation*}
-		\underbrace{\vdig(A) \cup \{\lnot (B(e_1, \dots, e_n)\dot= 0) \}_{\substack{P \in A[T_1, \dots, T_n] \setminus \{0\}\\P(e_1, \dots e_n) \neq 0}}}_{\text{endlich konsistent}}
+		\underbrace{\vdig(A) \cup \left\{\lnot (B(e_1, \dots, e_n)\dot= 0) \right\}_{\substack{P \in A[T_1, \dots, T_n] \setminus \{0\}\\P(e_1, \dots e_n) \neq 0}}}_{\text{endlich konsistent}}
 	\end{equation*}
 \end{proof}
 
 
 %Sitzung 6
+\newpage
 \section{Ultrafilter \& der Satz von Ax}
 \underline{Anwendung:} Wir wollen eine Aussage der folgenden Art bekommen: Sei $f: \substack{\setC \longrightarrow \setC \\z \longmapsto z^2}$.\\
 $\rightarrow f$ ist surjektiv, aber nicht injektiv.
@@ -892,6 +895,7 @@ F"ur einen K"orper der Charakteristik $0$:
 	$\overset{\text{\nameref{los:thm}}}{\Longleftrightarrow}~ \underbrace{\{s \in T \mid \scrA_s \models \chi \}}_{B_{\{\chi\}}} \in \scrU$
 \end{proof}
 
+\newpage
 \part{Typen und Saturation}
 \section{Typen}
 Sei im Folgenden $\scrL$ eine Sprache und $\scrA$ eine $\scrL$-Struktur.
@@ -1287,7 +1291,7 @@ Gegeben $\varphi_1, \dots, \varphi_m \in p$. Dann ist $T \cup \{\Exists \vec{x} 
 	\end{equation*}
 	\emph{Bemerke:} Abgeschlossenheit von $h_*$ folgt direkt mit \ref{huk}.
 	\begin{equation*}
-		h_*(q) = \{\varphi[x_1, \dots x_n] \scrL_{A_0} \text{-Formel mit } \underbrace{h(q)}_{\substack{\scrL_{B_0} \text{-Formel}\\\hookrightarrow \scrL_C \text{-Formel}}} \in q \}
+		h_*(q) = \left\{\varphi[x_1, \dots x_n] \scrL_{A_0} \text{-Formel mit } \underbrace{h(q)}_{\substack{\scrL_{B_0} \text{-Formel}\\\hookrightarrow \scrL_C \text{-Formel}}} \in q \right\}
 	\end{equation*}
 \end{remark}
 \begin{example}
@@ -1295,7 +1299,7 @@ Gegeben $\varphi_1, \dots, \varphi_m \in p$. Dann ist $T \cup \{\Exists \vec{x} 
 \end{example}
 \begin{proof}[Beweis von Bemerkung \ref{hstern}]
 	Zeige zuerst: $h_*$ ist \emph{wohldefiniert}: Sei $\varphi_1, \dots, \varphi_k \in h_*(q)$. $\zz \scrA \models \Exists \vec{x}(\bigwedge\limits_{i=1}^k \varphi_i [\vec{x}])$.\\
-	Nach Voraussetzung gilt: $h(\varphi_1), \dots, h(\varphi_k) \in q \overset{\substack{\text{endlich}\\\text{erf"ullbar}}}{\Longrightarrow} \scrB \models \Exists \vec{x} (\underbrace{\bigwedge\limits_{i=1}^k h(\varphi_i[\vec{x}])}_{= \Theta[h(a_1), \dots, h(a_m)]}) \\\Longrightarrow$ Behauptung.
+	Nach Voraussetzung gilt: $h(\varphi_1), \dots, h(\varphi_k) \in q \overset{\substack{\text{endlich}\\\text{erf"ullbar}}}{\Longrightarrow} \scrB \models \Exists \vec{x} \underbrace{\left(\bigwedge\limits_{i=1}^k h(\varphi_i[\vec{x}])\right)}_{= \Theta[h(a_1), \dots, h(a_m)]} \\\Longrightarrow$ Behauptung.
 	
 	Zeige weiter: $h_*(q)$ ist \emph{maximal endlich erf"ullbar}. Es gen"ugt zu zeigen, dass falls $\varphi \notin h_*(q) \Longrightarrow \lnot \varphi \in h_*(q)$.\\
 	Angenommen $h_*(q) \subsetneq \sum$. $\zz \sum$ nicht endlich erf"ullbar in $\scrA$.\\
@@ -1336,6 +1340,7 @@ Gegeben $\varphi_1, \dots, \varphi_m \in p$. Dann ist $T \cup \{\Exists \vec{x} 
 		\end{array}
 	\end{equation*}
 \end{example}
+\newpage
 \section{Typenvermeidungssatz und Isolation}
 Im Folgenden betrachten wir \emph{isolierte Typen}. Topologisch betrachtet sieht das so aus:
 \begin{equation*}
@@ -1345,7 +1350,7 @@ Wir m"ochten das syntaktisch verstehen.
 \begin{remark}\label{bem:voll}
 	Ein $n$-Typ $p \in S_n(T)$ ist genau dann isoliert, wenn er eine \emph{komplette} Formel $\varphi =\varphi[x_1, \dots, x_n]$ enth"alt, das hei"st
 	\begin{equation*}
-		p = \{\psi~ \scrL\text{-Formel} \mid T \models \Forall \vec{x} (\varphi[\vec{x}] \rightarrow \psi[\vec{x}]) \}
+		p = \left\{\psi~ \scrL\text{-Formel} \mid T \models \Forall \vec{x} (\varphi[\vec{x}] \rightarrow \psi[\vec{x}]) \right\}
 	\end{equation*}
 	\underline{Insbesondere} ist jeder isolierte Typ in jedem Modell von $T$ realisiert, falls $T$ vollst"andig ist!
 \end{remark}
@@ -1356,11 +1361,11 @@ Wir m"ochten das syntaktisch verstehen.
 	\item Ist der Typ $\{(x \dot= 15) \}$ isoliert\footnote{das ist nur ein Typ, denn er muss endlich erf"ullbar sein}?
 \end{itemize}
 \begin{proof}[Beweis von Bemerkung \ref{bem:voll}]
-	\underline{"`$\Rightarrow$"':} Sei $\psi \in p$. $\Longrightarrow [(\underbrace{\varphi \land \psi}_{\in p})] \subset [\varphi] = \{p\} \Longrightarrow [\varphi] = [(\varphi \land \psi)] \Longleftrightarrow T \models \Forall \vec{x} (\varphi[\vec{x}]\rightarrow\psi[\vec{x}])$
+	\underline{"`$\Rightarrow$"':} Sei $\psi \in p$. $\Longrightarrow \left[(\underbrace{\varphi \land \psi}_{\in p})\right] \subset [\varphi] = \{p\} \Longrightarrow [\varphi] = \left[(\varphi \land \psi)\right] \Longleftrightarrow T \models \Forall \vec{x} (\varphi[\vec{x}]\rightarrow\psi[\vec{x}])$
 	
-	$\Longrightarrow p \overset{}{\subseteq} \{\psi~ \scrL \text{-Formel} \mid T\models \Forall \vec{x} (\varphi[\vec{x}]\rightarrow \psi[\vec{x}]) \}$\\
+	$\Longrightarrow p \overset{}{\subseteq} \left\{\psi~ \scrL \text{-Formel} \mid T\models \Forall \vec{x} (\varphi[\vec{x}]\rightarrow \psi[\vec{x}]) \right\}$\\
 	Hier m"ochten wir eigentlich Gleichheit zeigen. Weil $p$ jedoch bez"uglich $\subset$ maximal ist, gen"ugt es zu zeigen, dass die rechte Seite endlich erf"ullbar ist: $\{\psi_1, \dots, \psi_k \mid T \models \Forall \vec{x}(\varphi[\vec{x}]\rightarrow \psi_i[\vec{x}]) \}$. Also: $T \models \Forall \vec{x} (\varphi[\vec{x}] \rightarrow (\bigwedge\limits_{i=1}^k \psi_i[\vec{x}]))$.\\ 
-	$\zz T \cup \{\Exists \vec{x} (\bigwedge\limits_{i=1}^k \psi_i[\vec{x}]) \}$ konsistent.\\
+	$\zz T \cup \left\{\Exists \vec{x} \left(\bigwedge\limits_{i=1}^k \psi_i\left[\vec{x}\right]\right) \right\}$ konsistent.\\
 	$\varphi \in \underbrace{p}_{\substack{\text{endlich}\\\text{erf"ullbar}}} \Longrightarrow T\cup \{ \Exists \vec{x} \varphi[\vec{x}] \}$ ist konsistent $\Longrightarrow$ Behauptung.
 	
 	\underline{"`$\Leftarrow$"':} Angenommen $p = \underbrace{\{\psi \mid T \models \Forall \vec{x} (\varphi[\vec{x}] \rightarrow \psi[\vec{x}]) \}}_{\ni \varphi}$. Dann folgt $\varphi \in p$, und somit $\{p\} \underbrace{\overset{\subset \text{ klar}}{=}}_{\text{Hausdorff}} \bigcap\limits_{\psi \in p} [\psi] \supset [\varphi] \ni p \Longrightarrow \{p\} = [\varphi]$ ist isoliert!
@@ -1425,6 +1430,7 @@ Wir m"ochten das syntaktisch verstehen.
 		\overset{\text{oder}}{\underbrace{U = \{p\}}_{\substack{\text{abgeschlossen}\\\text{und offen}}}} 
 	\end{array}\Longrightarrow p$ isoliert.
 \end{remark}
+\newpage
 \section{Magere Mengen und Typenvermeidungssatz}
 \begin{definition}
 	Eine Menge $A$ in einem topologischen Raum $(X,T)$ ist \emph{nirgends dicht}, falls $\mathring{\bar{A}}=\emptyset$, wobei $\bar{A}$ kleinste abgeschlossene Menge welche $A$ enth"alt ist.
@@ -1478,6 +1484,8 @@ Wir m"ochten das syntaktisch verstehen.
 	\end{cases}$. $\overset{\text{mit "`also"'}}{\Longrightarrow} \scrA \models \Theta_1[\vec{b_1}] \underset{\scrA \models \varphi[\vec{a_1},\vec{b_1}]}{\Longrightarrow} \scrA \models \chi[\vec{a_1},\vec{b_1}]$. 
 \end{proof}
 
+\newpage
+\part{Total transzendente Theorien und Kategorizität}
 \section{Primmodelle. Existenz und Eindeutigkeit}
 \heading{Ab jetzt:} $T$ ist eine konsistente abz"ahlbare Theorie.
 \begin{definition}
@@ -1538,7 +1546,7 @@ Wir m"ochten das syntaktisch verstehen.
 		\item $\acf_0 \longrightarrow \bar{\setQ}$
 		\item $\scrM = \{0,1\}^\omega$ in der Sprache $\scrL = \{P_s\}$, $s$ endliche Folge von $0, 1$. $P_s^\scrM(t) = \{$der Anfang von $T$ ist $s\}$.\\
 		$T = \Th(\scrM)$ hat Quantorenelimination: \begin{equation*}
-			\underbrace{\Exists y (\bigwedge \varphi[x_1, \dots, x_n, y])}_\text{primitive Existenzformel} \sim \Theta[x_1, \dots, x_n] \land \Exists y \rho[y] \sim \begin{cases*}
+			\underbrace{\Exists y \left(\bigwedge \varphi[x_1, \dots, x_n, y]\right)}_\text{primitive Existenzformel} \sim \Theta[x_1, \dots, x_n] \land \Exists y \rho[y] \sim \begin{cases*}
 				x_1 \dot= x_1 &eine Tautologie\\
 				\lnot x_1 \dot= x_1 &immer falsch
 			\end{cases*}
@@ -1578,7 +1586,6 @@ Wir m"ochten das syntaktisch verstehen.
 \begin{definition}
 	$T$ ist \emph{total transzendent}, falls $T$ kein Modell besitzt, in welchem es einen bin"aren Baum von Formeln in einer Variablen gibt.
 \end{definition}
-\newpage
 \begin{example}
 	
 	
@@ -1799,13 +1806,13 @@ Wir m"ochten das syntaktisch verstehen.
 	\draw (228.93,274.79) node   [align=left] {$\displaystyle \varphi $};
 	
 	
-	\end{tikzpicture}
+	\end{tikzpicture}\\
 	Dadurch bricht der Baum nicht ab. 	
 \end{proof}
 
 %Sitzung 15 10.12.19
 \begin{definition}
-	Sei $\scrA$ eine $\scrL$-Struktur, $C \subset A$. $B \subset A$ ist \emph{konstruktibel "uber $C$}, falls $B = (b_\alpha)_{\alpha<\lambda}$ so\footnote{ist das unabh"angig von der Aufz"ahlung? Das ist unklar, wird in dieser Vorlesung umgangen.}, dass der Typ $\typ^\scrA(b_\alpha / C, (b_\beta)_{\beta<\alpha})$ isoliert ist f"ur alle $\alpha < \lambda$.
+	Sei $\scrA$ eine $\scrL$-Struktur, $C \subset A$. $B \subset A$ ist \emph{konstruktibel "uber $C$}, falls $B = (b_\alpha)_{\alpha<\lambda}$ so\footnote{ist das unabh"angig von der Aufz"ahlung? Das ist unklar, wird in dieser Vorlesung umgangen.}, dass der Typ $\typ^\scrA\left(b_\alpha / C, (b_\beta)_{\beta<\alpha}\right)$ isoliert ist f"ur alle $\alpha < \lambda$.
 \end{definition}
 \begin{remark}
 	$T$ eine Theorie, $\scrA \models T$, $C \subset A$. $T_C = T \cup \vdig(C)$. Wenn $T_C$ ein konstruktibles Modell ("uber $C$) besitzt, dann ist dieses Modell ein Primmodell von $T_C$.
@@ -1852,6 +1859,7 @@ Wir m"ochten das syntaktisch verstehen.
 	$\underbrace{(B, \alpha, f)}_{\substack{\text{maximal, somit}\\\text{Gleichheit}}} \leq \underbrace{(B \cup \{d\}, S(\alpha), f \cup \{(\alpha, d)\})}_{\in S} \Longrightarrow d \in B \Longrightarrow~ B$ ist Universum einer elementaren Unterstruktur.
 \end{proof}
 
+\newpage
 \section{Saturation}
 Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \oplus \setQ, \dots , \setQ^\omega$ haben, wobei $\setQ$ das Primmodell ist. Jetzt m"ochten wir $\setQ^\omega$ verstehen.
 
@@ -1866,7 +1874,7 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 	\underline{"`$\Rightarrow$"':} klar.
 	
 	\underline{"`$\Leftarrow$"':} Sei $p(x,y) \in S_2^\scrA(C)$. Betrachte \begin{equation*}
-		\overbrace{q(x)}^{\in S_1^\scrA(C)} = p(x,y)_{\upharpoonright \text{ die Variable }x}=\{\varphi[x] \mid \varphi[x] \in p(x,y),~ \varphi~\scrL_C \text{-Formel} \}
+		\overbrace{q(x)}^{\in S_1^\scrA(C)} = p(x,y)_{\upharpoonright \text{ die Variable }x}=\left\{\varphi[x] \mid \varphi[x] \in p(x,y),~ \varphi~\scrL_C \text{-Formel} \right\}
 	\end{equation*}
 	$\overset{\text{n. V.}}{\Longrightarrow}$ es gibt $b \in A$ Realisierung von $q$ sodass $S_1^\scrA(Cb)$, $|Cb| < \kappa$, $p(b,y) = \{\varphi[b,y] \mid \varphi[x,y] \in p \}$
 	
@@ -2292,7 +2300,7 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 \begin{example}
 	\begin{enumerate}
 		\item Die Theorie der $\setQ$-Vektorr"aume ist schmal, aber nicht $\aleph_0$-kategorisch
-		\item Die Theorie $\acf_p$ mit $p=0$ oder $p$ eine Primzahl ist nicht $\aleph_0$-kategorisch, aber schmal. Betrachte dazu insbesondere $\bar{\setQ} \not\simeq \bar{\setQ(\pi)}$
+		\item Die Theorie $\acf_p$ mit $p=0$ oder $p$ eine Primzahl ist nicht $\aleph_0$-kategorisch, aber schmal. Betrachte dazu insbesondere $\overline{\setQ} \not\simeq \overline{\setQ(\pi)}$
 		\item $\Diag(\setQ, <)$ ist nicht schmal
 		\item die Theorie aus Beispiel \ref{ex:aek} ist nicht $\aleph_0$-kategorisch, aber schmal
 	\end{enumerate}
@@ -2325,7 +2333,8 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 	Es gilt $\scrC \not\simeq \scrA$ ,weil $\scrC$ nicht saturiert ist! Angenommen $\scrC$ w"are saturiert. Dann finden wir ein nicht-leeres Back-\&-Forth-System zwischen $\scrC$ und $\scrA$. Insbesondere gibt es dann einen Isomorphismus mit $\vec{c} \longmapsto \vec{a}$. Das steht im Widerspruch zur Konstruktion!
 \end{proof}
 
-\section{Fra"isses Amalgamierungsmethode f"ur $\aleph_0$-kategorische Theorien}
+\newpage
+\section{Fra"issés Amalgamierungsmethode f"ur $\aleph_0$-kategorische Theorien}
 \begin{definition}
 	Sei $\scrL$ eine abz"ahlbare Sprache. Eine Klasse $\fK$ von endlich erzeugten abz"ahlbaren $\scrL$-Strukturen ist eine \emph{Fra"isse-Klasse}, falls $\fK$ bis auf Isomorphie abz"ahlbar ist und folgende Eigenschaften besitzt:
 	\begin{enumerate}
@@ -2347,7 +2356,7 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 \begin{definition}\label{reich}
 	Eine $\scrL$-Struktur $\scrM$ ist $\fK$-reich, falls $\scrM$ abz"ahlbar ist und 
 	\begin{equation*}
-		\fK \underset{\substack{\text{bis auf}\\\text{Isomorphie}}}{=} \{\scrA \underset{\text{US}}{\subset}\scrM, \scrA~ \text{endlich erzeugt} \}
+		\fK \underset{\substack{\text{bis auf}\\\text{Isomorphie}}}{=} \left\{\scrA \underset{\text{US}}{\subset}\scrM, \scrA~ \text{endlich erzeugt} \right\}
 	\end{equation*}
 	und f"ur jede endlich erzeugte Unterstruktur $\scrA \subset \scrM$ und $\scrA \underset{f}{\hookrightarrow} \scrB \in \fK$ gibt es ein $\scrB' \underset{\text{US}}{\subset} \scrM$ endlich erzeugt, welches $\scrA$ enth"alt und
 	\begin{equation*}
@@ -2440,7 +2449,7 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 	
 	
 	
-	\end{tikzpicture}
+	\end{tikzpicture}\\
 	$A \in \fK = \{B \underset{\text{US}}{\subset} \scrN~ \text{endlich erzeugt} \}$. Also: Es gibt ein $B \underset{\text{US}}{\subset} \scrN, A \simeq B$. $\hookrightarrow$ Das Back-\&-Forth-System ist nicht leer.
 	
 	
@@ -2731,6 +2740,7 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 
 \end{proof}
 
+\newpage
 \section{Ununterscheidbare Folgen}
 \begin{definition}
 	Sei $\scrM$ eine $\scrL$-Struktur, $B \subset M$ eine Menge von Parametern, $(I,<)$ eine lineare Ordnung. Die Folge $(a_i)_{i \in I}$ ist \emph{ununterscheidbar} "uber $B$, falls f"ur jedes $n \in \setN$ jede Formel $\varphi[x_1, \dots, x_n, y_1, \dots, y_m]$, jedes Tupel $b_1, \dots, b_m \in B$ und alle Elemente $i_1< \dots < i_n, j_1<\dots <j_n \in I$ gilt\footnote{ich kann sie nicht "uber $B$ unterscheiden}:
@@ -2854,7 +2864,6 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 \begin{remark}
 	Sei $\varphi[x_1, \dots, x_n]$ eine Formel, sodass $\{m \in M \mid \scrM \models \varphi[a_1, \dots, a_{n-1},m] \}$ endlich. Sei au"serdem $(a_i)_{i \in \setN}$ eine ununterscheidbare Folge mit $\scrM \models \varphi[a_1, \dots, a_{n-1}] \Rightarrow {a_k = a_l},~ {k,l \in \setN}$
 \end{remark}
-\newpage
 \heading{Ziel:} \begin{theorem}
 	Sei $T$ eine vollst"andige Theorie mit unendlichen Modellen. Dann gibt es f"ur jede lineare Ordnung $I$ ein Modell $\scrM \models T$ und eine nicht-triviale ununterscheidbare Folge $(a_1)_{i \in I}$ in $\scrM$.
 \end{theorem}
