@@ -2342,8 +2342,96 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 		\item[JEP]\label{JEP}\footnote{joint embedding property} F"ur $A, B \in \fK$ gibt es ein $D \in \fK$ mit \begin{equation*}
 			A \hookrightarrow D \hookleftarrow B
 		\end{equation*}
-		\item[AP]\label{AP}\footnote{amalgumation property} F"ur alle Diagramme aus $\fK$ %TODO Diragramme einf"ugen
-		gibt es ein $D \in \fK$ mit kommutiert
+		\item[AP]\label{AP}\footnote{amalgumation property} F"ur alle Diagramme aus $\fK$ 
+		
+		
+		
+		
+		\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+		
+		\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+		%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+		
+		
+		% Text Node
+		\draw (111,136) node    {$A$};
+		% Text Node
+		\draw (267,136) node    {$B$};
+		% Text Node
+		\draw (189,214) node    {$C$};
+		% Connection
+		\draw    (171.5,196.5) -- (124.41,149.41) ;
+		\draw [shift={(123,148)}, rotate = 405] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+		\draw [shift={(171.5,196.5)}, rotate = 225] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0,0) .. controls (-3.09,0) and (-5.59,2.5) .. (-5.59,5.59) .. controls (-5.59,8.68) and (-3.09,11.18) .. (0,11.18) ;
+		% Connection
+		\draw    (206.5,196.5) -- (255.09,147.91) ;
+		\draw [shift={(256.5,146.5)}, rotate = 495] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+		\draw [shift={(206.5,196.5)}, rotate = 315] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0,-11.18) .. controls (-3.09,-11.18) and (-5.59,-8.68) .. (-5.59,-5.59) .. controls (-5.59,-2.5) and (-3.09,0) .. (0,0) ;
+		
+		\end{tikzpicture}
+				
+		gibt es ein $D \in \fK$ sodass folgendes Diagramm kommutiert:
+		
+		
+		
+		% Pattern Info
+		
+		\tikzset{
+			pattern size/.store in=\mcSize, 
+			pattern size = 5pt,
+			pattern thickness/.store in=\mcThickness, 
+			pattern thickness = 0.3pt,
+			pattern radius/.store in=\mcRadius, 
+			pattern radius = 1pt}
+		\makeatletter
+		\pgfutil@ifundefined{pgf@pattern@name@_69touon2z}{
+			\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_69touon2z}
+			{\pgfqpoint{0pt}{0pt}}
+			{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+			{\pgfpoint{\mcSize}{\mcSize}}
+			{
+				\pgfsetcolor{\tikz@pattern@color}
+				\pgfsetlinewidth{\mcThickness}
+				\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+				\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+				\pgfusepath{stroke}
+		}}
+		\makeatother
+		\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+		
+		\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+		%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+		
+		%Shape: Square [id:dp6965169202297804] 
+		\draw  [pattern=_69touon2z,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 0; green, 0; blue, 0}][line width=0.75]  (179.5,126.5) -- (198.5,126.5) -- (198.5,145.5) -- (179.5,145.5) -- cycle ;
+		
+		% Text Node
+		\draw (111,136) node    {$A$};
+		% Text Node
+		\draw (267,136) node    {$B$};
+		% Text Node
+		\draw (189,214) node    {$C$};
+		% Text Node
+		\draw (189,58) node    {$D$};
+		% Connection
+		\draw    (171.5,196.5) -- (124.41,149.41) ;
+		\draw [shift={(123,148)}, rotate = 405] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+		\draw [shift={(171.5,196.5)}, rotate = 225] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0,0) .. controls (-3.09,0) and (-5.59,2.5) .. (-5.59,5.59) .. controls (-5.59,8.68) and (-3.09,11.18) .. (0,11.18) ;
+		% Connection
+		\draw    (206.5,196.5) -- (255.09,147.91) ;
+		\draw [shift={(256.5,146.5)}, rotate = 495] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+		\draw [shift={(206.5,196.5)}, rotate = 315] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0,-11.18) .. controls (-3.09,-11.18) and (-5.59,-8.68) .. (-5.59,-5.59) .. controls (-5.59,-2.5) and (-3.09,0) .. (0,0) ;
+		% Connection
+		\draw    (131,116) -- (176.09,70.91) ;
+		\draw [shift={(177.5,69.5)}, rotate = 495] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+		\draw [shift={(131,116)}, rotate = 315] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0,-11.18) .. controls (-3.09,-11.18) and (-5.59,-8.68) .. (-5.59,-5.59) .. controls (-5.59,-2.5) and (-3.09,0) .. (0,0) ;
+		% Connection
+		\draw    (248.5,117.5) -- (201.91,70.91) ;
+		\draw [shift={(200.5,69.5)}, rotate = 405] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+		\draw [shift={(248.5,117.5)}, rotate = 225] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0,0) .. controls (-3.09,0) and (-5.59,2.5) .. (-5.59,5.59) .. controls (-5.59,8.68) and (-3.09,11.18) .. (0,11.18) ;
+		
+		\end{tikzpicture}
+		
 	\end{enumerate}
 \end{definition}
 \begin{example}
