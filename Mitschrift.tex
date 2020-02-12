@@ -47,7 +47,15 @@
 \newcommand{\zz}{\mathrm{Z\kern-.3em\raise-0.5ex\hbox{Z}}:~}
 \newcommand{\fK}{\mathfrak{K}}
 
+\newcommand{\hin}{\underline{"$\Rightarrow$":}~}
+\newcommand{\rueck}{\underline{"$\Leftarrow$":}~}
+
 \DeclareMathOperator{\Diag}{Diag}
+\DeclareMathOperator{\EM}{EM}
+\DeclareMathOperator{\au}{Aut}
+\DeclareMathOperator{\rest}{Restr}
+\DeclareMathOperator{\acl}{acl}
+\DeclareMathOperator{\ga}{Gal}
 
 \newcommand{\atdig}{\Diag^{\text{at}}}
 \newcommand{\vdig}{\Diag}
@@ -80,6 +88,7 @@
 \newtheorem{example}[theorem]{Beispiel}
 \newtheorem{remark}[theorem]{Bemerkung}
 \newtheorem*{axiom}{Axiom}
+\newtheorem*{claim}{Behauptung}
 
 \makeatletter
 \g@addto@macro\th@remark{\thm@headpunct{:}}
@@ -2959,7 +2968,265 @@ Daf"ur brauchen wir den Satz von Ramsey:
 \begin{theorem}[Ramsey]\label{rams}
 	Sei $A$ unendliche Menge, $n \in \setN$, $[A]^n = \{n$-elementige Teilmengen von $A \}$. Gegeben eine endliche Zerlegung $[A]^n = \bigcup\limits_{i=1}^k C_i$ in endliche Farben, gibt es eine unendliche Teilmenge $A_0 \subset A$ mit $[A_0]^n$ monochrom.
 \end{theorem}
-\begin{proof}[Beweisidee]
-	Induktiv "uber $n$. $1 \rightsquigarrow$ Schubfachprinzip.
+%SITZUNG X 21.01.2020
+\begin{proof}
+	\underline{$n=1$}: Induktiv "uber $n$. $1 \rightsquigarrow$ Schubfachprinzip. $\checkmark$
+	
+	\underline{$n \rightarrow n+1$}: W"ahle $a_0 \in A$ fest. Der Punkt $a_0$ liefert eine F"arbung von $A_n$. $x \in \left[A \setminus \{a_0\}\right]^m$ hat Farbe $j$, falls $X \cup \{a_0\}$ die Farbe $j$ besitzt. Induktiv finden wir $\underbrace{B_0 \subset}_\text{unendlich} A \setminus \{a_0\}$ so, dass $\left[B_0\right]^n$ monochrom ist.\\
+	\underline{Achtung}: Das bedeutet nicht, dass jede $(n+1)$-elementige Teilmenge von $B_0 \cup \{a_0\}$ die gleiche Farbe hat.
+	
+	Sei $a_1 \in B_0 \longrightarrow a_1 \neq a_0$. $\rightarrow$ Finde $B_1 \subseteq B_0 \setminus \{a_1\}$ sodass alle $(n+1)$-elementigen Teilmengen von $B_1 \cup \{a_2\}$, welche $a_1$ enthalten dieselbe Farbe haben.\\
+	Konstruiere Folgen
+	\begin{align*}
+		B_{-1} = &{A} &\supset &{B_0} &\supset &{B_1} &\supset &\dots\\
+		&\in &\phantom\supset &\in &\phantom\supset &\in &\phantom\supset&\phantom{\dots}\\
+		&a_0 &\phantom\supset &a_1 &\phantom\supset &a_2 &\phantom\supset &\dots
+	\end{align*}
+	derart, dass die Farbe von $\left\{a_{j(0)}, \dots, a_{j(n)} \right\}$ nur vom Element $j$ abh"angt.\\
+	Betrachte $\left\{a_i\right\}_{i \in \setN}$. Die Farbe von $\left\{a{i_0}, \dots, a_{i_n}\right\}$ h"angt nur von $i_0$ ab! Aber es gibt nur endlich viele Farben. $\hookrightarrow$ Schubfachprinzip: eine Farbe kommt unendlich oft vor.
+	
+	Sei $A_0 = \left(a_{ij}\right)$ diese Teilfolge. $\Rightarrow \left\{a_{ij_0}, \dots, a_{ij_n}\right\}$ hat konstante Farbe.
+\end{proof}
+\begin{definition}
+	Sei $(I,<)$ eine lineare Ordnung, $B \subset M$, $\scrM$ eine $\scrL$-Struktur, $(a_i)_{i \in I}$ eine Folge (nicht unbedingt ununterscheidbar "uber $B$).\\Der \emph{Ehrenfeucht-Mostowski-Typ} $\EM \left((a_i)_{i \in I}/B\right)$ ist die Kollektion aller Instanzen $\varphi[x_1, \dots, x_n, \vec{b}]$ mit $\vec{b} \in B, n \in \setN, \varphi~ \scrL$-Formel, derart, dass\begin{equation*}
+		\scrM \models \varphi[a_{i_1}, \dots, a_{i_n}, \vec{b}]
+	\end{equation*}
+	f"ur alle $i_1< \dots < i_n$.
+\end{definition}
+\begin{remark}
+	$\EM \left((a_i)_{i \in I}/B\right)$ ist ein "`partieller Typ"'.
+\end{remark}
+\begin{example}
+	Gegeben eine Folge, sodass alle Folgenglieder verschieden sind. Dann st $x_1 \neq x_2$ in $\EM$.
+\end{example}
+\begin{remark}
+	Wenn die Folge $(a_i)_{i \in I}$ $B$-ununterscheidbar ist, dann ist $\EM((a_i)_{i \in I}/B)$ vollst"andig.
+\end{remark}
+\begin{proof}
+	$\varphi[x_1, \dots, x_n, \vec{b}] \not\in \EM((a_i)_{i \in I}/B)~ \Rightarrow \lnot \varphi \in \EM((a_i)_{i \in I}/B)$\\
+	$\hookrightarrow$ es gibt $i_1<\dots<i_n$ sodass $\scrM \models \lnot \varphi\left[a_{i_1},\dots, a_{i_n}, \vec{b}\right] \overset{\substack{(a_i)_{i \in I}\\B\text{-ununterscheidbar}}}{\Longrightarrow} \scrM \models \lnot \varphi\left[a_{j_1}, \dots, a_{j_n},\vec{b}\right]$ f"ur alle $j_1 < \dots < j_n$.
+\end{proof}
+\begin{theorem}
+	Seien $I,J$ unendliche lineare Ordnungen, $\scrM$ eine $\scrL$-Struktur, $B \subset M$, $(a_i)_{i \in I}$ eine Folge in $M$. Dann gibt es $\scrN \equiv \scrM$ (in der Sprache $\scrL_B$) und eine $B$-ununterscheidbare Folge $(c_j){j \in J}$ in $\scrN$, welche den Ehrenfeucht-Mostowski-Typen $\EM \left((a_i)_{i \in I}/B\right)$ erf"ullt.\\
+	\underline{Insbesondere}: Falls $\scrN \models \varphi\left[c_1, \dots, c_n, \vec{b}\right]$ $\hookrightarrow$ es gibt $i_1<\dots<i_n \in I$ mit \begin{equation*}
+		\scrM \models \varphi\left[a_{i_j},\dots, a_{i_n}, \vec{b}\right]
+	\end{equation*}
+\end{theorem}
+\begin{proof}
+	Falls die $a_i$ unendlich oft gleich sind, setze $c_j = \text{konstant}$ in $\scrM$.\\
+	OBdA k"onnen wir also annehmen, dass die $a_i$ alle verschieden sind. Seien $\left\{c_j\right\}_{j \in J}$ neue Konstantenzeichen. Es gen"ugt zu zeigen, dass die $\scrL_B$-Theorie
+	\begin{equation*}
+		\underbrace{\Th(\scrM,b)_{b \in B}}_{\scrL_B\text{-Theorie}} \cup
+		\underbrace{\left\{\varphi\left[c_{j_1}, \dots, c_{j_n}, \vec{b}\right]\right\}_{\substack{\varphi \in \EM \left((a_i)/B\right)\\n \in \setN\\j_1<\dots<j_n}}}_{=\Delta} \cup 
+		\underbrace{\left\{\psi\left[c_{j_1}, \dots, c_{j_n}, \vec{b} \right] \leftrightarrow \psi\left[c_{j'_1}, \dots, c_{j'_n}, \vec{b} \right] \right\}_{\substack{\psi~ \scrL_B \text{-Formel}\\j_1<\dots<j_n\\j'_1<\dots<j'_n\\n \in \setN}}}_{=\mathcal{F}}
+	\end{equation*}
+	endlich konsistent ist.
+	
+	Dazu gen"ugt es zu zeigen, dass f"ur alle $\underbrace{\Delta_0 \subset}_\text{endlich} \Delta, \underbrace{\mathcal{F}_0 \subset}_\text{endlich} \mathcal{F}$ die Theorie $\Th(\scrM, \vec{b}) \cup \{\varphi\}_{\varphi \in \Delta_0} \cup \{\psi\}_{\psi \in \mathcal{F}_0}$ konsistent ist. OBdA sind alle Formeln in $\Delta_0 \cup \mathcal{F}_0$ in $n$ freien Variablen. \\Sei $A = \left\{a_i\right\}_{i \in I}$ unendlich.
+	
+	$\left[A\right]^n$ bekommt seine F"arbung wie folgt: $\underbrace{\vec{e}}_{\substack{\text{wachsende}\\\text{Aufz"ahlung}}}$ hat dieselbe Farbe wie $\vec{f}$, falls $\scrM \models \psi \left[ \left(\vec{e}\right) \right] \leftrightarrow \psi [(\vec{f})]$ f"ur alle $\psi \in \mathcal{F}_0$.\\
+	$\hookrightarrow$ eine F"arbung mit $\leq 2^{|\mathcal{F}|}$ Farben.
+	
+	Aus dem Satz von \nameref{rams} gibt es eine monochrome unendliche Teilmenge $A_0$ von $A$.
+\end{proof}
+\begin{corollary}
+	Eine Theorie mit unendlichen Modellen besitzt f"ur jedes $\alpha \in O_n$ eine nicht-triviale ununterscheidbare Folge der L"ange $\alpha$ (in einem Modell).
+\end{corollary}
+\begin{proof}
+	Sei $\scrM \models T$ beliebig. $\left(a_i\right)_{i \in I}$ Aufz"ahlung von $M$. Finde $\scrN \equiv \scrM~ \Rightarrow~ \scrN \models T$ und eine ununterscheidbare Folge $\left(a_\beta\right)_{\beta < \alpha}$ in $N$.
+\end{proof}
+Sei im Folgenden immer $T$ eine vollst"andige, abz"ahlbare Theorie ohne endliche Modelle.
+\begin{theorem}\label{abz}
+	Sei $T$ eine abz"ahlbare Theorie mit unendlichen Modellen. F"ur jede Kardinalzahl $\kappa \geq \aleph_0$ gibt es ein Modell $\scrM \models T$ der M"achtigkeit $\kappa$ derart, dass $\scrM$ nur abz"ahlbar viele Typen "uber jede abz"ahlbare Teilmenge realisiert.
+\end{theorem}
+
+%Sitzung 23.01.2020
+\begin{definition}
+	F"ur eine Kardinalzahl $\kappa \geq \aleph_0$ ist die Theorie $\kappa$-stabil, falls f"ur jedes $\scrM \models T$ und $A \subset M$ $|A| \leq \kappa$, dann ist $|S_1^\scrM (A)| \leq \kappa$.
+\end{definition}
+\underline{Notation:} Modelltheoretiker sagen $\omega$-stabil anstatt $\aleph_0$-stabil.
+\begin{theorem}
+	Wenn $T$ $\kappa$-kategorisch ist f"ur $\kappa \geq \aleph_0$, dann ist $T$ $\omega$-stabil.
+\end{theorem}
+\begin{proof}
+	Sonst g"abe es $\scrM \models T$ und eine abz"ahlbare Menge $A \subset M$ mit $|S_1^\scrM (A)| > \aleph_1$. OBdA k"onnen wir annehmen, dass $\scrM$ $\aleph_1$-saturiert ist.\\
+	Es gibt eine Menge $\left(b_\alpha\right)_{\alpha<\aleph_1}$ von Realisierungen verschiedener Typen "uber $A$ (in $\scrM$). Wegen L"owenheim-Skolem abw"arts %TODO Referenz
+	gibt es $A \cup \left\{b_\alpha \right\}_{\alpha<\aleph_1} \subseteq \tilde\scrM \underset{\text{in}~\scrL_A}{\preceq} \scrM$ mit $|\tilde{M}| = \aleph_1$.\\
+	Wegen L"owenheim-Skolem aufw"arts %TODO Referenz
+	gibt es $\tilde\scrN \underset{\scrL_A}{\preceq} \scrN$ der M"achtigkeit $\kappa > \aleph_0$.\\
+	$\scrN$ ist bis auf Isomorphie das einzige Modell von $T$ der M"achtigkeit $\kappa$! Widerspruch zu Satz \nameref{abz}, da dieser abz"ahlbar viele Typen fordert.
+\end{proof}
+\begin{example}[Zufallsgraph]
+	%TODO Grafik
+	F"ur jedes $A\subseteq M$ $\rightsquigarrow$ "uberabz"ahlbar viele Typen, denn $\scrP(M)$ "uberabz"ahlbar. Somit nicht $\omega$-stabil.
+\end{example}
+\begin{example}[$T = \exists^\infty$]
+	%TODO Grafik
+	abz"ahlbar!
+\end{example}
+\begin{example}
+	Ist $(\setQ, <)$ $\omega$-stabil? Bein, denn f"ur jedes $r \in \setR$ finden wir einen Typen.
+\end{example}
+\begin{remark}
+	$T$ ist $\kappa$-stabil $\Longleftrightarrow$ f"ur jedes Modell $\scrM \models T$ und $A \subset M, |A| \leq \kappa$ gilt $|S_n^\scrM(A)| \leq \kappa$.
+\end{remark}
+\begin{remark}
+	$T$ ist $\omega$-stabil $\Longrightarrow$ $T$ ist total transzendent\footnote{vergleiche "Ubungsaufgabe 1, Blatt 9}.
+\end{remark}
+\begin{proof}
+	Sonst g"abe es einen bin"aren Baum von Formeln in einer freien Variable mit Parametern aus einem Modell $\scrM \models T$. Das hei"st der Baum braucht nur abz"ahlbar viele Parameter aus $\underset{\text{abz.}}{A \subset} \scrM~ \Leftrightarrow~ |S_1^\scrM (A)| \geq 2^{\aleph_0}~ \lightning$.
+\end{proof}
+\begin{lemma}
+	$T$ ist total transzendendent $\Rightarrow$ $T$ ist $\kappa$-stabil f"ur alle $\kappa \geq \aleph_0$.
+\end{lemma}
+\begin{proof}
+	Sonst g"abe es $\scrM \models T, A\subset M, |A| \leq \kappa$, aber $|S_1^\scrM (A)| > \kappa$.
+	
+	Eine $\scrL_A$-Formel $\varphi[x]$ ist \emph{dick}, wenn $|[\varphi]| > \kappa$. Sonst ist die Formel \emph{d"unn}.
+	
+	Beachte, dass $\varphi[x] = (x \dot= x)$ dick ist.\\
+	Es gen"ugt zu zeigen, dass jede dicke Formel "uber $A$ zwei disjunkte dicke Fromeln "uber $A$ enth"alt\\
+	$\hookrightarrow$ es gibt einen bin"aren Baum "uber $A$.
+	\begin{itemize}
+		\item Ein Typ "uber $A$ ist bestimmt, wenn wir wissen welche Formeln der Typ enth"alt.
+		\item Eine d"unne Formel liegt nur in h"ochstens $\kappa$ vielen Typen
+		\item in der Sprache $\scrL_A$ gibt es h"ochstens $\kappa$ viele Formeln in einer freien Variable
+	\end{itemize}
+	Als Folgerung gibt es zumindest 2 verschiedene Typen $p,q$ in $[\varphi]$, welche keine d"unne Formel enthalten.\\
+	$[\varphi] \ni p \neq q \in [\varphi]$ dick $\Rightarrow$ es gibt $\psi \in p$ mit $\lnot \psi \in q$.\\
+	$\hookrightarrow \underbrace{\varphi \land \psi}_\text{dick} \in p, \underbrace{\varphi \land \lnot \psi}_\text{dick} \in q$
+\end{proof}
+\begin{corollary}
+	Wenn $T$ $\omega$-stabil ist, dann gibt es f"ur jede Kardinalzahl $\kappa> \aleph_0$ ein saturiertes Modell der M"achtigkeit $\kappa$.
+\end{corollary}
+Wir beweisen das nur f"ur $\kappa = \aleph_1$, aber der Beweis geht genauso, wenn $\kappa$ regul"ar ist.
+\begin{proof}
+	F"ur $\alpha < \kappa$ gibt es kein $f: \alpha \longrightarrow \kappa$ welches unbeschr"ankt\footnote{unbeschr"ankt:\\f"ur $\beta<\kappa$ gibt es $\gamma < \alpha \mid \beta < f(\gamma)$} ist.
+	
+	Wegen L"owenheim Skolem auf- und abw"arts %TODO Referenz
+	gibt es ein $\scrM \models T$ der M"achtigkeit $\aleph_1$. Insbesondere: $T$ $\omega$-stabil $\Rightarrow$ total transzendent $\Rightarrow~ \aleph_1$-stabil\\
+	$|S_1^\scrM(M)| \leq \aleph_1$.
+	
+	Mit einem Kettenargument finden wir $\scrM_1 \succeq \scrM$ der M"achtigkeit $\aleph_1$, welches alle 1-Typen "uber $M$ realisiert. Iteriere und finde
+	\begin{equation*}
+		\scrM \preceq \scrM_1 \preceq \scrM_2\preceq \dots \preceq \scrM_\alpha \preceq \dots
+	\end{equation*}
+	$\scrM_{\alpha +1}$ hat M"achtigkeit $\aleph_1$ und realisiert alle Typen "uber $\scrM_\alpha$\\
+	F"ur $\alpha$ eine Limeszahl, setze $\scrM_\alpha = \bigcap\limits_{\beta < \alpha} \scrM_\beta$. Setze $\scrM = \bigcup\limits_{\alpha < \aleph_1} \scrM_\alpha$. Somit $|\scrM| = \aleph_1$.
+	
+	$\zz \scrM$ saturiert.\\
+	Das hei"st: Sei $A \subset M, |A|<|M|=\aleph_1$.\\
+	$\Rightarrow~ A$ abz"ahlbar, $A \subset \bigcup\limits_{\alpha< \aleph_1} \scrM_\alpha$. F"ur $a \in A$ gibt es ein $\alpha(a) \mid a \in \scrM_{\alpha(a)}$. Somit: $\begin{array}{r l}
+		f: A &\longrightarrow \aleph_1\\
+		\phantom{f:} a &\longmapsto \alpha(a)
+	\end{array}$ ist nicht unbeschr"ankt.\\
+	$\Rightarrow$ es gibt ein $\alpha < \aleph_1$ mit $A \subset \scrM_\alpha~ \Rightarrow$ in $\scrM_{\alpha +1} \subset \scrM$ werden alle 1-Typen "uber $A$ realisiert.
+\end{proof}
+\begin{corollary}
+	Eine Theorie ist genau dann $\kappa$-kategorisch, wenn jedes Modell der M"achtigkeit $\kappa$ saturiert ist.
+\end{corollary}
+\begin{proof}
+	\rueck $\scrM, \scrN \models T$ Modelle der M"achtigkeit $\kappa$. $\zz \scrM \simeq \scrN$.\\
+	Aber $\scrM \equiv \scrN$, saturiert nach Voraussetzung $\Rightarrow$ $\scrM \simeq \scrN$ nach VL (konstruiere ein Back-\&-Forth-System)%TODO Referenz
+	
+	\hin $T~\kappa$-kategorisch $\Rightarrow$ %TODO Referenz zu Korollar kappa-kategorisch ==> omega-stabil
+	es gibt ein saturiertes Modell der M"achtigkeit $\kappa$. Aber das Modell ist bis auf Isomorphie das einzige Modell.
+\end{proof}
+\underline{Ziel:} $\scrM$ saturiert, $D \subset M, |D|<|M|$.
+
+$\vec{a}$ und $\vec{b}$ haben denselben Typ\footnote{Notation: $\vec{a} \equiv_D \vec{b}$} "uber $D$ ($\typ^\scrM\left(\vec{a}/D\right)=\typ^\scrM\left(\vec{b}/D\right)$) $\Longleftrightarrow$ es einen Automorphismus $\sigma \in \au (\scrM/D)$ gibt mit $\sigma(\vec{a})=\vec{b}$.
+\begin{equation*}
+	S_n^\scrM (D) \simeq \scrM^n / \au(\scrM/D)
+\end{equation*}
+Somit: $\kappa$-kategorisch $\Rightarrow~ \omega$-stabil $\Rightarrow$ total transzendent $\Rightarrow~ \kappa$-stabil $\kappa>\aleph_0$.
+
+\subsection{Exkurs}
+\begin{remark}
+	Sei $\scrL$ eine Sprache und $\scrM$ eine (unendliche) saturierte $\scrL$-Struktur. Gegeben $A \subset M$ mit $|A|<|M|$, haben zwei Typen $\vec{b}$ und $\vec{c}$ denselben Typ "uber $A$, genau dann, wenn es einen Automorphismus $\sigma: M \longrightarrow M$ derart gibt, dass $\begin{array}{c}
+		\sigma(a) = a\\
+		\sigma(\vec{b}) = \vec{c}
+	\end{array}$ f"ur alle $a \in A$. (Schreibe $\vec{b} \equiv_A \vec{c}$)
+\end{remark}
+\begin{proof}
+	\rueck $\scrM \models \varphi\left[\vec{b}, \vec{a}\right] \Rightarrow \scrM \models \varphi\left[\underbrace{\sigma(\vec{b})}_{= \vec{c}}, \underbrace{\sigma(\vec{a})}_{= \vec{a}}\right]~\Rightarrow~ \scrM \models \varphi\left[\vec{c}, \vec{a}\right]$
+	
+	\hin $\vec{b} \equiv_A \vec{c}~ \Rightarrow$ es gibt eine elementare Abbildung $\begin{array}{r l}
+		A \cup \left\{\vec{b} \right\} &\longrightarrow A \cup \left\{\vec{c}\right\}\\
+		a &\longmapsto a\\
+		\vec{b} &\longmapsto \vec{c}
+	\end{array}$. Beachte, dass $|A \cup \left\{\vec{b}\right\}| \leq \max \left\{|A|,|\vec{b}| \right\} < |\scrM|$.
+	%TODO Grafik
+	(Genau wie im Beweis $\scrM \equiv \scrN$ beide saturiert, $|M|=|N|~\Rightarrow~ \scrM \simeq \scrN$)
+	
+	Finde $\sigma$ Fortsetzung auf $\scrM \longrightarrow \sigma$ Isomorphismus und $\begin{array}{c}
+		\sigma(a) = a\\
+		\sigma\left(\vec{b}\right)=\vec{c}
+	\end{array}$ f"ur alle $a \in A~ \checkmark$
+\end{proof}
+%PRUEFUNGSRELEVANT
+\begin{lemma}
+	Sei $\scrM$ eine $\scrL$-Struktur, saturiert und $A \subset M, |A|<|M|$. Gegeben $X \subset M^n$ eine \emph{definierbare} Menge (m"oglicherweise "uber andere Parameter). Wenn $X$ $\au(\scrM/A)$-invariant ist: f"ur alle $\sigma \in \au(\scrM/A)$ gilt $\vec{x} \in X \Leftrightarrow \sigma(\vec{x}) \in X$\\
+	dann ist $X$ definierbar "uber $A$.
+\end{lemma}
+\begin{proof}
+	Sei $X$ definierbar durch $\Theta\left[\vec{x},\vec{b}\right]$. $\Theta\left[\vec{x},\vec{y}\right]$ eine $\scrL$-Formel, $\vec{b}$ die Parameter, $B=A \cup \left\{\vec{b} \right\}$. $X$ ist $\scrL_B$-definierbar.
+	
+	Betrachte jetzt $\rest: S_n^\scrM(B) \longrightarrow S_n^\scrM(A)$ die Einschr"ankung von Parametern. Stetig \& surjektiv $\Rightarrow$ abgeschlossen, also ist $\rest([\Theta])$ abgeschlossen.\\
+	$p \in \rest([\Theta]) \Leftrightarrow$ es gibt $q \in S_n^\scrM(B)$ mit $\rest(q)=p$ und $\Theta \in q$.
+	\begin{claim}
+		$\rest([\Theta]) \subset S_n^\scrM(A)$ ist auch offen
+	\end{claim}
+	Damit folgt: es gibt eine $\scrL_A$-Formel $\varphi\left[\vec{x}\right] \mid \rest\left(\left[\Theta\right]\right) = \left[\varphi\right]$
+	\begin{proof}
+		Sei $p \in \rest\left(\left[\Theta\right]\right)$. $\zz$ es gibt eine Umgebung $U$ von $p$ sodass $p \in \rest \left(\left[\Theta\right]\right)$.
+		
+		$\rest(q) = p$ und $q \ni \Theta$. Das hei"st $\underbrace{p \cup \left\{\Theta\left[x, \vec{b}\right] \right\}}_{\substack{\text{endlich konsistent}\\\text{als Menge von}\\\scrL_B\text{-Formeln}}} \subset q$. $\overset{\substack{\scrM~\text{saturiert}\\|B| < |M|}}{\Longleftrightarrow}$ es gibt $\vec{d} \in M^n$ mit $\scrM \models \Theta\left[\vec{d},\vec{b}\right] \Rightarrow \vec{d} \in X$\\
+		$p \cup \left\{\lnot \Theta \left[\vec{x},\vec{b}\right] \right\}$ muss \emph{inkonsistent} sein. 
+		
+		Sonst, weil $|B|< |M|$ und $\scrM$ saturiert, g"abe es $\underbrace{\vec{c}}_{\substack{\text{Realisierung}\\\text{von}~p}} \in M^n$ Realisierung $\rightarrow~ \scrM \models \lnot \Theta \left[\vec{c}, \vec{b}\right] \rightarrow \vec{c} \not\in X$\\
+		$\vec{c} \equiv_A \vec{d} \Rightarrow$ es gibt $\sigma \in \au (\scrM/A)$\\
+		$\sigma(\vec{c}) = \vec{d} \in X \Rightarrow \vec{c} \in X$. Widerspruch zu $X$ invariant unter $\au(\scrM/A)$.
+	\end{proof}
+	$\scrM \models \Forall\vec{x}(\underbrace{\bigwedge \psi_i}_{= \psi \in p} \underbrace{\left[\vec{x}\right]}_{\substack{\text{zus"atzlich}\\\text{Parameter}\\\text{aus}~A}} \rightarrow \Theta\left[\vec{x},\vec{b}\right])$
+	
+	$\scrM \models\Forall\vec{x} \left(\psi\left[\vec{x}\right] \rightarrow \Theta\left[\vec{x},\vec{b}\right]\right), p \in [\Theta] \subset \rest\left(\left[\Theta\right]\right)$.
+	
+	"`$\subset$"' gilt hier, $\underbrace{\text{denn f"ur}~ p_1 \in \left[\psi\right]}_{\substack{\psi = \chi_1, \dots, \chi_n \in p_1\\\scrM \models \Exists \vec{x} \bigwedge \psi_i \left[\vec{x}\right]}} \Rightarrow \psi \in p_1 \Rightarrow p_1 \cup \left\{\Theta \left[\vec{x},\vec{b}\right] \right\}$ konsistent $\Rightarrow$ es gibt $q_1 \in \left[\Theta \right] \mid \rest(q_1)=p_1~ \checkmark$.\\
+	Insbesondere folgt: Die Realisierung erf"ullt $\Theta$.
+	
+	Noch $\zz X$ eird durch die $\scrL_A$-Formel $\varphi$ definiert, mit $[\varphi]=\rest\left(\left[\Theta\left[\vec{x},\vec{b}\right]\right]\right)$.
+	
+	Das hei"st $\scrM \models \Forall \vec{x} \left(\Theta\left[\vec{x},\vec{b}\right] \leftrightarrow \varphi\left[\vec{x}\right]\right)$.
+	
+	\hin Sei $\vec{c} \in M^n \mid \scrM \models \Theta\left[\vec{c},\vec{b}\right]$. Betrachte $\typ^\scrM(\vec{c}/B) \ni \Theta~ \overset{\rest}{\Longrightarrow}~ \typ^\scrM\left(\vec{c}/A\right) \in \rest\left(\left[\Theta\right]\right) = \left[\Theta\right]~ \Rightarrow~ \scrM \models \varphi\left[\vec{c}\right]$.
+	
+	\rueck Sei $\vec{c} \in M^n$ mit $\scrM \models \varphi\left[\vec{c}\right]$. $\Rightarrow~ \underbrace{\typ^\scrM\left(\vec{c}/A\right)}_{=p} \in \underbrace{[\varphi]}_{= \rest\left(\left[\Theta\right]\right)}$. $\Rightarrow$ es gibt $p \in S_n^\scrM(B), \rest(q) = \typ^\scrM \left(\vec{c}/A\right), q \ni \Theta$.\\
+	$\overset{\scrM~\text{sat.}}{\Longrightarrow}$ es gibt $\vec{d} \in M^n$ Realisierung von $q$. $\Rightarrow \scrM \models \Theta\left[\vec{d},\vec{b}\right]$ und $\vec{d}$ Realisierung von $p$. $\Rightarrow \vec{d} \in X~ \overset{\scrM~\text{sat.}}{\Longrightarrow}$ aber $\vec{d} \equiv_A \vec{c}$. Es gibt $\sigma \in \au\left(\scrM/A\right) \mid \sigma\left(\vec{d}\right) = \vec{c}~ \Longrightarrow~ \vec{c} \in X \Rightarrow \scrM \models \Theta\left[\vec{c},\vec{b}\right]$.
+\end{proof}
+\begin{definition}
+	Sei $\scrM$ eine $\scrL$-Struktur und $A \subset M$. $b \in M$ ist \emph{algebraisch} "uber $A$, falls $b$ eine algebraische Formel $\varphi\left[\vec{x},\vec{a}\right]$ mit Parametern aus $A$ erf"ullt.
+	
+	Das hei"st $\scrM \models \varphi\left[b, \vec{a}\right]$ und $\scrM \models \exists^{\leq N}~x \varphi\left[x, \vec{a}\right]$ f"ur ein $b \in M$ ist \emph{definierbar} "uber $A$, falls es eine Formel $\varphi$ wie oben gibt mit $\scrM \models \exists! x \varphi\left[x,\vec{a}\right]$
+	
+	$\acl^\scrM (A) = \left\{b \in M \mid b~ \text{algebraisch "uber}~ A \right\}$.
+\end{definition}
+\begin{remark}
+	$b \in M$ algebraisch "uber $A \subset M$, $\scrM \succeq \scrN~ \Leftrightarrow~ b$ algebraisch "uber $A$ (in $\scrN$).
+\end{remark}
+\begin{remark}
+	($T = \acf_0$) $b$ algebraisch "uber $A~ \Leftrightarrow~b$ K"orper-algebraisch "uber dem von $A$ erzeugten K"orper ist $\Leftrightarrow~ \left\{\sigma(b)\right\}, \sigma \in \ga(\scrM/A)$ endlich
+\end{remark}
+\begin{corollary}
+	Sei $\scrM$ saturiert, $A \subset M, |A|<|M|, b \in M$.
+	\begin{enumerate}
+		\item \label{cor:a}$b$ ist algebraisch "uber $A~ \Longleftrightarrow~ \left\{\sigma(b) \right\}_{\sigma \in \au(\scrM/A)}$ endlich
+		\item \label{cor:b}$b$ ist definierbar "uber $A~ \Longleftrightarrow~ \left\{\sigma(b) \right\}_{\sigma \in \au(\scrM/b)}$ ist eine Erweiterung $\Longleftrightarrow~ \sigma(b) =b$ f"ur alle $\sigma \in \au(\scrM/A)$.
+	\end{enumerate}
+\end{corollary}
+\begin{proof}
+	Um zu "uberpr"ufen, ob etwas algebraisch ist am besten im saturierten Modell "uberpr"ufen.
+	
+	\ref{cor:a}: \hin klar, weil $\sigma(b)$ auch $\underbrace{\varphi\left[x, \vec{a}\right]}_{\substack{\text{endlich viele}\\\text{Realisierungen}}}$ realisiert.\\
+	\rueck $X = \left\{\sigma(b) \right\}_{\sigma \in \au(\scrM/A)}$ endlich $\Rightarrow$ definierbar und invariant unter $\au(\scrM/A)~ \Rightarrow~ X$ ist definierbar "uber $A$
 \end{proof}
 \end{document}
