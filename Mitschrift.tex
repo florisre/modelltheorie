@@ -250,7 +250,7 @@ Ziel dieser Vorlesung ist es, eine Aussage der folgenden Qualit"at zu erhalten:
 \newpage
 \part{Theorien und Quantorenelimination}
 \section{Tarskis Test}
-\begin{lemma}[Tarskis Test]
+\begin{lemma}[Tarskis Test]\label{test}
 	Sei $\scrB$ eine $\scrL$-Struktur und $A \subset B$ Teilmenge derart, dass f"ur jede $\scrL$-Formel $\varphi[x_1, \dots, x_n]$ und Elemente $a_1, \dots, a_n \in A$:\\
 	\underline{falls}:
 	\begin{equation}\label{tarski:bed}
@@ -299,7 +299,7 @@ Ziel dieser Vorlesung ist es, eine Aussage der folgenden Qualit"at zu erhalten:
 	\underset{\scrA \preceq \scrB}{\Rightarrow} \scrA \models (\exists y \varphi)[a_1, \dots, a_n] \Rightarrow$ es gibt ein $a \in A$ mit $\scrA \models \varphi[a_1, \dots, a_n, a] {\underset{\scrA \preceq \scrB}{\Rightarrow} \scrB \models \varphi[a_1, \dots, a_n, a]} \checkmark$
 \end{proof}
 
-\begin{proposition}[aufw"arts L"owenheim-Skolem]
+\begin{proposition}[aufw"arts L"owenheim-Skolem]\label{ls:auf}
 	Sei $\scrA$ eine unendliche $\scrL$-Struktur, und $\kappa < \max\{|A|,|\scrL|\}$. Dann gibt es eine elementare $\scrL$-Erweiterung $\scrB \geq \scrA$ der M"achtigkeit $\kappa$.
 \end{proposition}
 \begin{proof}
@@ -314,7 +314,7 @@ Ziel dieser Vorlesung ist es, eine Aussage der folgenden Qualit"at zu erhalten:
 	$|A| = n \in \setN$, $\scrB \succeq \scrA \Rightarrow |B| = n$
 \end{remark}
 
-\begin{proposition}[abw"arts L"owenheim-Skolem]\label{Low:ab}
+\begin{proposition}[abw"arts L"owenheim-Skolem]\label{ls:ab}
 	Sei $\scrB$ eine $\scrL$-Struktur und $S \subset B$ beliebig. Dann gibt es eine elementare Unterstruktur $\scrA \preceq \scrB$ mit $A \supset S$ und $|A|\leq \max\{|S|,|\scrL|,\aleph_0\}$.
 \end{proposition}
 
@@ -3228,5 +3228,122 @@ Somit: $\kappa$-kategorisch $\Rightarrow~ \omega$-stabil $\Rightarrow$ total tra
 	
 	\ref{cor:a}: \hin klar, weil $\sigma(b)$ auch $\underbrace{\varphi\left[x, \vec{a}\right]}_{\substack{\text{endlich viele}\\\text{Realisierungen}}}$ realisiert.\\
 	\rueck $X = \left\{\sigma(b) \right\}_{\sigma \in \au(\scrM/A)}$ endlich $\Rightarrow$ definierbar und invariant unter $\au(\scrM/A)~ \Rightarrow~ X$ ist definierbar "uber $A$
+\end{proof}
+
+%Sitzung 30.01.2020
+\section{Vaught'sche Paare}
+\begin{definition}
+	Eine vollst"andige Theorie $T$ besitzt ein \emph{Vaught'sches Paar}, falls es $\scrM \precneqq \scrN \models T$ und eine $\scrL_M$-Formel $\varphi[x]$ in einer freien Variable derart gibt, dass $\underbrace{\varphi[M]}_\text{unendlich} = \varphi(N)$.
+\end{definition}
+\begin{example}
+	\begin{itemize}
+		\item $\acf_0$ (keine Vaught'schen Paare, weil $\aleph_1$-kategorisch). $\scrM \precneqq \scrN$ ($\scrN$ eine echt K"orpererweiterung, mit $\scrM,\scrN$ algebraisch abgeschlossene K"orper wegen Quantorenelimination).\\
+		$\varphi[x] = \bigvee \underbrace{\bigwedge(p_i(x) \dot= 0 \mid) \land \lnot (q_i(x) \dot= 0)}_{\text{oBdA das ist }\varphi}$.
+		
+		$\varphi(M)$ unendlich: die $p_i$ sind \emph{trivial} (das Nullpolynom). \\
+		$\varphi \rightsquigarrow~ \bigwedge \lnot (q_i(x) \dot= 0)~ \leftrightarrow~ \lnot\left(\underbrace{\prod g_i}_{g}(x) \dot= 0\right) \rightarrow \varphi(N) \supsetneq \varphi(M)$
+		
+		\item $\scrL = \left\{P\right\}$. %TODO Bilder
+		$T$ hat Quantorenelimination.
+		
+		$P(M) = P(N)~ \rightarrow$ Vaught'sches Paar!
+		
+		$\Rightarrow$ nicht $\aleph_1$-kategorisch.
+		
+		%TODO BILD
+	\end{itemize}
+\end{example}
+\begin{remark}
+	$T$ besitzt keine Vaught"schen Paare, $\scrM \models T$ "uberabz"ahlbar. 			$\varphi[x]~\scrL_M$-Formel$\mid \varphi[M]$ unendlich $\Rightarrow~|\varphi(M)| = |M|$.
+\end{remark}
+\begin{proof}
+	Sonst: Widerspruch mit \nameref{ls:ab}: $\varphi(M) \leq \scrN \preceq \scrM$ \& $\underbrace{|N|}_{< |M|} \leq \max\left\{\aleph_0, |\varphi(M)|\right\}~ \rightarrow$ Vaught'sches Paar, denn $\varphi(M) = \varphi(N)$.
+\end{proof}
+\begin{definition}
+	Eine vollst"andige Theorie \emph{eliminiert $\exists^\infty$}, falls f"ur jede $\scrL$-Formel $\varphi[x;y_1, \dots, y_n]$ es ein $N \in \setN$ so gibt, dass f"r jedes $\scrM \models T$ und Parameter $a_1, \dots, a_n \in M$ entweder $\varphi(\scrM, a_1, \dots, a_n)$ undendlich ist, oder $|\varphi(\scrM, a_1, \dots, a_n)| < N$.
+\end{definition}
+\begin{remark}
+	Die Tatsache, dass $\varphi(\scrM, a_1, \dots, a_n)$ unendlich ist, l"asst sich elementar als Eigenschaft vom Tupel $(a_1, \dots, a_n)$ ausdr"ucken.
+	\begin{equation*}
+		\varphi(\scrM, a_1, \dots, a_n)~\text{ist unendlich}~ \Longleftrightarrow~ \exists^{\geq N} x \varphi[x, a_1, \dots, a_n]
+	\end{equation*}
+\end{remark}
+\begin{example}
+	\begin{itemize}
+		\item $\acf_0$ eliminiert $\exists^\infty$:\\
+		$\varphi[x,y_1, \dots, y_n] = \bigvee \bigwedge \underbrace{p_i (X, Y_1, \dots, Y_n)\dot= 0}_{\text{Koeffizienten aus}~ \setZ} \land \lnot (q_i(X,Y_q, \dots, Y_n)\dot= 0) \supseteq \sum p_{ij} (Y_1, \dots,Y_n)X^j$
+		
+		Wenn ein Polynom von Grad $D$ mehr als $D$ Nullstellen hat, dann ist es das Nullpolynom. $\Rightarrow$ die Menge ist unendlich
+		\item $E$ "Aquivalenzrelation. $T$: %TODO Grafik
+		$E(x,y)$. F"ur jedes $N$ gibt es $a_N \in M \mid |E(\scrM, a_N)| = N$\\
+		$\hookrightarrow~ T$ eliminiert $\exists^\infty$ nicht.
+	\end{itemize}
+\end{example}
+\begin{remark}
+	Sei $T$ mit eliminiert $\exists^\infty$, $\scrM \models T$ und $\varphi[x]$ eine $\scrL_M$-Formel. $\varphi[x]$ \emph{minimal} $\Rightarrow~ \varphi$ bleibt minimal in jeder elementaren Erweiterung $\scrN \succeq \scrM$.
+\end{remark}
+\begin{proof}
+	Sei $\scrN \succeq \scrM$ und $\psi[x]$ eine $\scrL_N$-Formel.\\
+	$\zz |(\varphi \land \psi)(N)|$ endlich oder $|(\varphi \land \lnot \psi)(N)|$ endlich.
+	
+	\begin{align*}
+		\psi[x,\underbrace{c_1, \dots, c_m}_{z_1, \dots, z_m}], \varphi[x, \underbrace{a_1, \dots, a_n}_{y_1, \dots, y_n}]\\
+		\varphi\land \psi[x, y_1, \dots, y_n, z_1, \dots, z_m] &\longrightarrow N_1\\
+		\varphi\land \lnot \psi[x, y_1, \dots, y_n, z_1, \dots, z_m] &\longrightarrow N_2
+	\end{align*}
+	F"ur $d_1, \dots, d_m \in M$ gilt in $\scrM$ $|\varphi\land \psi[x, d_1, \dots, d_m]|$ endlich oder $|\varphi \land \lnot \psi[x, d_1, \dots, d_m]|$ endlich.
+	\begin{equation*}
+		\scrM \models \overbrace{\Forall z_1, \dots \Forall z_m(\Exists^{\geq N} \varphi \land \psi[x, z_1, \dots, z_m] \leftrightarrow  \Exists^{\leq N_2} \varphi \land \lnot \psi [x, z_1, \dots, z_m])}^{\Theta[a_1,\dots, a_n]}
+	\end{equation*}
+\end{proof}
+\begin{lemma}
+	$T$ besitzt keine Vaught'schen Paare $\Longrightarrow~ T$ eliminiert $\exists^\infty$.
+\end{lemma}
+\begin{proof}
+	Sonst g"abe es eine $\scrL$-Formel $\varphi[x,y_1, \dots, y_n]$ sodass f"ur jedes $N$ gibt es $\scrM_N \models T$ und ein $n$-Tupel $\vec{a_N} \in M^n$ mit $|\varphi\left[\scrM_N, \vec{a_N}\right]|>N$, aber endlich.
+	
+	Insbesondere f"ur $\scrN_N \succneqq \scrM_N$ beliebig gilt $\varphi\left[\scrN_N, \vec{a_N}\right] = \varphi[\scrM_N, \vec{a_N}]$. Erweitere $\scrL$ zu $\scrL_P = \scrL \cup \left\{\vec{c},P \right\}$. Dann ist $\scrN_N$ eine $\scrL_P$-Struktur mit $P^{\scrN_N}(\scrN_N) = \scrM_N, \vec{c^{\scrN_N}} = \vec{a_N}$.
+	
+	Sei $\scrU$ ein reicher Ultrafilter auf $\setN$. Betrachte $\scrN = \prod\limits_\scrU \scrN_N$ als $\scrL_P$-Struktur\footnote{dieses Ultraprodukt enth"alt Aussagem, die immer erf"ullt werden.}, setze $\vec{a} = \vec{c^\scrN}$.
+	
+	$\zz P^\scrN(\scrN) \overset{\scrL}{\preceq} \scrN \models T$ und $\varphi(\scrN,\vec{a}) = \varphi(P^\scrN(\scrN),\vec{a})~\Rightarrow~T$ besitzt $a_n$, ein Vaught'sches Paar.
+	
+	\begin{remark}
+		\begin{itemize}
+			\item $\vec{a} = \vec{c^\scrN} \in P^\scrN~ \checkmark$
+			\item $\scrN \models T~ \checkmark$
+			\item $\scrN \models \forall x \left(\varphi\left[x, \vec{c}\right] \rightarrow P(x)\right)~ \rightarrow \varphi(\scrN,\vec{a})\subset P^\scrN(\scrN)$
+			\item $\scrN \models \Exists x (\lnot P(x)) \rightarrow P^\scrN \subsetneq \scrN$
+		\end{itemize}
+	\end{remark}
+	Noch $\zz P^\scrN$ ist das Universum einer elementaren $\scrL$-Unterstruktur von $\scrN$.
+	
+	\underline{\nameref{test}}: Sei $\psi$ eine $\scrL$-Formel. $\scrN \models \Exists x \psi[x, b_1, \dots, b_m], b_1, \dots, b_m \in P^\scrN$. $\zz$es gibt ein $b \in P^\scrN \mid \scrN \models \psi[b,b_1, \dots, b_m]$.
+	
+	$\scrN \models \Exists x \psi[c,b_1, \dots, b_m] \land P(b_1) \land \dots \land P(b_m)~ \overset{\text{\nameref{los:thm}}}{\Longrightarrow}$ F"ur $\scrU$-viele $N$'s: $\scrN_N \models \Exists x \psi\left[x, b_1^\scrN, \dots, b_m^\scrN\right] \in P^{\scrN_N}(\scrN_N) = \scrM_N$
+	
+	$\Rightarrow$ es gibt $b^\scrN \in \scrM_N$ mit $\scrN_N \models \psi[b^\scrN, b_1^\scrN, \dots, b_m^\scrN]$ f"ur $\scrU$-viele $N$'s.
+	
+	Sei $b= \scrU$-Klasse der Folge $(b^\scrN)$
+\end{proof}
+\section{Der Satz von Lachlan}
+%Sitzung 4.2.2020
+\begin{theorem}[Satz von Lachlan]\label{lachlan}
+	Sei $T$ total transzendent, $\scrM \models T$ "uberabz"ahlbar. Dann:\\
+	f"ur jede Kardinalzahl $\kappa \geq |M|$ gibt es $\scrN \succeq \scrM$ der M"achtigkeit $\kappa$ derart, dass f"ur jede abz"ahlbare Menge von $\scrL_\scrM$-Formeln, welche in $\scrN$ realisiert wird, werden bereits in $\scrM$ realisisert.
+\end{theorem}
+\begin{corollary}
+	$T~\kappa$-kategorisch f"ur ein $\kappa > \aleph_0~ \Rightarrow~ T~ \aleph_1$-kategorisch.
+\end{corollary}
+\begin{proof}
+	Wenn $T$ nicht $\aleph_1$-kategorisch w"are, dann g"abe es ein\footnote{wegen $T~\kappa$-kategorisch $\Leftrightarrow$ jedes Modell der M"achtigkeit $\kappa$ ist saturiert} Modell $\scrM \models T$ der M"achtigkeit $\aleph_1$, das nicht saturiert ist. $\Rightarrow$ es gibt einen Typen $p \in S_1^\scrM(A)$, $A$ abz"ahlbar, der nicht in $\scrM$ realisiert wird.\\
+	$\longrightarrow~ \scrL$ abz"ahlbar, $p$ ist eine abz"ahlbare Menge von Formeln. $\overset{\text{\nameref{lachlan}}}{\Longrightarrow}$ es gibt $\scrN \succeq \scrM$, $\scrN$ der M"achtigkeit $\kappa$ und $p$ wird nicht in $\scrN$ realisiert.
+	
+	Das impliziert: $T~ \kappa$-kategorisch $\Rightarrow$ total transzendent.
+	
+	$\Rightarrow~\scrN$ ist nicht saturiert $\Rightarrow~T$ ist nicht $\kappa$-kategorisch.
+\end{proof}
+\begin{proof}[Beweis \nameref{lachlan}]
+	Inhalt...
 \end{proof}
 \end{document}
