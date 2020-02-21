@@ -1079,7 +1079,7 @@ Sei $X$ eine Menge.
 \end{proof}
 \begin{definition}
 	$(X,T)$ topologischer Raum. \begin{itemize}
-		\item $s \in X$ ist \emph{isoliert}, falls $\{x\}$ offen ist.
+		\item $x \in X$ ist \emph{isoliert}, falls $\{x\}$ offen ist.
 		\item $A \subset X$ ist \emph{dicht}, falls f"ur jede offene Menge $\emptyset \neq U \subset X$ ist $A \cap U \neq \emptyset$
 		\item $x \in X$ ist ein \emph{H"aufungspunkt von $A$}, falls f"ur jede Umgebung $U^x \ni x$ gilt, dass $U^x \cap (A\setminus \{x\}) \neq \emptyset$
 	\end{itemize}
@@ -1390,7 +1390,7 @@ Wir m"ochten das syntaktisch verstehen.
 \begin{example}
 	Sei\marginpar{Vgl. Blatt 5 Aufgabe 3} $T = \exists^\infty$ (diese Theorie ist vollst"andig und hat Quantorenelimination). Betrachte $\scrA \models T$. Wir wollen $S_1^\scrA(A)$ besser verstehen. $S_1^\scrA(A)$ enth"alt Typen der Form $(x \dot= a)$ f"ur jedes Element $a$ (diese Typen sind isoliert), sowie einen Typen der Form $\{\lnot (x \dot= a) \}_{a \in A}$ (ohne diesen Typen h"atten wir ein Problem, denn dann w"aren alle Typen isoliert).
 	Insbesondere folgt auch: F"ur $A$ abz"ahlbar gilt $|S_1^\scrA (A)| \leq \aleph_0$.
-	%TODO Bild: KArtoffel
+	%TODO Bild Kartoffel
 \end{example}
 %PRUEFUNGSRELEVANT
 \begin{example}
@@ -1890,44 +1890,48 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 	Es gibt eine Realisierung $d$ in $\scrA$ von $p(b,y)$. Aus der Konstruktion folgt, dass $(b,d)$ den Typ $p$ realisiert.
 \end{proof}
 \begin{example}
-	$\setQ^{(\omega)}$ ist $\aleph_0$-saturiert. Insbesondere werden alle Typen in $\setQ^{(\omega)}$ realisiert!
+	$\setQ^{(\omega)}$ ist $\aleph_0$-saturiert. Insbesondere werden alle Typen in $\setQ^{(\omega)}$ realisiert, siehe dazu \autoref{im:typq}.
+	\begin{figure}
+		\centering
+		\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 		
-	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
-	
-	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
-	%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
-	
-	%Shape: Circle [id:dp816368925068694] 
-	\draw   (81,142) .. controls (81,89.53) and (123.53,47) .. (176,47) .. controls (228.47,47) and (271,89.53) .. (271,142) .. controls (271,194.47) and (228.47,237) .. (176,237) .. controls (123.53,237) and (81,194.47) .. (81,142) -- cycle ;
-	%Shape: Circle [id:dp0789960819291129] 
-	\draw   (113,142) .. controls (113,107.21) and (141.21,79) .. (176,79) .. controls (210.79,79) and (239,107.21) .. (239,142) .. controls (239,176.79) and (210.79,205) .. (176,205) .. controls (141.21,205) and (113,176.79) .. (113,142) -- cycle ;
-	%Straight Lines [id:da10557663539244588] 
-	\draw    (205,123) -- (321.19,67.86) ;
-	\draw [shift={(323,67)}, rotate = 514.61] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-	
-	%Straight Lines [id:da7590702284738848] 
-	\draw    (176,142) -- (324,142) ;
-	\draw [shift={(326,142)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-	
-	
-	% Text Node
-	\draw (155,121) node   [align=left] {$\displaystyle v_{1}$};
-	% Text Node
-	\draw (183,117) node   [align=left] {$\displaystyle v_{2}$};
-	% Text Node
-	\draw (180,171) node   [align=left] {$\displaystyle v_{4}$};
-	% Text Node
-	\draw (152,154) node   [align=left] {$\displaystyle v_{3}$};
-	% Text Node
-	\draw (358,66) node   [align=left] {$\displaystyle ( x\dot=v_{i})$};
-	% Text Node
-	\draw (384,138) node   [align=left] {$\displaystyle ( x\dot=\sum\limits ^{n}_{i=1} \lambda _{i} v_{i})$};
-	% Text Node
-	\draw (389,192) node   [align=left] {$\displaystyle \lnot ( x\dot=\sum\limits_{i\leq \omega } \mu _{i} v_{i})$};
-	
-	
-	\end{tikzpicture}
-\end{example}
+		\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+		%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+		
+		%Shape: Circle [id:dp816368925068694] 
+		\draw   (81,142) .. controls (81,89.53) and (123.53,47) .. (176,47) .. controls (228.47,47) and (271,89.53) .. (271,142) .. controls (271,194.47) and (228.47,237) .. (176,237) .. controls (123.53,237) and (81,194.47) .. (81,142) -- cycle ;
+		%Shape: Circle [id:dp0789960819291129] 
+		\draw   (113,142) .. controls (113,107.21) and (141.21,79) .. (176,79) .. controls (210.79,79) and (239,107.21) .. (239,142) .. controls (239,176.79) and (210.79,205) .. (176,205) .. controls (141.21,205) and (113,176.79) .. (113,142) -- cycle ;
+		%Straight Lines [id:da10557663539244588] 
+		\draw    (205,123) -- (321.19,67.86) ;
+		\draw [shift={(323,67)}, rotate = 514.61] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+		
+		%Straight Lines [id:da7590702284738848] 
+		\draw    (176,142) -- (324,142) ;
+		\draw [shift={(326,142)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+		
+		
+		% Text Node
+		\draw (155,121) node   [align=left] {$\displaystyle v_{1}$};
+		% Text Node
+		\draw (183,117) node   [align=left] {$\displaystyle v_{2}$};
+		% Text Node
+		\draw (180,171) node   [align=left] {$\displaystyle v_{4}$};
+		% Text Node
+		\draw (152,154) node   [align=left] {$\displaystyle v_{3}$};
+		% Text Node
+		\draw (358,66) node   [align=left] {$\displaystyle ( x\dot=v_{i})$};
+		% Text Node
+		\draw (384,138) node   [align=left] {$\displaystyle ( x\dot=\sum\limits ^{n}_{i=1} \lambda _{i} v_{i})$};
+		% Text Node
+		\draw (389,192) node   [align=left] {$\displaystyle \lnot ( x\dot=\sum\limits_{i\leq \omega } \mu _{i} v_{i})$};
+		
+		
+		\end{tikzpicture}
+		\caption{Typen in $\setQ^{(\omega)}$}
+		\label{im:typq}
+	\end{figure}	
+	\end{example}
 \begin{example}
 	$(\setR, <)~ \aleph_1$-saturiert? Nein, denn $\{0<x<q \}_{q \in \setQ^{>0}}$ wird nicht in $\setR$ realisiert.
 \end{example}
@@ -1944,10 +1948,12 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 	$\scrA \equiv \scrB$ saturiert mit $|A|=|B|~\Longrightarrow \scrA \simeq \scrB$
 \end{remark}
 \begin{proof}
-	Betrachte das folgende Bild:
+	Betrachte \autoref{im:kartoffel:1}.
 	
 	
-	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+	\begin{figure}
+		\centering
+		\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 	
 	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
 	%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
@@ -1962,7 +1968,7 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 	
 	
 	% Text Node
-	\draw (129,142) node   [align=left] {$\displaystyle  \begin{array}{{>{\displaystyle}l}}
+	\draw (129,142) node   [align=left] {$\displaystyle \begin{array}{{>{\displaystyle}l}}
 		a_{0}\\
 		\vdots \\
 		a_{\alpha }\\
@@ -1971,7 +1977,7 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 	% Text Node
 	\draw (222,32) node   [align=left] {$\displaystyle \mathcal{A}$};
 	% Text Node
-	\draw (499,142) node   [align=left] {$\displaystyle  \begin{array}{{>{\displaystyle}l}}
+	\draw (499,142) node   [align=left] {$\displaystyle \begin{array}{{>{\displaystyle}l}}
 		b_{0}\\
 		\vdots \\
 		b_{\alpha }\\
@@ -1984,7 +1990,10 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 	
 	
 	\end{tikzpicture}
-	\\$f_\alpha \subset f_{\alpha+1}$ elementare Abbildung, $f_\gamma = \bigcup\limits _{\beta < \gamma} f_\beta$ f"ur $\gamma$ Limes, sodass $a_\alpha \in \underbrace{\dom(f_{\alpha+1})}_{\text{M"achtigkeit }<|A|}, b_\alpha \in \im(f_{\alpha+1})~ \longrightarrow \bigcup f_\alpha: \scrA \simeq \scrB$
+	\caption{Erweitern einer elementaren Abbildung $f_\alpha$}
+	\label{im:kartoffel:1}
+	\end{figure}
+	$f_\alpha \subset f_{\alpha+1}$ elementare Abbildung, $f_\gamma = \bigcup\limits _{\beta < \gamma} f_\beta$ f"ur $\gamma$ Limes, sodass $a_\alpha \in \underbrace{\dom(f_{\alpha+1})}_{\text{M"achtigkeit }<|A|}, b_\alpha \in \im(f_{\alpha+1})~ \longrightarrow \bigcup f_\alpha: \scrA \simeq \scrB$
 	
 	$f_0 = \emptyset~ \checkmark$
 	
@@ -2013,11 +2022,13 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 	Ferner, wenn diese Kollektion nicht leer ist, ist $T$ vollst"andig.
 \end{corollary}
 \begin{proof}
-	\underline{"`$\Rightarrow$"':} $\scrM, \scrN_0$ seien $\aleph_0$-saturiert.\\
+	\underline{"`$\Rightarrow$"':} $\scrM, \scrN_0$ seien $\aleph_0$-saturiert.\\ Betrachte hierzu auch \autoref{im:kartoffel:2}.
 	
 	
 	
-	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+	\begin{figure}
+		\centering
+		\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 	
 	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
 	%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
@@ -2046,6 +2057,9 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 	
 	
 	\end{tikzpicture}
+	\caption{Erwitere einen Isomorphismus zwischen endlichen Erzeugnissen}
+	\label{im:kartoffel:2}
+	\end{figure}
 	
 	$T$ hat Quantorenelimination $\Longrightarrow~f$ ist elementar.\\
 	$\zz \scrM \models \varphi[c_1, \dots, c_n] \Longrightarrow \scrN \models \varphi[d_1, \dots, d_n]$
@@ -2068,13 +2082,15 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 	
 \end{proof}
 \begin{example} \label{ex:aek}
-	$T$, $\scrL = \{P_n\}_{n\in \setN}$. Jedes $P_n$ unendlich, $P_n$ \& $P_m$ disjunkt. Was ist das $\aleph_0$-saturierte Modell?
+	$T$, $\scrL = \{P_n\}_{n\in \setN}$. Jedes $P_n$ unendlich, $P_n$ \& $P_m$ disjunkt. Was ist das $\aleph_0$-saturierte Modell? Betrachte dazu \autoref{im:saturiert}.
 	
 	
 	
-	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+	\begin{figure}
+		\centering
+		\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 	
-	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=.9]
 	%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
 	
 	%Shape: Rectangle [id:dp013429297480446634] 
@@ -2117,7 +2133,7 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 	% Text Node
 	\draw (131,222) node   [align=left] {$\displaystyle \dotsc $};
 	% Text Node
-	\draw (285,148) node   [align=left] {$\displaystyle  \begin{array}{{>{\displaystyle}l}}
+	\draw (285,148) node   [align=left] {$\displaystyle \begin{array}{{>{\displaystyle}l}}
 		m\\
 		m'\\
 		m''\\
@@ -2136,7 +2152,7 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 	% Text Node
 	\draw (501.22,75) node   [align=left] {$\displaystyle \dotsc $};
 	% Text Node
-	\draw (642.79,146) node   [align=left] {$\displaystyle  \begin{array}{{>{\displaystyle}l}}
+	\draw (642.79,146) node   [align=left] {$\displaystyle \begin{array}{{>{\displaystyle}l}}
 		n\\
 		n'\\
 		n''\\
@@ -2145,6 +2161,9 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 	
 	
 	\end{tikzpicture}
+	\caption{schematische Darstellung des $\aleph_0$-saturierten Modells von $T$}
+	\label{im:saturiert}
+	\end{figure}
 	$\sum (x)= \{\lnot P_n(x) \}_{n \in \setN}$ muss auch realisiert werden!
 \end{example}
 %Sitzung 17 17.12.19
@@ -2156,8 +2175,10 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 	Wenn $T$ $\kappa$-kategorisch ist, dann ist $T$ vollst"andig.
 \end{remark}
 \begin{proof}
-	Betrachte das folgende Diagramm:
-	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+	Betrachte das Diagramm in \autoref{im:strukturen}:
+	\begin{figure}
+		\centering
+		\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 	
 	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
 	%uncomment if require: \path (0,384); %set diagram left start at 0, and has height of 384
@@ -2223,7 +2244,10 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 	\draw (279,109) node   [align=left] {L"owenheim-Skolem aufw"arts};
 	
 	
-	\end{tikzpicture}\\
+	\end{tikzpicture}
+	\caption{Diagramm von Strukturen und Unterstrukturen}
+	\label{im:strukturen}
+	\end{figure}
 	Aus $\tilde{\scrM} \simeq \tilde{\scrN}$ folgt elementare "Aquivalenz, daraus folgt die Behauptung.
 \end{proof}
 \begin{example}
@@ -2345,7 +2369,7 @@ Wir haben verstanden, dass wir in der Theorie der Vektorr"aume $\setQ, \setQ \op
 \newpage
 \section{Fra"issés Amalgamierungsmethode f"ur $\aleph_0$-kategorische Theorien}
 \begin{definition}
-	Sei $\scrL$ eine abz"ahlbare Sprache. Eine Klasse $\fK$ von endlich erzeugten abz"ahlbaren $\scrL$-Strukturen ist eine \emph{Fra"isse-Klasse}, falls $\fK$ bis auf Isomorphie abz"ahlbar ist und folgende Eigenschaften besitzt:
+	Sei $\scrL$ eine abz"ahlbare Sprache. Eine Klasse $\fK$ von endlich erzeugten abz"ahlbaren $\scrL$-Strukturen ist eine \emph{Fra"issé-Klasse}, falls $\fK$ bis auf Isomorphie abz"ahlbar ist und folgende Eigenschaften besitzt:
 	\begin{enumerate}
 		\item[HP]\label{HP}\footnote{hereditary property} F"ur $A \in \fK$ und $B \subset A$ Unterstruktur $\Rightarrow B \in \fK$
 		\item[JEP]\label{JEP}\footnote{joint embedding property} F"ur $A, B \in \fK$ gibt es ein $D \in \fK$ mit \begin{equation*}
@@ -3045,15 +3069,13 @@ Sei im Folgenden immer $T$ eine vollst"andige, abz"ahlbare Theorie ohne endliche
 	F"ur eine Kardinalzahl $\kappa \geq \aleph_0$ ist die Theorie $\kappa$-stabil, falls f"ur jedes $\scrM \models T$ und $A \subset M$ $|A| \leq \kappa$, dann ist $|S_1^\scrM (A)| \leq \kappa$.
 \end{definition}
 \underline{Notation:} Modelltheoretiker sagen $\omega$-stabil anstatt $\aleph_0$-stabil.
-\begin{theorem}
+\begin{theorem}\label{kap:om}
 	Wenn $T$ $\kappa$-kategorisch ist f"ur $\kappa \geq \aleph_0$, dann ist $T$ $\omega$-stabil.
 \end{theorem}
 \begin{proof}
 	Sonst g"abe es $\scrM \models T$ und eine abz"ahlbare Menge $A \subset M$ mit $|S_1^\scrM (A)| > \aleph_1$. OBdA k"onnen wir annehmen, dass $\scrM$ $\aleph_1$-saturiert ist.\\
-	Es gibt eine Menge $\left(b_\alpha\right)_{\alpha<\aleph_1}$ von Realisierungen verschiedener Typen "uber $A$ (in $\scrM$). Wegen L"owenheim-Skolem abw"arts %TODO Referenz
-	gibt es $A \cup \left\{b_\alpha \right\}_{\alpha<\aleph_1} \subseteq \tilde\scrM \underset{\text{in}~\scrL_A}{\preceq} \scrM$ mit $|\tilde{M}| = \aleph_1$.\\
-	Wegen L"owenheim-Skolem aufw"arts %TODO Referenz
-	gibt es $\tilde\scrN \underset{\scrL_A}{\preceq} \scrN$ der M"achtigkeit $\kappa > \aleph_0$.\\
+	Es gibt eine Menge $\left(b_\alpha\right)_{\alpha<\aleph_1}$ von Realisierungen verschiedener Typen "uber $A$ (in $\scrM$). Wegen \nameref{ls:ab} gibt es $A \cup \left\{b_\alpha \right\}_{\alpha<\aleph_1} \subseteq \tilde\scrM \underset{\text{in}~\scrL_A}{\preceq} \scrM$ mit $|\tilde{M}| = \aleph_1$.\\
+	Wegen \nameref{ls:auf} gibt es $\tilde\scrN \underset{\scrL_A}{\preceq} \scrN$ der M"achtigkeit $\kappa > \aleph_0$.\\
 	$\scrN$ ist bis auf Isomorphie das einzige Modell von $T$ der M"achtigkeit $\kappa$! Widerspruch zu Satz \nameref{abz}, da dieser abz"ahlbar viele Typen fordert.
 \end{proof}
 \begin{example}[Zufallsgraph]
@@ -3103,8 +3125,7 @@ Wir beweisen das nur f"ur $\kappa = \aleph_1$, aber der Beweis geht genauso, wen
 \begin{proof}
 	F"ur $\alpha < \kappa$ gibt es kein $f: \alpha \longrightarrow \kappa$ welches unbeschr"ankt\footnote{unbeschr"ankt:\\f"ur $\beta<\kappa$ gibt es $\gamma < \alpha \mid \beta < f(\gamma)$} ist.
 	
-	Wegen L"owenheim Skolem auf- und abw"arts %TODO Referenz
-	gibt es ein $\scrM \models T$ der M"achtigkeit $\aleph_1$. Insbesondere: $T$ $\omega$-stabil $\Rightarrow$ total transzendent $\Rightarrow~ \aleph_1$-stabil\\
+	Wegen \nameref{ls:auf} und \nameref{ls:ab} gibt es ein $\scrM \models T$ der M"achtigkeit $\aleph_1$. Insbesondere: $T$ $\omega$-stabil $\Rightarrow$ total transzendent $\Rightarrow~ \aleph_1$-stabil\\
 	$|S_1^\scrM(M)| \leq \aleph_1$.
 	
 	Mit einem Kettenargument finden wir $\scrM_1 \succeq \scrM$ der M"achtigkeit $\aleph_1$, welches alle 1-Typen "uber $M$ realisiert. Iteriere und finde
@@ -3129,8 +3150,7 @@ Wir beweisen das nur f"ur $\kappa = \aleph_1$, aber der Beweis geht genauso, wen
 	\rueck $\scrM, \scrN \models T$ Modelle der M"achtigkeit $\kappa$. $\zz \scrM \simeq \scrN$.\\
 	Aber $\scrM \equiv \scrN$, saturiert nach Voraussetzung $\Rightarrow$ $\scrM \simeq \scrN$ nach VL (konstruiere ein Back-\&-Forth-System)%TODO Referenz
 	
-	\hin $T~\kappa$-kategorisch $\Rightarrow$ %TODO Referenz zu Korollar kappa-kategorisch ==> omega-stabil
-	es gibt ein saturiertes Modell der M"achtigkeit $\kappa$. Aber das Modell ist bis auf Isomorphie das einzige Modell.
+	\hin $T~\kappa$-kategorisch $\overset{\eqref{kap:om}}{\Longrightarrow}$ es gibt ein saturiertes Modell der M"achtigkeit $\kappa$. Aber das Modell ist bis auf Isomorphie das einzige Modell.
 \end{proof}
 \underline{Ziel:} $\scrM$ saturiert, $D \subset M, |D|<|M|$.
 
@@ -3254,7 +3274,7 @@ Somit: $\kappa$-kategorisch $\Rightarrow~ \omega$-stabil $\Rightarrow$ total tra
 	\end{itemize}
 \end{example}
 \begin{remark}
-	$T$ besitzt keine Vaught"schen Paare, $\scrM \models T$ "uberabz"ahlbar. 			$\varphi[x]~\scrL_M$-Formel$\mid \varphi[M]$ unendlich $\Rightarrow~|\varphi(M)| = |M|$.
+	$T$ besitzt keine Vaught'schen Paare, $\scrM \models T$ "uberabz"ahlbar. 			$\varphi[x]~\scrL_M$-Formel$\mid \varphi[M]$ unendlich $\Rightarrow~|\varphi(M)| = |M|$.
 \end{remark}
 \begin{proof}
 	Sonst: Widerspruch mit \nameref{ls:ab}: $\varphi(M) \leq \scrN \preceq \scrM$ \& $\underbrace{|N|}_{< |M|} \leq \max\left\{\aleph_0, |\varphi(M)|\right\}~ \rightarrow$ Vaught'sches Paar, denn $\varphi(M) = \varphi(N)$.
